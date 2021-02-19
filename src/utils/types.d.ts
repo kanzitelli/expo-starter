@@ -19,6 +19,7 @@ type AppStackProps = {
 
 // BASIC
 type PureFunc = () => void;
+type AuthMethod = 'login' | 'signup'
 
 // HELP METHODS
 type GenerateShadowProps = {
