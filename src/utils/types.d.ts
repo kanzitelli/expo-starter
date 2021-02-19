@@ -17,6 +17,9 @@ type AppStackProps = {
   authed: boolean;
 }
 
+// BASIC
+type PureFunc = () => void;
+
 // HELP METHODS
 type GenerateShadowProps = {
   shadowColor?: string;

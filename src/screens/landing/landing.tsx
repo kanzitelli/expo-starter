@@ -5,6 +5,7 @@ import { StackScreenProps } from '@react-navigation/stack';
 
 import { useStores } from '../../stores';
 import { useServices } from '../../services';
+import Button from '../../components/Button';
 
 type LandingScreenProps = StackScreenProps<ScreenProps, 'Landing'>;
 
@@ -25,13 +26,8 @@ const LandingScreen: React.FC<LandingScreenProps> = ({
       >
         <Text>Landing</Text>
 
-        <Pressable onPress={auth.signUp}>
-          <Text>Sign Up</Text>
-        </Pressable>
-
-        <Pressable onPress={auth.logIn}>
-          <Text>Login</Text>
-        </Pressable>
+        <Button title='Sign Up' onPress={auth.signUp}  />
+        <Button title='Login' onPress={auth.logIn} />
       </ScrollView>
     </View>
   )
