@@ -34,8 +34,14 @@ const LandingScreen: React.FC<LandingScreenProps> = observer(({
         <Text style={S.header}>{'Welcome to\nexpo-starter\n🦥'}</Text>
 
         <View style={S.buttonsContainer}>
-          <Button title='Sign Up' onPress={openAuth('signup')} shadow />
-          <Button title='Login' onPress={openAuth('login')} noBg />
+          <Button shadow
+            title='Sign Up'
+            onPress={openAuth('signup')}
+          />
+          <Button noBg
+            title='Login'
+            onPress={openAuth('login')}
+          />
         </View>
       </ScrollView>
     </View>

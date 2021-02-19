@@ -4,6 +4,9 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { StackScreenProps } from '@react-navigation/stack';
 import { observer } from 'mobx-react';
 
+import { useServices } from '../../services';
+import { useStores } from '../../stores';
+
 type MainScreenProps = StackScreenProps<ScreenProps, 'Main'>;
 
 const MainScreen: React.FC<MainScreenProps> = observer(({
@@ -11,6 +14,8 @@ const MainScreen: React.FC<MainScreenProps> = observer(({
   route,
 }) => {
   // const { param } = route.params;
+  const {} = useStores();
+  const { auth } = useServices();
 
   return (
     <View style={styles.container}>

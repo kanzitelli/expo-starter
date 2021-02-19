@@ -5,7 +5,7 @@ import { Observer } from 'mobx-react';
 
 import { AppStack } from './src/app';
 import { StoresProvider, useStores } from './src/stores';
-import { initServices, ServicesProvider, useServices } from './src/services';
+import { initServices, ServicesProvider } from './src/services';
 
 enableScreens();
 initServices();
