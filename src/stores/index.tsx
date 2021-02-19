@@ -1,10 +1,8 @@
 import React from 'react';
 
-// import UIStore from './ui';
 import GlobalStore from './global';
 
 export const stores = {
-  // ui: UIStore,
   G: GlobalStore,
 };
 
