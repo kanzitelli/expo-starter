@@ -4,6 +4,7 @@ type ScreenProps = {
 
   // Main Navigator
   Main: undefined;
+  Settings: undefined;
 }
 
 type NavigatorProps = {
