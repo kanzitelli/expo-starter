@@ -2,7 +2,7 @@ const useConstants = () => {
   return {
     colors: {
       black: '#1e272e',
-      white: 'rgb(205,214,221)',
+      white: 'rgb(222,222,222)',
       yellow: '#fed330',
       blue: '#0fbcf9',
       red: '#b53471',

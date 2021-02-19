@@ -39,10 +39,14 @@ const Button: React.FC<Props> = ({
 };
 
 const S = StyleSheet.create({
-  container: {},
+  container: {
+    backgroundColor: C.colors.white,
+    borderRadius: C.sizes.m,
+    marginVertical: C.sizes.s,
+  },
   button: {
-    padding: C.sizes.xs,
-    margin: C.sizes.xs,
+    alignItems: 'center',
+    padding: C.sizes.m,
   },
   title: {
     fontSize: 18,
