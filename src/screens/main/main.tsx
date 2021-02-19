@@ -18,10 +18,10 @@ const MainScreen: React.FC<MainScreenProps> = observer(({
   const {} = useServices();
 
   return (
-    <View style={styles.container}>
+    <View style={S.container}>
       <ScrollView
-        style={styles.scrollview}
-        contentContainerStyle={styles.scrollviewContent}
+        style={S.scrollview}
+        contentContainerStyle={S.scrollviewContent}
         contentInsetAdjustmentBehavior={'automatic'}
       >
         <Text>Email: {G.email}</Text>
@@ -30,7 +30,7 @@ const MainScreen: React.FC<MainScreenProps> = observer(({
   )
 });
 
-const styles = StyleSheet.create({
+const S = StyleSheet.create({
   container: {
     flex: 1
   },

@@ -19,10 +19,10 @@ const SettingsScreen: React.FC<SettingsScreenProps> = observer(({
   const { auth } = useServices();
 
   return (
-    <View style={styles.container}>
+    <View style={S.container}>
       <ScrollView
-        style={styles.scrollview}
-        contentContainerStyle={styles.scrollviewContent}
+        style={S.scrollview}
+        contentContainerStyle={S.scrollviewContent}
         contentInsetAdjustmentBehavior={'automatic'}
       >
         <Button shadow
@@ -34,7 +34,7 @@ const SettingsScreen: React.FC<SettingsScreenProps> = observer(({
   )
 });
 
-const styles = StyleSheet.create({
+const S = StyleSheet.create({
   container: {
     flex: 1
   },
