@@ -4645,6 +4645,23 @@ mkdirp@^0.5.1:
   dependencies:
     minimist "^1.2.5"
 
+mobx-react-lite@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/mobx-react-lite/-/mobx-react-lite-3.2.0.tgz#331d7365a6b053378dfe9c087315b4e41c5df69f"
+  integrity sha512-q5+UHIqYCOpBoFm/PElDuOhbcatvTllgRp3M1s+Hp5j0Z6XNgDbgqxawJ0ZAUEyKM8X1zs70PCuhAIzX1f4Q/g==
+
+mobx-react@^7.1.0:
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/mobx-react/-/mobx-react-7.1.0.tgz#d947cada3cfad294b4b6f692e969c242b9c16eaf"
+  integrity sha512-DxvA6VXmnZ+N9f/UTtolWtdRnAAQY2iHWTSPLktfpj8NKlXUe4dabBAjuXrBcZUM8GjLWnxD1ZEjssXq1M0RAw==
+  dependencies:
+    mobx-react-lite "^3.2.0"
+
+mobx@^6.1.7:
+  version "6.1.7"
+  resolved "https://registry.yarnpkg.com/mobx/-/mobx-6.1.7.tgz#009c65f6909ee89ab42dd4b058577739f0d899df"
+  integrity sha512-2iIgg2o0jd/bWAK/9KHJ1uwKHGowKyaTUM4qarJ0qGdLskYcB3sJevjjV7t7jW0WVjItz6BBlPNiZ14oHTpvMg==
+
 ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
