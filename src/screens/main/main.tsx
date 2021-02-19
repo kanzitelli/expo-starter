@@ -14,8 +14,8 @@ const MainScreen: React.FC<MainScreenProps> = observer(({
   route,
 }) => {
   // const { param } = route.params;
-  const {} = useStores();
-  const { auth } = useServices();
+  const { G } = useStores();
+  const {} = useServices();
 
   return (
     <View style={styles.container}>
@@ -24,7 +24,7 @@ const MainScreen: React.FC<MainScreenProps> = observer(({
         contentContainerStyle={styles.scrollviewContent}
         contentInsetAdjustmentBehavior={'automatic'}
       >
-        <Text>Main</Text>
+        <Text>Email: {G.email}</Text>
       </ScrollView>
     </View>
   )
@@ -38,7 +38,10 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   scrollviewContent: {
+    flex: 1,
     padding: 16,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 

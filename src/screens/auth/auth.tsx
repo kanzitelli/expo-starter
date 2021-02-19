@@ -40,7 +40,7 @@ const AuthScreen: React.FC<AuthScreenProps> = observer(({
     initialValues: {
       email: '',
       password: '',
-    },
+    } as AuthParams,
     onSubmit: async values => {
       const { email, password } = values;
 
@@ -49,19 +49,10 @@ const AuthScreen: React.FC<AuthScreenProps> = observer(({
         return;
       }
 
-      const doAuth = (m: AuthMethod) => {
-        if (m === 'signup') {
-          auth.signUp({ email, password, username: email, });
-        }
-        if (m === 'login') {
-          auth.logIn({ email, password });
-        }
-      }
-
       state.setLoading(true);
       setTimeout(() => {
         state.setLoading(false);
-        doAuth(state.method);
+        _doAuth(state.method, values);
       }, 2000);
     },
   });
@@ -76,6 +67,15 @@ const AuthScreen: React.FC<AuthScreenProps> = observer(({
     navigation.setOptions({
       title: state.actionButtonText()
     });
+  }
+
+  const _doAuth = (m: AuthMethod, params: AuthParams) => {
+    if (m === 'signup') {
+      auth.signUp(params);
+    }
+    if (m === 'login') {
+      auth.logIn(params);
+    }
   }
 
   return (

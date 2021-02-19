@@ -4,10 +4,10 @@ import { makeAutoObservable } from 'mobx';
 
 class GlobalStore {
   isAuthed: boolean = false;
+  setIsAuthed = (v: boolean) => { this.isAuthed = v; }
 
-  setIsAuthed = (v: boolean) => {
-    this.isAuthed = v;
-  }
+  email: string = '';
+  setEmail = (v: string) => { this.email = v; }
 
   constructor() {
     makeAutoObservable(this);

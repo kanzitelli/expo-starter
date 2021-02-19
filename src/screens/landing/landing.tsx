@@ -21,7 +21,7 @@ const LandingScreen: React.FC<LandingScreenProps> = observer(({
   const {} = useStores();
   const {} = useServices();
 
-  const openAuth = (am: AuthMethod) => () =>
+  const openAuth = (am: AuthMethod) => () => /// @ts-ignore
     navigation.navigate('Auth', { screen: 'AuthScreen', params: { method: am } });
 
   return (

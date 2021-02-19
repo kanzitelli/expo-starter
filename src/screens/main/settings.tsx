@@ -6,6 +6,7 @@ import { observer } from 'mobx-react';
 
 import { useServices } from '../../services';
 import { useStores } from '../../stores';
+import Button from '../../components/Button';
 
 type SettingsScreenProps = StackScreenProps<ScreenProps, 'Settings'>;
 
@@ -24,11 +25,10 @@ const SettingsScreen: React.FC<SettingsScreenProps> = observer(({
         contentContainerStyle={styles.scrollviewContent}
         contentInsetAdjustmentBehavior={'automatic'}
       >
-        <Text>Settings</Text>
-
-        <Pressable onPress={auth.logOut}>
-          <Text>Logout</Text>
-        </Pressable>
+        <Button shadow
+          title='Logout'
+          onPress={auth.logOut}
+        />
       </ScrollView>
     </View>
   )
@@ -42,7 +42,10 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   scrollviewContent: {
+    flex: 1,
     padding: 16,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 

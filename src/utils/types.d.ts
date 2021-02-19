@@ -41,12 +41,7 @@ type Theme = 'light' | 'dark'
 
 // API
 // Auth Service
-type SignUpParams = {
-  username: string;
-  email: string;
-  password: string;
-}
-type LogInParams = {
+type AuthParams = {
   email: string;
   password: string;
 }
