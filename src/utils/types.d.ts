@@ -2,6 +2,9 @@
 type ScreenProps = {
   Example: undefined;
 
+  // Landing Navigator
+  Landing: undefined;
+
   // Main Navigator
   Main: undefined;
   Settings: undefined;
