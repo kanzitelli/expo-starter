@@ -1,7 +1,10 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, Pressable } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { StackScreenProps } from '@react-navigation/stack';
+
+import { useStores } from '../../stores';
+import { useServices } from '../../services';
 
 type LandingScreenProps = StackScreenProps<ScreenProps, 'Landing'>;
 
@@ -10,6 +13,8 @@ const LandingScreen: React.FC<LandingScreenProps> = ({
   route,
 }) => {
   // const { param } = route.params;
+  const {} = useStores();
+  const { auth } = useServices();
 
   return (
     <View style={styles.container}>
@@ -19,6 +24,14 @@ const LandingScreen: React.FC<LandingScreenProps> = ({
         contentInsetAdjustmentBehavior={'automatic'}
       >
         <Text>Landing</Text>
+
+        <Pressable onPress={auth.signUp}>
+          <Text>Sign Up</Text>
+        </Pressable>
+
+        <Pressable onPress={auth.logIn}>
+          <Text>Login</Text>
+        </Pressable>
       </ScrollView>
     </View>
   )

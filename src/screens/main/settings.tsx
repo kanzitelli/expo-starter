@@ -1,7 +1,10 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, Pressable } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { StackScreenProps } from '@react-navigation/stack';
+
+import { useServices } from '../../services';
+import { useStores } from '../../stores';
 
 type SettingsScreenProps = StackScreenProps<ScreenProps, 'Settings'>;
 
@@ -10,6 +13,8 @@ const SettingsScreen: React.FC<SettingsScreenProps> = ({
   route,
 }) => {
   // const { param } = route.params;
+  const {} = useStores();
+  const { auth } = useServices();
 
   return (
     <View style={styles.container}>
@@ -19,6 +24,10 @@ const SettingsScreen: React.FC<SettingsScreenProps> = ({
         contentInsetAdjustmentBehavior={'automatic'}
       >
         <Text>Settings</Text>
+
+        <Pressable onPress={auth.logOut}>
+          <Text>Logout</Text>
+        </Pressable>
       </ScrollView>
     </View>
   )
