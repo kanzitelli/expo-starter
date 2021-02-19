@@ -20,9 +20,8 @@ const LandingScreen: React.FC<LandingScreenProps> = ({
   const {} = useStores();
   const {} = useServices();
 
-  const open = (k: keyof ScreenProps, am: AuthMethod) => () => {
-    navigation.navigate(k);
-  }
+  const openAuth = (am: AuthMethod) => () =>
+    navigation.navigate('Auth', { method: am });
 
   return (
     <View style={S.container}>
@@ -34,8 +33,8 @@ const LandingScreen: React.FC<LandingScreenProps> = ({
         <Text style={S.header}>{'Welcome to\nexpo-starter\n🦥'}</Text>
 
         <View style={S.buttonsContainer}>
-          <Button title='Sign Up' onPress={open('Landing', 'signup')} shadow />
-          <Button title='Login' onPress={open('Landing', 'login')} />
+          <Button title='Sign Up' onPress={openAuth('signup')} shadow />
+          <Button title='Login' onPress={openAuth('login')} />
         </View>
       </ScrollView>
     </View>

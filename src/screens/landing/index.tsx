@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from 'react-native-screens/native-stack';
 
 import { navBarStyle } from '../../utils/help';
 
+import AuthScreen from '../auth/auth';
 import LandingScreen from './landing';
 
 const LandingNavigator: React.FC<NavigatorProps> = ({
@@ -21,13 +22,13 @@ const LandingNavigator: React.FC<NavigatorProps> = ({
           title: 'Landing',
         }}
       />
-      {/* <Stack.Screen
+      <Stack.Screen
         name={'Auth'}
         component={AuthScreen}
         options={{
           stackPresentation: 'modal',
         }}
-      /> */}
+      />
     </Stack.Navigator>
   )
 };

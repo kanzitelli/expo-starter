@@ -3,6 +3,7 @@ type ScreenProps = {
   Example: undefined;
 
   // Landing Navigator
+  Auth: { method: AuthMethod };
   Landing: undefined;
 
   // Main Navigator
