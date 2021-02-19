@@ -5,9 +5,12 @@ import { StackScreenProps } from '@react-navigation/stack';
 
 import { useStores } from '../../stores';
 import { useServices } from '../../services';
+import useConstants from '../../utils/useConstants';
 import Button from '../../components/Button';
 
 type LandingScreenProps = StackScreenProps<ScreenProps, 'Landing'>;
+
+const C = useConstants();
 
 const LandingScreen: React.FC<LandingScreenProps> = ({
   navigation,
@@ -15,25 +18,31 @@ const LandingScreen: React.FC<LandingScreenProps> = ({
 }) => {
   // const { param } = route.params;
   const {} = useStores();
-  const { auth } = useServices();
+  const {} = useServices();
+
+  const open = (k: keyof ScreenProps, am: AuthMethod) => () => {
+    navigation.navigate(k);
+  }
 
   return (
-    <View style={styles.container}>
+    <View style={S.container}>
       <ScrollView
-        style={styles.scrollview}
-        contentContainerStyle={styles.scrollviewContent}
+        style={S.scrollview}
+        contentContainerStyle={S.scrollviewContent}
         contentInsetAdjustmentBehavior={'automatic'}
       >
-        <Text>Landing</Text>
+        <Text style={S.header}>{'Welcome to\nexpo-starter\n🦥'}</Text>
 
-        <Button title='Sign Up' onPress={auth.signUp}  />
-        <Button title='Login' onPress={auth.logIn} />
+        <View style={S.buttonsContainer}>
+          <Button title='Sign Up' onPress={open('Landing', 'signup')} shadow />
+          <Button title='Login' onPress={open('Landing', 'login')} />
+        </View>
       </ScrollView>
     </View>
   )
 };
 
-const styles = StyleSheet.create({
+const S = StyleSheet.create({
   container: {
     flex: 1
   },
@@ -41,8 +50,19 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   scrollviewContent: {
-    padding: 16,
+    padding: C.sizes.m,
+    paddingTop: C.sizes.xxl,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
+
+  header: {
+    fontSize: 32,
+    textAlign: 'center',
+  },
+  buttonsContainer: {
+    marginVertical: C.sizes.xxl * 2,
+  }
 });
 
 export default LandingScreen;
