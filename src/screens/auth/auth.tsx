@@ -1,14 +1,16 @@
 import React, { useEffect } from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, ActivityIndicator } from 'react-native';
 import { observer, useLocalObservable } from 'mobx-react';
-import { ScrollView, TextInput } from 'react-native-gesture-handler';
+import { ScrollView } from 'react-native-gesture-handler';
 import { StackScreenProps } from '@react-navigation/stack';
+import { useFormik } from 'formik';
+import { If } from '@kanzitelli/if-component';
 
 import { useStores } from '../../stores';
 import { useServices } from '../../services';
 import useConstants from '../../utils/useConstants';
-import { generateShadow } from '../../utils/help';
 import Button from '../../components/Button';
+import Input from '../../components/Input';
 
 type AuthScreenProps = StackScreenProps<ScreenProps, 'Auth'>;
 
@@ -20,16 +22,49 @@ const AuthScreen: React.FC<AuthScreenProps> = observer(({
 }) => {
   const { method } = route.params;
   const { G } = useStores();
-  const {} = useServices();
+  const { auth } = useServices();
 
   const state = useLocalObservable(() => ({
+    loading: false,
+    setLoading(v: boolean) { this.loading = v; },
+
     method: method,
-    setMethod(m: AuthMethod) { this.method = m; },
+    setMethod(v: AuthMethod) { this.method = v; },
     toggleMethod() { this.method = this.method === 'login' ? 'signup' : 'login'; _updateNavOptions() },
     actionButtonText() { return this.method === 'login' ? 'Login' : 'Sign Up' },
     toggleButtonText() { return this.method === 'login' ? 'Sign Up' : 'Login' },
     infoText() { return this.method === 'login' ? 'Don\'t have an account?' : 'Already have an account?' }
   }));
+
+  const form = useFormik({
+    initialValues: {
+      email: '',
+      password: '',
+    },
+    onSubmit: async values => {
+      const { email, password } = values;
+
+      if (!email || !password) {
+        alert('Please enter some data');
+        return;
+      }
+
+      const doAuth = (m: AuthMethod) => {
+        if (m === 'signup') {
+          auth.signUp({ email, password, username: email, });
+        }
+        if (m === 'login') {
+          auth.logIn({ email, password });
+        }
+      }
+
+      state.setLoading(true);
+      setTimeout(() => {
+        state.setLoading(false);
+        doAuth(state.method);
+      }, 2000);
+    },
+  });
 
   useEffect(() => { start() }, []);
 
@@ -43,27 +78,6 @@ const AuthScreen: React.FC<AuthScreenProps> = observer(({
     });
   }
 
-  const Input = () => {
-    return (
-      <View style={{
-        padding: C.sizes.s,
-      }}>
-        <View style={[generateShadow(), {
-          padding: C.sizes.s,
-          paddingVertical: C.sizes.m,
-          borderRadius: C.sizes.m,
-          backgroundColor: 'white'
-        }]}>
-          <TextInput
-            placeholder={'Email'}
-            style={{ fontSize: 18, }}
-            keyboardType={'email-address'}
-          />
-        </View>
-      </View>
-    )
-  }
-
   return (
     <View style={S.container}>
       <ScrollView
@@ -72,14 +86,32 @@ const AuthScreen: React.FC<AuthScreenProps> = observer(({
         contentInsetAdjustmentBehavior={'automatic'}
       >
         <View style={S.contentContainer}>
-          <Input />
-          <Input />
-          <Input />
+          <Input
+            placeholder='Email'
+            value={form.values.email}
+            onChangeText={form.handleChange('email')}
+            props={{
+              keyboardType: 'email-address',
+              autoCapitalize: 'none',
+            }}
+          />
+          <Input
+            placeholder='Password'
+            value={form.values.password}
+            onChangeText={form.handleChange('password')}
+            props={{
+              secureTextEntry: true,
+              autoCapitalize: 'none',
+            }}
+          />
 
           <Button shadow
             title={state.actionButtonText()}
+            onPress={form.handleSubmit}
             containerStyle={S.actionButton}
           />
+          <If _={state.loading}
+          _then={<ActivityIndicator />} />
 
           <View style={S.buttonsContainer}>
             <Text style={S.infoText}>
@@ -87,7 +119,7 @@ const AuthScreen: React.FC<AuthScreenProps> = observer(({
             </Text>
 
             <Button noBg
-              title={state.actionButtonText()}
+              title={state.toggleButtonText()}
               onPress={state.toggleMethod}
               textStyle={S.toggleButtonText}
             />

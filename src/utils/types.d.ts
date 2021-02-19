@@ -20,6 +20,7 @@ type AppStackProps = {
 
 // BASIC
 type PureFunc = () => void;
+type PureFuncArg<T> = (arg: T) => void;
 type AuthMethod = 'login' | 'signup'
 
 // HELP METHODS
