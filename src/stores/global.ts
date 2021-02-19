@@ -1,6 +1,6 @@
 import { makeAutoObservable } from 'mobx';
-// import { persistence } from 'mobx-persist-store';
-// import { storageAdapter } from '../utils/help';
+import { persistence } from 'mobx-persist-store';
+import { storageAdapter } from '../utils/help';
 
 class GlobalStore {
   isAuthed: boolean = false;
@@ -14,10 +14,10 @@ class GlobalStore {
   }
 }
 
-// export default persistence({
-//   name: 'GlobalStore',
-//   properties: ['isAuthed'],
-//   adapter: storageAdapter,
-// })(new GlobalStore());
+export default persistence({
+  name: 'GlobalStore',
+  properties: ['isAuthed', 'email'],
+  adapter: storageAdapter,
+})(new GlobalStore());
 
-export default new GlobalStore();
+// export default new GlobalStore();

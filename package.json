@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@kanzitelli/if-component": "^0.0.1",
+    "@react-native-async-storage/async-storage": "^1.13.4",
     "@react-native-community/masked-view": "0.1.10",
     "@react-navigation/bottom-tabs": "^5.11.7",
     "@react-navigation/native": "^5.9.2",
@@ -23,6 +24,7 @@
     "expo-status-bar": "~1.0.3",
     "formik": "^2.2.6",
     "mobx": "^6.1.7",
+    "mobx-persist-store": "^0.5.19",
     "mobx-react": "^7.1.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",

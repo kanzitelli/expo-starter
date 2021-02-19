@@ -1545,6 +1545,13 @@
   resolved "https://registry.yarnpkg.com/@kanzitelli/if-component/-/if-component-0.0.1.tgz#60bd0b1097f2d61fd6a41c00e82634f47fc8a632"
   integrity sha512-FUbM7ed1HZ+2TxlUdovXuKmyfU9rGWxzHjkB3eQSH/LC4fOaeyquzlrl2FYQKqAb7aNZ4pR0QOkG2T3hVtGTLQ==
 
+"@react-native-async-storage/async-storage@^1.13.4":
+  version "1.13.4"
+  resolved "https://registry.yarnpkg.com/@react-native-async-storage/async-storage/-/async-storage-1.13.4.tgz#05d29b7884be16fc3c40dcaa44e02fa291a020a2"
+  integrity sha512-P7cbA77XNhUFEBKAIaex17mKI/Db1RQHZVwplagskqzEnpqB+Yi+/l8QeOMr5OJdfmPkBA+V7DOmuWeB8Po6cQ==
+  dependencies:
+    deep-assign "^3.0.0"
+
 "@react-native-community/cli-debugger-ui@^4.13.1":
   version "4.13.1"
   resolved "https://registry.yarnpkg.com/@react-native-community/cli-debugger-ui/-/cli-debugger-ui-4.13.1.tgz#07de6d4dab80ec49231de1f1fbf658b4ad39b32c"
@@ -4672,6 +4679,11 @@ mkdirp@^0.5.1:
   integrity sha512-NKmAlESf6jMGym1++R0Ra7wvhV+wFW63FaSOFPwRahvea0gMUcGUhVeAg/0BC0wiv9ih5NYPB1Wn1UEI1/L+xQ==
   dependencies:
     minimist "^1.2.5"
+
+mobx-persist-store@^0.5.19:
+  version "0.5.19"
+  resolved "https://registry.yarnpkg.com/mobx-persist-store/-/mobx-persist-store-0.5.19.tgz#40480665b9afb2c88c92f54e187bc3dd744c4a40"
+  integrity sha512-frd7VLqNaPescOnE1PcwFWLWrMp620YewXCP+jHtPkuuuzN+ijHdaVlC0GD1hIhUka5h1yA/9JXgI9eEee/bQw==
 
 mobx-react-lite@^3.2.0:
   version "3.2.0"
