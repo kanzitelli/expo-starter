@@ -1,10 +1,14 @@
 import { makeAutoObservable } from 'mobx';
-import { persistence } from 'mobx-persist-store';
+import { isSynchronized, persistence } from 'mobx-persist-store';
 import { storageAdapter } from '../utils/help';
 
 class ExampleStore {
   c: number = 0;
   inc = (v: number = 1) => { this.c += v; };
+
+  get isSynced() {
+    return isSynchronized(this)
+  }
 
   constructor() {
     makeAutoObservable(this);

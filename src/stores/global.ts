@@ -1,5 +1,5 @@
 import { makeAutoObservable } from 'mobx';
-import { persistence } from 'mobx-persist-store';
+import { isSynchronized, persistence } from 'mobx-persist-store';
 import { storageAdapter } from '../utils/help';
 
 class GlobalStore {
@@ -8,6 +8,10 @@ class GlobalStore {
 
   email: string = '';
   setEmail = (v: string) => { this.email = v; }
+
+  get isSynced() {
+    return isSynchronized(this)
+  }
 
   constructor() {
     makeAutoObservable(this);
