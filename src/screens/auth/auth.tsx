@@ -53,7 +53,7 @@ const AuthScreen: React.FC<AuthScreenProps> = observer(({
       setTimeout(() => {
         state.setLoading(false);
         _doAuth(state.method, values);
-      }, 2000);
+      }, 1000);
     },
   });
 
