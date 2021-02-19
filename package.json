@@ -1,4 +1,10 @@
 {
+  "name": "expo-starter",
+  "version": "1.0.0",
+  "description": "🦥 the fastest way to start building your next native & web app using Expo.",
+  "license": "MIT",
+  "author": "Batyr <say_hi@batyr.io>",
+  "homepage": "https://github.com/kanzitelli/expo-starter",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "expo start",
