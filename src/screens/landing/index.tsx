@@ -6,7 +6,7 @@ import { navBarStyle } from '../../utils/help';
 
 import LandingScreen from './landing';
 
-const ExampleNavigator: React.FC<NavigatorProps> = ({
+const LandingNavigator: React.FC<NavigatorProps> = ({
   theme,
 }) => {
   const Stack = createNativeStackNavigator();
@@ -32,4 +32,4 @@ const ExampleNavigator: React.FC<NavigatorProps> = ({
   )
 };
 
-export default ExampleNavigator;
+export default LandingNavigator;

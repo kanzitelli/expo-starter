@@ -14,7 +14,7 @@ type NavigatorProps = {
   theme?: Theme;
 }
 type AppStackProps = {
-  // state: 'auth' | 'no_auth',
+  authed: boolean;
 }
 
 // HELP METHODS
