@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import { observer } from 'mobx-react';
 import { ScrollView } from 'react-native-gesture-handler';
@@ -16,6 +16,14 @@ const AuthScreen: React.FC<AuthScreenProps> = observer(({
   const { method } = route.params;
   const { G } = useStores();
   const {} = useServices();
+
+  useEffect(() => { start() }, []);
+
+  const start = async () => {
+    navigation.setOptions({
+      title: method === 'login' ? 'Login' : 'Sign Up',
+    });
+  }
 
   return (
     <View style={styles.container}>

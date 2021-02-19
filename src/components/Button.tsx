@@ -11,6 +11,7 @@ type Props = {
   style?: ViewStyle;
   textStyle?: TextStyle;
   containerStyle?: ViewStyle;
+  noBg?: boolean;
 }
 
 const C = useConstants();
@@ -22,11 +23,13 @@ const Button: React.FC<Props> = ({
   style,
   textStyle,
   containerStyle,
+  noBg,
 }) => {
   const shadowStyle = shadow ? generateShadow() : {};
+  const bgStyle = noBg ? { backgroundColor: 'transparent' } : {};
 
   return (
-    <View style={[S.container, shadowStyle, containerStyle]}>
+    <View style={[S.container, shadowStyle, containerStyle, bgStyle]}>
       <TouchableOpacity onPress={onPress}>
         <View style={[S.button, style]}>
           <Text style={[S.title, textStyle]}>
@@ -42,7 +45,7 @@ const S = StyleSheet.create({
   container: {
     backgroundColor: C.colors.white,
     borderRadius: C.sizes.m,
-    marginVertical: C.sizes.s,
+    marginVertical: C.sizes.xs,
   },
   button: {
     alignItems: 'center',

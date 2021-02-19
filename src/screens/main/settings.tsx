@@ -2,13 +2,14 @@ import React from 'react';
 import { StyleSheet, View, Text, Pressable } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { StackScreenProps } from '@react-navigation/stack';
+import { observer } from 'mobx-react';
 
 import { useServices } from '../../services';
 import { useStores } from '../../stores';
 
 type SettingsScreenProps = StackScreenProps<ScreenProps, 'Settings'>;
 
-const SettingsScreen: React.FC<SettingsScreenProps> = ({
+const SettingsScreen: React.FC<SettingsScreenProps> = observer(({
   navigation,
   route,
 }) => {
@@ -31,7 +32,7 @@ const SettingsScreen: React.FC<SettingsScreenProps> = ({
       </ScrollView>
     </View>
   )
-};
+});
 
 const styles = StyleSheet.create({
   container: {

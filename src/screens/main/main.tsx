@@ -2,10 +2,11 @@ import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { StackScreenProps } from '@react-navigation/stack';
+import { observer } from 'mobx-react';
 
 type MainScreenProps = StackScreenProps<ScreenProps, 'Main'>;
 
-const MainScreen: React.FC<MainScreenProps> = ({
+const MainScreen: React.FC<MainScreenProps> = observer(({
   navigation,
   route,
 }) => {
@@ -22,7 +23,7 @@ const MainScreen: React.FC<MainScreenProps> = ({
       </ScrollView>
     </View>
   )
-};
+});
 
 const styles = StyleSheet.create({
   container: {

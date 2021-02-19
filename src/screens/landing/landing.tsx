@@ -1,7 +1,8 @@
 import React from 'react';
-import { StyleSheet, View, Text, Pressable } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { StackScreenProps } from '@react-navigation/stack';
+import { observer } from 'mobx-react';
 
 import { useStores } from '../../stores';
 import { useServices } from '../../services';
@@ -12,7 +13,7 @@ type LandingScreenProps = StackScreenProps<ScreenProps, 'Landing'>;
 
 const C = useConstants();
 
-const LandingScreen: React.FC<LandingScreenProps> = ({
+const LandingScreen: React.FC<LandingScreenProps> = observer(({
   navigation,
   route,
 }) => {
@@ -21,7 +22,7 @@ const LandingScreen: React.FC<LandingScreenProps> = ({
   const {} = useServices();
 
   const openAuth = (am: AuthMethod) => () =>
-    navigation.navigate('Auth', { method: am });
+    navigation.navigate('Auth', { screen: 'AuthScreen', params: { method: am } });
 
   return (
     <View style={S.container}>
@@ -34,12 +35,12 @@ const LandingScreen: React.FC<LandingScreenProps> = ({
 
         <View style={S.buttonsContainer}>
           <Button title='Sign Up' onPress={openAuth('signup')} shadow />
-          <Button title='Login' onPress={openAuth('login')} />
+          <Button title='Login' onPress={openAuth('login')} noBg />
         </View>
       </ScrollView>
     </View>
   )
-};
+});
 
 const S = StyleSheet.create({
   container: {
@@ -60,7 +61,7 @@ const S = StyleSheet.create({
     textAlign: 'center',
   },
   buttonsContainer: {
-    marginVertical: C.sizes.xxl * 2,
+    marginVertical: C.sizes.xxl * 4,
   }
 });
 
