@@ -57,6 +57,7 @@ const start = async () => {
       }
     );
 
+  console.log('Created files:')
   console.log(files);
 }
 
