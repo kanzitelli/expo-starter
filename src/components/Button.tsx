@@ -12,6 +12,7 @@ type Props = {
   textStyle?: TextStyle;
   containerStyle?: ViewStyle;
   noBg?: boolean;
+  noSpace?: boolean;
 }
 
 const C = useConstants();
@@ -24,14 +25,16 @@ const Button: React.FC<Props> = ({
   textStyle,
   containerStyle,
   noBg,
+  noSpace,
 }) => {
   const shadowStyle = shadow ? generateShadow() : {};
   const bgStyle = noBg ? { backgroundColor: 'transparent' } : {};
+  const noSpaceStyle = noSpace ? { margin: 0, padding: 0 } : {};
 
   return (
-    <View style={[S.container, shadowStyle, containerStyle, bgStyle]}>
+    <View style={[S.container, shadowStyle, containerStyle, bgStyle, noSpaceStyle]}>
       <TouchableOpacity onPress={onPress}>
-        <View style={[S.button, style]}>
+        <View style={[S.button, style, noSpaceStyle]}>
           <Text style={[S.title, textStyle]}>
             {title}
           </Text>
