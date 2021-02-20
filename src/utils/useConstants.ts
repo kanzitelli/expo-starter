@@ -16,6 +16,10 @@ const useConstants = () => {
       xl: 32,
       xxl: 40,
     },
+
+    links: {
+      github: 'https://github.com/kanzitelli/expo-starter',
+    }
   };
 }
 
