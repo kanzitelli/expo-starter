@@ -31,6 +31,6 @@ Simple tab-based app with auth flow logic: `Landing → Auth → Main (2 tabs)`.
 <img src="https://xxx-files.ggc.team/oss/expo-starter/qr_code.png" width="30%" title="QR">
 
 ## RNW support
-There were some issues while trying to run the app on web. However after some research, I could found a [solution]() to [one problem]() and I have written [another script]() that is workaround for [this issue](). They are run on `postinstall` script and doesn't affect your code anyhow.
+There were some issues while trying to run the app on web. However, after some research, I could found a [solution](https://github.com/kanzitelli/expo-starter/blob/master/scripts/fix-for-web.sh) for [one problem](https://github.com/necolas/react-native-web/issues/1537) and I have written [another script](https://github.com/kanzitelli/expo-starter/blob/master/scripts/fix-for-rn-rnw.js) that is workaround for [this issue](https://github.com/expo/web-examples/issues/73). They are run on `postinstall` script and doesn't affect your code anyhow.
 
 ...more to be added
