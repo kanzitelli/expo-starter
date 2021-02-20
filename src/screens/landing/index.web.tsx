@@ -1,5 +1,5 @@
 import React from 'react';
-import { createNativeStackNavigator } from 'react-native-screens/native-stack';
+import { createStackNavigator } from '@react-navigation/stack';
 
 import { navBarStyle } from '../../utils/help';
 
@@ -9,10 +9,10 @@ import LandingScreen from './landing';
 const LandingNavigator: React.FC<NavigatorProps> = ({
   theme,
 }) => {
-  const Stack = createNativeStackNavigator();
+  const Stack = createStackNavigator();
 
   return (
-    <Stack.Navigator screenOptions={navBarStyle(theme)}>
+    <Stack.Navigator screenOptions={navBarStyle(theme)} mode={'modal'}>
       <Stack.Screen
         name={'Landing'}
         component={LandingScreen}
@@ -24,7 +24,7 @@ const LandingNavigator: React.FC<NavigatorProps> = ({
         name={'Auth'}
         component={AuthNavigator}
         options={{
-          stackPresentation: 'modal',
+          headerShown: false,
         }}
       />
     </Stack.Navigator>

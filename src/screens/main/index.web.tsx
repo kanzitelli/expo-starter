@@ -1,7 +1,7 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React from 'react';
 import { Ionicons } from '@expo/vector-icons';
-import { createNativeStackNavigator } from 'react-native-screens/native-stack';
+import { createStackNavigator } from '@react-navigation/stack';
 
 import { navBarStyle } from '../../utils/help';
 
@@ -11,7 +11,7 @@ import SettingsScreen from './settings';
 const MainNavigator: React.FC<NavigatorProps> = ({
   theme,
 }) => {
-  const MainStack = createNativeStackNavigator();
+  const MainStack = createStackNavigator();
   const Main = () => (
     <MainStack.Navigator screenOptions={navBarStyle(theme)}>
       <MainStack.Screen
@@ -24,7 +24,7 @@ const MainNavigator: React.FC<NavigatorProps> = ({
     </MainStack.Navigator>
   )
 
-  const SettingsStack = createNativeStackNavigator();
+  const SettingsStack = createStackNavigator();
   const Settings = () => (
     <SettingsStack.Navigator screenOptions={navBarStyle(theme)}>
       <SettingsStack.Screen

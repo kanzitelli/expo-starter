@@ -11,7 +11,9 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "p:all": "expo p && expo build:web && cd web-build && vercel --prod && cd ..",
+    "postinstall": "bash ./fix-for-web.sh && node ./fix-for-rn-rnw.js"
   },
   "dependencies": {
     "@kanzitelli/if-component": "^0.0.1",
