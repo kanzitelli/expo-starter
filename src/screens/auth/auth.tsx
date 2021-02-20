@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { StyleSheet, View, Text, ActivityIndicator } from 'react-native';
+import { StyleSheet, View, Text, ActivityIndicator, Platform } from 'react-native';
 import { observer, useLocalObservable } from 'mobx-react';
 import { ScrollView } from 'react-native-gesture-handler';
 import { StackScreenProps } from '@react-navigation/stack';
@@ -76,6 +76,7 @@ const AuthScreen: React.FC<AuthScreenProps> = observer(({
         <Button noBg noSpace
           title='Close'
           onPress={navigation.popToTop}
+          containerStyle={Platform.OS === 'web' ? { marginRight: C.sizes.l } : {}}
         />
       ),
     });
