@@ -1,6 +1,4 @@
 import { Platform, ViewStyle } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { StorageAdapter } from 'mobx-persist-store';
 
 // BASIC
 export const generateShadow = (p?: GenerateShadowProps): ViewStyle =>
@@ -23,24 +21,4 @@ export const navBarStyle = (theme: Theme = 'light') => ({
     backgroundColor: theme === 'light' ? 'white' : 'black',
   },
   headerTintColor: theme === 'light' ? 'black' : 'white',
-});
-
-// MOBX HYDRATION
-const readStore = (name: string): Promise<any> => {
-  return new Promise(async (resolve) => {
-    const data: any = await AsyncStorage.getItem(name);
-    resolve(JSON.parse(data));
-  });
-}
-
-const writeStore = (name: string, content: any): Promise<Error | undefined> => {
-  return new Promise(async (resolve) => {
-    await AsyncStorage.setItem(name, JSON.stringify(content));
-    resolve(undefined);
-  });
-}
-
-export const storageAdapter = new StorageAdapter({
-  read: readStore,
-  write: writeStore,
 });
