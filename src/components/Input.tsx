@@ -1,6 +1,12 @@
 import React from 'react';
-import { View, StyleSheet, TextInputProps } from 'react-native';
-import { TextInput } from 'react-native-gesture-handler';
+import {
+  View,
+  StyleSheet,
+  TextInputProps,
+  TextInput as RNTextInput,
+  Platform
+} from 'react-native';
+import { TextInput as GHTextInput } from 'react-native-gesture-handler';
 
 import { generateShadow } from '../utils/help';
 import useConstants from '../utils/useConstants';
@@ -13,6 +19,7 @@ type Props = {
 }
 
 const C = useConstants();
+const TextInput = Platform.OS === 'web' ? RNTextInput : GHTextInput; 
 
 const Input = ({
   placeholder,
