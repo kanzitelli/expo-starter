@@ -14,6 +14,7 @@ expo start
 Open Expo Go and you should see your app available in the list 🥳
 
 *Hint:* In order to clean git history, run `rm -rf .git`.
+
 *Note:* All changes regarding the app settings should be done in `app.json`.
 
 ## What's inside
