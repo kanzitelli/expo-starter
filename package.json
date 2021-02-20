@@ -12,6 +12,8 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
+    "p:web": "expo build:web && cd web-build && vercel --prod && cd ..",
+    "p:app": "expo p",
     "p:all": "expo p && expo build:web && cd web-build && vercel --prod && cd ..",
     "postinstall": "bash ./scripts/fix-for-web.sh && node ./scripts/fix-for-rn-rnw.js"
   },
