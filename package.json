@@ -1,7 +1,7 @@
 {
   "name": "expo-starter",
   "version": "1.0.0",
-  "description": "🦥 the fastest way to start building your next native & web app using Expo.",
+  "description": "🦥 the fastest way to start building your next iOS + Android + Web app using Expo.",
   "license": "MIT",
   "author": "Batyr <say_hi@batyr.io>",
   "main": "node_modules/expo/AppEntry.js",
@@ -13,7 +13,7 @@
     "eject": "expo eject",
     "p:web": "expo build:web && cd web-build && vercel --prod && cd ..",
     "p:app": "expo p",
-    "p:all": "expo p && expo build:web && cd web-build && vercel --prod && cd ..",
+    "p:all": "yarn p:app && yarn p:web",
     "postinstall": "bash ./scripts/fix-for-web.sh && node ./scripts/fix-for-rn-rnw.js"
   },
   "dependencies": {
