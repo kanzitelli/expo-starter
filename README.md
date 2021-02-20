@@ -1,4 +1,4 @@
-# 🦥 minimal and comfort setup for your next iOS + Android + Web app using Expo
+# 🦥 minimal and comfort setup for iOS + Android + Web app using Expo
 
 ## Quickstart
 Make sure you have [Expo](https://expo.io) installed on your machine.
