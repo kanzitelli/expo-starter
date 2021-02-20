@@ -61,11 +61,23 @@ const AuthScreen: React.FC<AuthScreenProps> = observer(({
 
   const start = async () => {
     _updateNavOptions();
+    _setNavButtons();
   }
 
   const _updateNavOptions = () => {
     navigation.setOptions({
       title: state.actionButtonText()
+    });
+  }
+
+  const _setNavButtons = () => {
+    navigation.setOptions({
+      headerRight: () => (
+        <Button noBg noSpace
+          title='Close'
+          onPress={navigation.popToTop}
+        />
+      ),
     });
   }
 
