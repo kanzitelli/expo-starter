@@ -25,6 +25,7 @@ const LandingNavigator: React.FC<NavigatorProps> = ({
         component={AuthNavigator}
         options={{
           stackPresentation: 'modal',
+          headerShown: false,
         }}
       />
     </Stack.Navigator>
