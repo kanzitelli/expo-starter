@@ -1,4 +1,4 @@
-# 🦥 minimal and comfort setup for iOS + Android + Web app using Expo
+# 🦥  minimal and convenient setup for Expo app. TypeScript + MobX + RN Web support.
 
 ## Quickstart
 Make sure you have [Expo](https://expo.io) installed on your machine.
