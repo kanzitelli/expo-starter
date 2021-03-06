@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
-import { StyleSheet, View, Text, ActivityIndicator, Platform } from 'react-native';
+import { ActivityIndicator, Platform } from 'react-native';
 import { observer, useLocalObservable } from 'mobx-react';
-import { ScrollView } from 'react-native-gesture-handler';
 import { StackScreenProps } from '@react-navigation/stack';
 import { useFormik } from 'formik';
+import styled from '@emotion/native';
 import { If } from '@kanzitelli/if-component';
 
 import { useStores } from '../../stores';
@@ -11,11 +11,22 @@ import { useServices } from '../../services';
 import useConstants from '../../utils/useConstants';
 import Button from '../../components/Button';
 import Input from '../../components/Input';
+import { ScrollContainer } from '../../components/Containers';
 
 type AuthScreenProps = StackScreenProps<ScreenProps, 'Auth'>;
 
 const C = useConstants();
 
+// Components
+const ContentContainer = styled.View({
+  width: '75%',
+  maxWidth: 600,
+  marginVertical: C.sizes.l,
+});
+const InfoContainer = styled.View({ marginTop: C.sizes.xxl, });
+const InfoText = styled.Text({ textAlign: 'center', });
+
+// Screen
 const AuthScreen: React.FC<AuthScreenProps> = observer(({
   navigation,
   route,
@@ -92,89 +103,49 @@ const AuthScreen: React.FC<AuthScreenProps> = observer(({
   }
 
   return (
-    <View style={S.container}>
-      <ScrollView
-        style={S.scrollview}
-        contentContainerStyle={S.scrollviewContent}
-        contentInsetAdjustmentBehavior={'automatic'}
-      >
-        <View style={S.contentContainer}>
-          <Input
-            placeholder='Email'
-            value={form.values.email}
-            onChangeText={form.handleChange('email')}
-            props={{
-              keyboardType: 'email-address',
-              autoCapitalize: 'none',
-            }}
+    <ScrollContainer>
+      <ContentContainer>
+        <Input
+          placeholder='Email'
+          value={form.values.email}
+          onChangeText={form.handleChange('email')}
+          props={{
+            keyboardType: 'email-address',
+            autoCapitalize: 'none',
+          }}
+        />
+        <Input
+          placeholder='Password'
+          value={form.values.password}
+          onChangeText={form.handleChange('password')}
+          props={{
+            secureTextEntry: true,
+            autoCapitalize: 'none',
+          }}
+        />
+
+        <Button shadow
+          title={state.actionButtonText()}
+          onPress={form.handleSubmit}
+          containerStyle={{ marginVertical: C.sizes.l, }}
+        />
+        <If _={state.loading}
+        _then={<ActivityIndicator />} />
+
+        <InfoContainer>
+          <InfoText>
+            { state.infoText() }
+          </InfoText>
+
+          <Button noBg
+            title={state.toggleButtonText()}
+            onPress={state.toggleMethod}
+            textStyle={{ textDecorationLine: 'underline', }}
           />
-          <Input
-            placeholder='Password'
-            value={form.values.password}
-            onChangeText={form.handleChange('password')}
-            props={{
-              secureTextEntry: true,
-              autoCapitalize: 'none',
-            }}
-          />
-
-          <Button shadow
-            title={state.actionButtonText()}
-            onPress={form.handleSubmit}
-            containerStyle={S.actionButton}
-          />
-          <If _={state.loading}
-          _then={<ActivityIndicator />} />
-
-          <View style={S.buttonsContainer}>
-            <Text style={S.infoText}>
-              { state.infoText() }
-            </Text>
-
-            <Button noBg
-              title={state.toggleButtonText()}
-              onPress={state.toggleMethod}
-              textStyle={S.toggleButtonText}
-            />
-          </View>
-        </View>
-
-      </ScrollView>
-    </View>
+        </InfoContainer>
+      </ContentContainer>
+    </ScrollContainer>
   )
-});
-
-const S = StyleSheet.create({
-  container: {
-    flex: 1
-  },
-  scrollview: {
-    flex: 1,
-  },
-  scrollviewContent: {
-    padding: C.sizes.m,
-    paddingTop: C.sizes.xxl,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-
-  contentContainer: {
-    width: '75%',
-    maxWidth: 600,
-    marginVertical: C.sizes.l,
-  },
-  actionButton: {
-    marginVertical: C.sizes.l,
-  },
-  buttonsContainer: {
-    marginTop: C.sizes.xxl,
-  },
-  infoText: {
-    textAlign: 'center',
-  },
-  toggleButtonText: {
-    textDecorationLine: 'underline',
-  },
 });
 
 export default AuthScreen;

@@ -1,17 +1,24 @@
 import React, { useEffect } from 'react';
-import { StyleSheet, View, Text } from 'react-native';
 import { observer } from 'mobx-react';
-import { ScrollView } from 'react-native-gesture-handler';
 import { StackScreenProps } from '@react-navigation/stack';
 
 import { useStores } from '../stores';
 import { useServices } from '../services';
 import useConstants from '../utils/useConstants';
+import { ScrollContainer } from '../components/Containers';
+import styled from '@emotion/native';
 
 type ExampleScreenProps = StackScreenProps<ScreenProps, 'Example'>;
 
 const C = useConstants();
 
+// Components
+const ExampleText = styled.Text({
+  fontSize: 20,
+  margin: C.sizes.s,
+});
+
+// Screen
 const ExampleScreen: React.FC<ExampleScreenProps> = observer(({
   navigation,
   route,
@@ -25,28 +32,12 @@ const ExampleScreen: React.FC<ExampleScreenProps> = observer(({
   const start = async () => { }
 
   return (
-    <View style={S.container}>
-      <ScrollView
-        style={S.scrollview}
-        contentContainerStyle={S.scrollviewContent}
-        contentInsetAdjustmentBehavior={'automatic'}
-      >
-        <Text>Example</Text>
-      </ScrollView>
-    </View>
+    <ScrollContainer>
+      <ExampleText>
+        Example
+      </ExampleText>
+    </ScrollContainer>
   )
-});
-
-const S = StyleSheet.create({
-  container: {
-    flex: 1
-  },
-  scrollview: {
-    flex: 1,
-  },
-  scrollviewContent: {
-    padding: 16,
-  },
 });
 
 export default ExampleScreen;

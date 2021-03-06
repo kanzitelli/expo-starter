@@ -13,15 +13,16 @@ type LandingScreenProps = StackScreenProps<ScreenProps, 'Landing'>;
 
 const C = useConstants();
 
+// Components
 const HeaderText = styled.Text({
   fontSize: C.sizes.xxl,
   textAlign: 'center',
 });
-
 const ButtonsContainer = styled.View({
   marginVertical: C.sizes.xxl * 3,
 });
 
+// Screen
 const LandingScreen: React.FC<LandingScreenProps> = observer(({
   navigation,
   route,
