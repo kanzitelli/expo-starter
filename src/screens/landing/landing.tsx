@@ -1,14 +1,13 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
 import { StackScreenProps } from '@react-navigation/stack';
 import { observer } from 'mobx-react';
-import styled, { css } from '@emotion/native';
+import styled from '@emotion/native';
 
 import { useStores } from '../../stores';
 import { useServices } from '../../services';
 import useConstants from '../../utils/useConstants';
 import Button from '../../components/Button';
+import { ScrollContainer } from '../../components/Containers';
 
 type LandingScreenProps = StackScreenProps<ScreenProps, 'Landing'>;
 
@@ -18,12 +17,10 @@ const HeaderText = styled.Text({
   fontSize: C.sizes.xxl,
   textAlign: 'center',
 });
+
 const ButtonsContainer = styled.View({
   marginVertical: C.sizes.xxl * 3,
 });
-const Container = styled(ScrollView)({
-  flex: 1,
-})
 
 const LandingScreen: React.FC<LandingScreenProps> = observer(({
   navigation,
@@ -37,11 +34,10 @@ const LandingScreen: React.FC<LandingScreenProps> = observer(({
     navigation.navigate('Auth', { screen: 'AuthScreen', params: { method: am } });
 
   return (
-    <Container
-      contentContainerStyle={S.scrollviewContent}
-      contentInsetAdjustmentBehavior={'automatic'}
-    >
-      <HeaderText>{'Welcome to\nexpo-starter\n🦥'}</HeaderText>
+    <ScrollContainer>
+      <HeaderText>
+        {'Welcome to\nexpo-starter\n🦥'}
+      </HeaderText>
 
       <ButtonsContainer>
         <Button shadow
@@ -53,17 +49,8 @@ const LandingScreen: React.FC<LandingScreenProps> = observer(({
           onPress={openAuth('login')}
         />
       </ButtonsContainer>
-    </Container>
+    </ScrollContainer>
   )
-});
-
-const S = StyleSheet.create({
-  scrollviewContent: {
-    padding: C.sizes.m,
-    paddingTop: C.sizes.xxl,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
 });
 
 export default LandingScreen;
