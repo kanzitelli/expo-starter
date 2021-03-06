@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import styled from '@emotion/native';
 
@@ -16,14 +16,14 @@ const S = StyleSheet.create({
 
   scrollviewContent: {
     padding: C.sizes.m,
-    paddingTop: C.sizes.xxl,
+    paddingTop: C.sizes.xl,
     justifyContent: 'center',
     alignItems: 'center',
   },
 });
 
 const ScrollViewFlex1 = styled(ScrollView)(S.flex1);
-const ViewFlex1 = styled(View)(S.flex1);
+const ViewFlex1 = styled.View(S.flex1);
 
 export const ScrollContainer = ({ children }: any) => (
   <ScrollViewFlex1
