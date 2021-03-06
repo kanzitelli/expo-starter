@@ -1,6 +1,6 @@
 import { makeAutoObservable } from 'mobx';
 import { isSynchronized, persistence } from 'mobx-persist-store';
-import { storageAdapter } from '../utils/help';
+import { storageAdapter } from './hydration';
 
 class ExampleStore {
   c: number = 0;
