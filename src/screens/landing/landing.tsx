@@ -3,6 +3,7 @@ import { StyleSheet, View, Text } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { StackScreenProps } from '@react-navigation/stack';
 import { observer } from 'mobx-react';
+import styled, { css } from '@emotion/native';
 
 import { useStores } from '../../stores';
 import { useServices } from '../../services';
@@ -12,6 +13,17 @@ import Button from '../../components/Button';
 type LandingScreenProps = StackScreenProps<ScreenProps, 'Landing'>;
 
 const C = useConstants();
+
+const HeaderText = styled.Text({
+  fontSize: C.sizes.xxl,
+  textAlign: 'center',
+});
+const ButtonsContainer = styled.View({
+  marginVertical: C.sizes.xxl * 3,
+});
+const Container = styled(ScrollView)({
+  flex: 1,
+})
 
 const LandingScreen: React.FC<LandingScreenProps> = observer(({
   navigation,
@@ -25,50 +37,33 @@ const LandingScreen: React.FC<LandingScreenProps> = observer(({
     navigation.navigate('Auth', { screen: 'AuthScreen', params: { method: am } });
 
   return (
-    <View style={S.container}>
-      <ScrollView
-        style={S.scrollview}
-        contentContainerStyle={S.scrollviewContent}
-        contentInsetAdjustmentBehavior={'automatic'}
-      >
-        <Text style={S.header}>{'Welcome to\nexpo-starter\n🦥'}</Text>
+    <Container
+      contentContainerStyle={S.scrollviewContent}
+      contentInsetAdjustmentBehavior={'automatic'}
+    >
+      <HeaderText>{'Welcome to\nexpo-starter\n🦥'}</HeaderText>
 
-        <View style={S.buttonsContainer}>
-          <Button shadow
-            title='Sign Up'
-            onPress={openAuth('signup')}
-          />
-          <Button noBg
-            title='Login'
-            onPress={openAuth('login')}
-          />
-        </View>
-      </ScrollView>
-    </View>
+      <ButtonsContainer>
+        <Button shadow
+          title='Sign Up'
+          onPress={openAuth('signup')}
+        />
+        <Button noBg
+          title='Login'
+          onPress={openAuth('login')}
+        />
+      </ButtonsContainer>
+    </Container>
   )
 });
 
 const S = StyleSheet.create({
-  container: {
-    flex: 1
-  },
-  scrollview: {
-    flex: 1,
-  },
   scrollviewContent: {
     padding: C.sizes.m,
     paddingTop: C.sizes.xxl,
     justifyContent: 'center',
     alignItems: 'center',
   },
-
-  header: {
-    fontSize: 32,
-    textAlign: 'center',
-  },
-  buttonsContainer: {
-    marginVertical: C.sizes.xxl * 4,
-  }
 });
 
 export default LandingScreen;

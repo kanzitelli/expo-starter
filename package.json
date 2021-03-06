@@ -17,6 +17,8 @@
     "release": "dotenv release-it"
   },
   "dependencies": {
+    "@emotion/native": "^11.0.0",
+    "@emotion/react": "^11.1.5",
     "@kanzitelli/if-component": "^0.0.1",
     "@react-native-async-storage/async-storage": "^1.14.1",
     "@react-native-community/masked-view": "0.1.10",
