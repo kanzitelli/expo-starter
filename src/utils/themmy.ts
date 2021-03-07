@@ -6,6 +6,7 @@ declare module '@emotion/react' {
   }
 }
 
+// https://theme-ui.com/theme-spec/
 const presets: Presets = {
   light: {
     text: '#1e272e',
