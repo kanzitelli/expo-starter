@@ -4,6 +4,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 import styled from '@emotion/native';
 
 import useConstants from '../utils/useConstants';
+import { useTheme } from '@emotion/react';
 
 type ContainerProps = {
   row?: boolean;
@@ -25,14 +26,19 @@ const S = StyleSheet.create({
 const ScrollViewFlex1 = styled(ScrollView)(S.flex1);
 const ViewFlex1 = styled.View(S.flex1);
 
-export const ScrollContainer = ({ children }: any) => (
-  <ScrollViewFlex1
-    contentContainerStyle={S.scrollviewContent}
-    contentInsetAdjustmentBehavior={'automatic'}
-  >
-    { children }
-  </ScrollViewFlex1>
-)
+export const ScrollContainer = ({ children }: any) => {
+  const theme = useTheme();
+
+  return (
+    <ScrollViewFlex1
+      style={{ backgroundColor: theme.colors.background, }}
+      contentContainerStyle={S.scrollviewContent}
+      contentInsetAdjustmentBehavior={'automatic'}
+    >
+      { children }
+    </ScrollViewFlex1>
+  )
+}
 
 export const Container = styled(ViewFlex1)<ContainerProps>(p => ({
   flexDirection: p.row ? 'row' : 'column',
