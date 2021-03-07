@@ -24,7 +24,10 @@ const ContentContainer = styled.View({
   marginVertical: C.sizes.l,
 });
 const InfoContainer = styled.View({ marginTop: C.sizes.xxl, });
-const InfoText = styled.Text({ textAlign: 'center', });
+const InfoText = styled.Text(p => ({
+  textAlign: 'center',
+  color: p.theme.colors.text,
+}));
 
 // Screen
 const AuthScreen: React.FC<AuthScreenProps> = observer(({

@@ -14,10 +14,11 @@ type LandingScreenProps = StackScreenProps<ScreenProps, 'Landing'>;
 const C = useConstants();
 
 // Components
-const HeaderText = styled.Text({
+const HeaderText = styled.Text(p => ({
   fontSize: C.sizes.xxl,
   textAlign: 'center',
-});
+  color: p.theme.colors.text,
+}));
 const ButtonsContainer = styled.View({
   marginVertical: C.sizes.xxl * 3,
 });

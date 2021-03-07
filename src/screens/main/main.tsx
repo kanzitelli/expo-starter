@@ -13,9 +13,10 @@ type MainScreenProps = StackScreenProps<ScreenProps, 'Main'>;
 const C = useConstants();
 
 // Components
-const EmailText = styled.Text({
+const EmailText = styled.Text(p => ({
   fontSize: C.sizes.l,
-});
+  color: p.theme.colors.text,
+}));
 
 // Screen
 const MainScreen: React.FC<MainScreenProps> = observer(({
