@@ -12,7 +12,6 @@ import LandingNavigator from './screens/landing';
 
 export const AppStack: React.FC<AppStackProps> = ({ authed, themeMode }) => {
   const EmotionTheme = useTheme();
-  console.log('authed', authed, themeMode);
 
   // https://reactnavigation.org/docs/themes
   // https://emotion.sh/docs/theming
