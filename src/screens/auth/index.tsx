@@ -6,12 +6,11 @@ import { navBarStyle } from '../../utils/help';
 import AuthScreen from './auth';
 
 const AuthNavigator: React.FC<NavigatorProps> = ({
-  theme,
 }) => {
   const Stack = createNativeStackNavigator();
 
   return (
-    <Stack.Navigator screenOptions={navBarStyle(theme)}>
+    <Stack.Navigator screenOptions={navBarStyle()}>
       <Stack.Screen
         name={'AuthScreen'}
         component={AuthScreen}

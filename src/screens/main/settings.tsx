@@ -26,7 +26,7 @@ const SettingsScreen: React.FC<SettingsScreenProps> = observer(({
   route,
 }) => {
   // const { param } = route.params;
-  const {} = useStores();
+  const { ui } = useStores();
   const { auth } = useServices();
 
   const _openGithub = () =>
@@ -34,6 +34,11 @@ const SettingsScreen: React.FC<SettingsScreenProps> = observer(({
 
   return (
     <ScrollContainer>
+      <Button noBg
+        title='Toggle theme'
+        onPress={ui.toggleThemeMode}
+      />
+
       <Button noBg
         title='Github'
         onPress={_openGithub}

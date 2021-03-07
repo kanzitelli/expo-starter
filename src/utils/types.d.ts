@@ -12,10 +12,10 @@ type ScreenProps = {
 }
 
 type NavigatorProps = {
-  theme?: Theme;
 }
 type AppStackProps = {
   authed: boolean;
+  themeMode: ThemeMode;
 }
 
 // BASIC

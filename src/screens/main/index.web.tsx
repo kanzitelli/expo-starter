@@ -3,17 +3,14 @@ import React from 'react';
 import { Ionicons } from '@expo/vector-icons';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import { navBarStyle } from '../../utils/help';
-
 import MainScreen from './main';
 import SettingsScreen from './settings';
 
 const MainNavigator: React.FC<NavigatorProps> = ({
-  theme,
 }) => {
   const MainStack = createStackNavigator();
   const Main = () => (
-    <MainStack.Navigator screenOptions={navBarStyle(theme)}>
+    <MainStack.Navigator>
       <MainStack.Screen
         name={'MainScreen'}
         component={MainScreen}
@@ -26,7 +23,7 @@ const MainNavigator: React.FC<NavigatorProps> = ({
 
   const SettingsStack = createStackNavigator();
   const Settings = () => (
-    <SettingsStack.Navigator screenOptions={navBarStyle(theme)}>
+    <SettingsStack.Navigator>
       <SettingsStack.Screen
         name={'SettingsScreen'}
         component={SettingsScreen}

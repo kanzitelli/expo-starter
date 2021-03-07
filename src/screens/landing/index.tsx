@@ -7,12 +7,11 @@ import AuthNavigator from '../auth';
 import LandingScreen from './landing';
 
 const LandingNavigator: React.FC<NavigatorProps> = ({
-  theme,
 }) => {
   const Stack = createNativeStackNavigator();
 
   return (
-    <Stack.Navigator screenOptions={navBarStyle(theme)}>
+    <Stack.Navigator screenOptions={navBarStyle()}>
       <Stack.Screen
         name={'Landing'}
         component={LandingScreen}

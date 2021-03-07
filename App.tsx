@@ -14,7 +14,7 @@ enableScreens();
 initServices();
 
 export default () => {
-  const { G } = useStores();
+  const { G, ui } = useStores();
   const [ready, setReady] = useState(false);
 
   useEffect(() => { start() }, []);
@@ -34,9 +34,9 @@ export default () => {
     <StoresProvider><ServicesProvider>
       <Observer>
         {() => (
-          <ThemeProvider theme={getTheme('dark')}>
-            <StatusBar style={'dark'} />
-            <AppStack authed={G.isAuthed} />
+          <ThemeProvider theme={getTheme(ui.themeMode)}>
+            <StatusBar style={ui.themeMode === 'dark' ? 'light' : 'dark'} />
+            <AppStack authed={G.isAuthed} themeMode={ui.themeMode} />
           </ThemeProvider>
         )}
       </Observer>

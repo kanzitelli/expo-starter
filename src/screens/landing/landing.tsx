@@ -29,7 +29,7 @@ const LandingScreen: React.FC<LandingScreenProps> = observer(({
   route,
 }) => {
   // const { param } = route.params;
-  const {} = useStores();
+  const { ui } = useStores();
   const {} = useServices();
 
   const openAuth = (am: AuthMethod) => () => /// @ts-ignore
@@ -49,6 +49,11 @@ const LandingScreen: React.FC<LandingScreenProps> = observer(({
         <Button noBg
           title='Login'
           onPress={openAuth('login')}
+        />
+
+        <Button noBg
+          title='Toggle theme'
+          onPress={ui.toggleThemeMode}
         />
       </ButtonsContainer>
     </ScrollContainer>
