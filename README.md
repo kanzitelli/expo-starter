@@ -25,3 +25,7 @@ Simple tab-based app with auth flow logic: `Landing → Auth → Main (2 tabs)`.
 - Web - [app.expo.batyr.io](https://app.expo.batyr.io)
 - QR Code
 <img src="https://xxx-files.ggc.team/oss/expo-starter/qr_code.png" width="30%" title="QR">
+
+## Worth checking
+### Apps in production
+- Trip Music Radio - [App Store](https://apps.apple.com/ru/app/id1525645826)

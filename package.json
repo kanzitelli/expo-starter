@@ -1,7 +1,7 @@
 {
   "name": "expo-starter",
   "version": "1.0.2",
-  "description": "🦥 the fastest way to start building your next iOS + Android + Web app using Expo.",
+  "description": "🦥 Production-ready starter for your next Expo (React Native) App! Includes React Navigation, Mobx, Emotion (+ Dark Mode), and Localization.",
   "license": "MIT",
   "author": "Batyr <say_hi@batyr.io>",
   "main": "node_modules/expo/AppEntry.js",
