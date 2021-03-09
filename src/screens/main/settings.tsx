@@ -1,6 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text, Pressable, Linking } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
+import { Linking } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
 import { observer } from 'mobx-react';
 import styled from '@emotion/native';
