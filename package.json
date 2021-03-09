@@ -1,6 +1,6 @@
 {
   "name": "expo-starter",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "🦥 Production-ready starter for your next Expo (React Native) App! Includes React Navigation, Mobx, Emotion (+ Dark Mode), and Localization.",
   "license": "MIT",
   "author": "Batyr <say_hi@batyr.io>",
