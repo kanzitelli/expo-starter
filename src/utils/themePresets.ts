@@ -1,4 +1,5 @@
 import { Theme } from '@emotion/react';
+import { StatusBarStyle } from 'expo-status-bar';
 
 declare module '@emotion/react' {
   export interface Theme {
@@ -30,4 +31,8 @@ export const getTheme = (mode: ThemeMode): Theme => {
   return {
     colors: themePresets[mode],
   }
+}
+
+export const getStatusBarStyle = (mode: ThemeMode): StatusBarStyle => {
+  return mode === 'dark' ? 'light' : 'dark';
 }

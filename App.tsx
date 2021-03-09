@@ -8,7 +8,7 @@ import { ThemeProvider } from '@emotion/react';
 import { AppStack } from './src/app';
 import { StoresProvider, useStores } from './src/stores';
 import { initServices, ServicesProvider } from './src/services';
-import { getTheme } from './src/utils/themePresets';
+import { getStatusBarStyle, getTheme } from './src/utils/themePresets';
 
 enableScreens();
 initServices();
@@ -35,7 +35,7 @@ export default () => {
       <Observer>
         {() => (
           <ThemeProvider theme={getTheme(ui.themeMode)}>
-            <StatusBar style={ui.themeMode === 'dark' ? 'light' : 'dark'} />
+            <StatusBar style={getStatusBarStyle(ui.themeMode)} />
             <AppStack authed={G.isAuthed} themeMode={ui.themeMode} />
           </ThemeProvider>
         )}
