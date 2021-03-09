@@ -36,7 +36,7 @@ interface IService {
   init: () => Promise<void>;
 }
 
-// THEMMY
+// THEME
 type ThemeColors = {
   text: string;       // Body foreground color
   background: string; // Body background color
