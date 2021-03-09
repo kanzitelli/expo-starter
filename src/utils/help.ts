@@ -15,10 +15,10 @@ export const generateShadow = (p?: GenerateShadowProps): ViewStyle =>
     };
 
 // NAVIGATION
-export const navBarStyle = (theme: Theme = 'light') => ({
+export const navBarStyle = () => ({
   headerLargeTitle: true,
-  headerStyle: {
-    backgroundColor: theme === 'light' ? 'white' : 'black',
-  },
-  headerTintColor: theme === 'light' ? 'black' : 'white',
+  // headerStyle: {
+  //   backgroundColor: theme.colors.background,
+  // },
+  // headerTintColor: theme.colors.text,
 });

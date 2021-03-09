@@ -1,14 +1,24 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
 import { StackScreenProps } from '@react-navigation/stack';
 import { observer } from 'mobx-react';
+import styled from '@emotion/native';
 
 import { useServices } from '../../services';
 import { useStores } from '../../stores';
+import useConstants from '../../utils/useConstants';
+import { ScrollContainer } from '../../components/Containers';
 
 type MainScreenProps = StackScreenProps<ScreenProps, 'Main'>;
 
+const C = useConstants();
+
+// Components
+const EmailText = styled.Text(p => ({
+  fontSize: C.sizes.l,
+  color: p.theme.colors.text,
+}));
+
+// Screen
 const MainScreen: React.FC<MainScreenProps> = observer(({
   navigation,
   route,
@@ -18,31 +28,12 @@ const MainScreen: React.FC<MainScreenProps> = observer(({
   const {} = useServices();
 
   return (
-    <View style={S.container}>
-      <ScrollView
-        style={S.scrollview}
-        contentContainerStyle={S.scrollviewContent}
-        contentInsetAdjustmentBehavior={'automatic'}
-      >
-        <Text>Email: {G.email}</Text>
-      </ScrollView>
-    </View>
+    <ScrollContainer>
+      <EmailText>
+        Email: {G.email}
+      </EmailText>
+    </ScrollContainer>
   )
-});
-
-const S = StyleSheet.create({
-  container: {
-    flex: 1
-  },
-  scrollview: {
-    flex: 1,
-  },
-  scrollviewContent: {
-    flex: 1,
-    padding: 16,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
 });
 
 export default MainScreen;

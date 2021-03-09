@@ -1,6 +1,9 @@
 import React from 'react';
-import { View, Text, StyleSheet, ViewStyle, TextStyle } from 'react-native';
+import { ViewStyle, TextStyle } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import styled from '@emotion/native';
+import { useTheme } from '@emotion/react';
+
 import { generateShadow } from '../utils/help';
 import useConstants from '../utils/useConstants';
 
@@ -17,6 +20,22 @@ type Props = {
 
 const C = useConstants();
 
+// Styled Components
+const ButtonContainer = styled.View(p => ({
+  backgroundColor: C.colors.white,
+  borderRadius: C.sizes.m,
+  marginVertical: C.sizes.xs,
+}));
+const TitleContainer = styled.View(p => ({
+  alignItems: 'center',
+  padding: C.sizes.m,
+}));
+const Title = styled.Text(p => ({
+  fontSize: 18,
+  color: C.colors.black, // TODO change
+}));
+
+// Main Component
 const Button: React.FC<Props> = ({
   title,
   onPress,
@@ -27,36 +46,24 @@ const Button: React.FC<Props> = ({
   noBg,
   noSpace,
 }) => {
+  const theme = useTheme();
+
   const shadowStyle = shadow ? generateShadow() : {};
   const bgStyle = noBg ? { backgroundColor: 'transparent' } : {};
   const noSpaceStyle = noSpace ? { margin: 0, padding: 0 } : {};
+  const titleNoBgStyle = noBg ? { color: theme.colors.text, } : {};
 
   return (
-    <View style={[S.container, shadowStyle, containerStyle, bgStyle, noSpaceStyle]}>
+    <ButtonContainer style={[shadowStyle, containerStyle, bgStyle, noSpaceStyle]}>
       <TouchableOpacity onPress={onPress}>
-        <View style={[S.button, style, noSpaceStyle]}>
-          <Text style={[S.title, textStyle]}>
+        <TitleContainer style={[style, noSpaceStyle]}>
+          <Title style={[textStyle, titleNoBgStyle]}>
             {title}
-          </Text>
-        </View>
+          </Title>
+        </TitleContainer>
       </TouchableOpacity>
-    </View>
+    </ButtonContainer>
   )
 };
-
-const S = StyleSheet.create({
-  container: {
-    backgroundColor: C.colors.white,
-    borderRadius: C.sizes.m,
-    marginVertical: C.sizes.xs,
-  },
-  button: {
-    alignItems: 'center',
-    padding: C.sizes.m,
-  },
-  title: {
-    fontSize: 18,
-  },
-});
 
 export default Button;

@@ -2,9 +2,10 @@ import { makeAutoObservable } from 'mobx';
 import { isSynchronized, persistence } from 'mobx-persist-store';
 import { storageAdapter } from './hydration';
 
-class ExampleStore {
-  c: number = 0;
-  inc = (v: number = 1) => { this.c += v; };
+class UIStore {
+  themeMode: ThemeMode = 'light';
+  setThemeMode = (v: ThemeMode) => { this.themeMode = v; }
+  toggleThemeMode = () => { this.themeMode = this.themeMode === 'dark' ? 'light' : 'dark'; }
 
   get isSynced() {
     return isSynchronized(this)
@@ -16,9 +17,9 @@ class ExampleStore {
 }
 
 export default persistence({
-  name: 'ExampleStore',
-  properties: ['c'],
+  name: 'UIStore',
+  properties: ['themeMode'],
   adapter: storageAdapter,
-})(new ExampleStore());
+})(new UIStore());
 
 // export default new ExampleStore();

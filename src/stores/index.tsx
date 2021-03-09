@@ -1,9 +1,11 @@
 import React from 'react';
 
 import GlobalStore from './global';
+import UIStore from './ui';
 
 export const stores = {
   G: GlobalStore,
+  ui: UIStore,
 };
 
 const storeContext = React.createContext(stores);

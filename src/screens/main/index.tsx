@@ -9,11 +9,10 @@ import MainScreen from './main';
 import SettingsScreen from './settings';
 
 const MainNavigator: React.FC<NavigatorProps> = ({
-  theme,
 }) => {
   const MainStack = createNativeStackNavigator();
   const Main = () => (
-    <MainStack.Navigator screenOptions={navBarStyle(theme)}>
+    <MainStack.Navigator screenOptions={navBarStyle()}>
       <MainStack.Screen
         name={'MainScreen'}
         component={MainScreen}
@@ -26,7 +25,7 @@ const MainNavigator: React.FC<NavigatorProps> = ({
 
   const SettingsStack = createNativeStackNavigator();
   const Settings = () => (
-    <SettingsStack.Navigator screenOptions={navBarStyle(theme)}>
+    <SettingsStack.Navigator screenOptions={navBarStyle()}>
       <SettingsStack.Screen
         name={'SettingsScreen'}
         component={SettingsScreen}

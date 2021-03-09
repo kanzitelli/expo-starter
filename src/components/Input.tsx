@@ -1,12 +1,11 @@
 import React from 'react';
 import {
-  View,
-  StyleSheet,
   TextInputProps,
   TextInput as RNTextInput,
   Platform
 } from 'react-native';
 import { TextInput as GHTextInput } from 'react-native-gesture-handler';
+import styled from '@emotion/native';
 
 import { generateShadow } from '../utils/help';
 import useConstants from '../utils/useConstants';
@@ -19,7 +18,19 @@ type Props = {
 }
 
 const C = useConstants();
-const TextInput = Platform.OS === 'web' ? RNTextInput : GHTextInput; 
+const TextInputOS = Platform.OS === 'web' ? RNTextInput : GHTextInput; // issue only on mobile web browsers
+
+const Container = styled.View({ padding: C.sizes.s, });
+const InputContainer = styled.View([
+  generateShadow(),
+  {
+    padding: C.sizes.s,
+    paddingVertical: C.sizes.m,
+    borderRadius: C.sizes.m,
+    backgroundColor: 'white',
+  }
+]);
+const TextInput = styled(TextInputOS)({ fontSize: 18, });
 
 const Input = ({
   placeholder,
@@ -28,31 +39,17 @@ const Input = ({
   props,
 }: Props) => {
   return (
-    <View style={S.container}>
-      <View style={[generateShadow(), S.inputContainer]}>
+    <Container>
+      <InputContainer>
         <TextInput
-          style={S.textInput}
           placeholder={placeholder}
           value={value}
           onChangeText={onChangeText}
           {...props}
         />
-      </View>
-    </View>
+      </InputContainer>
+    </Container>
   )
 }
-
-const S = StyleSheet.create({
-  container: {
-    padding: C.sizes.s,
-  },
-  inputContainer: {
-    padding: C.sizes.s,
-    paddingVertical: C.sizes.m,
-    borderRadius: C.sizes.m,
-    backgroundColor: 'white'
-  },
-  textInput: { fontSize: 18, },
-});
 
 export default Input;
