@@ -8,7 +8,7 @@ import { ThemeProvider } from '@emotion/react';
 import { AppStack } from './src/app';
 import { StoresProvider, useStores } from './src/stores';
 import { initServices, ServicesProvider } from './src/services';
-import { getTheme } from './src/utils/themmy';
+import { getTheme } from './src/utils/themePresets';
 
 enableScreens();
 initServices();

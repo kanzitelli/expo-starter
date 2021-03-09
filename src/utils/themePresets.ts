@@ -7,7 +7,7 @@ declare module '@emotion/react' {
 }
 
 // https://theme-ui.com/theme-spec/
-const presets: Presets = {
+const themePresets: ThemePresets = {
   light: {
     text: '#1e272e',
     background: 'rgb(244,244,244)',
@@ -28,6 +28,6 @@ const presets: Presets = {
 
 export const getTheme = (mode: ThemeMode): Theme => {
   return {
-    colors: presets[mode],
+    colors: themePresets[mode],
   }
 }

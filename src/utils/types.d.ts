@@ -45,7 +45,7 @@ type ThemeColors = {
   accent: string;     // A contrast color for emphasizing UI
   muted: string;      // A faint color for backgrounds, borders, and accents that do not require high contrast with the background color
 }
-type Presets = { [key: string]: ThemeColors }
+type ThemePresets = { [key: string]: ThemeColors }
 type ThemeMode = 'light' | 'dark'
 
 // API
