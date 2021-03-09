@@ -1,29 +1,24 @@
-# 🦥  minimal and convenient setup for Expo app. TypeScript + MobX + RN Web support.
+<img src="https://xxx-files.ggc.team/oss/expo-starter/cover.png" width="100%" title="Expo Starter">
 
 ## Quickstart
-Make sure you have [Expo](https://expo.io) installed on your machine.
-
 Open terminal and paste the code below
 ```
 git clone https://github.com/kanzitelli/expo-starter.git expo-app && \
 cd expo-app && \
+rm -rf .git && \
 yarn && \
-expo start
+yarn start
 ```
-
-Open Expo Go and you should see your app available in the list 🥳
-
-*Hint:* In order to clean git history, run `rm -rf .git`.
-
-*Note:* All changes regarding the app settings should be done in `app.json`.
 
 ## What's inside
 Simple tab-based app with auth flow logic: `Landing → Auth → Main (2 tabs)`.
 
-- [react-navigation](https://github.com/react-navigation/react-navigation)
-- [mobx](https://github.com/mobxjs/mobx)
-- [mobx-persist-store](https://github.com/quarrant/mobx-persist-store)
-- [typescript](https://github.com/microsoft/TypeScript)
+- [React Navigation](https://github.com/react-navigation/react-navigation) - routing and navigation for React Native apps
+- [MobX](https://github.com/mobxjs/mobx) - simple, scalable state management, with [mobx-persist-store](https://github.com/quarrant/mobx-persist-store) for persisting your stores
+- [Emotion](https://github.com/emotion-js/emotion) - for styling components
+
+#### Extra features
+- Dark Mode 🌚🌝 - achieved with [React Navigation](https://reactnavigation.org/docs/themes/) + [Emotion](https://emotion.sh/docs/theming) theming
 
 ## Try it
 - App - [Expo](https://expo.io/@kanzitelli/projects/expo-starter)
