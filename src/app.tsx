@@ -7,10 +7,13 @@ import {
 import { useTheme } from '@emotion/react';
 import { If } from '@kanzitelli/if-component';
 
+import { useServices } from './services';
+
 import MainNavigator from './screens/main';
 import LandingNavigator from './screens/landing';
 
 export const AppStack: React.FC<AppStackProps> = ({ authed, themeMode }) => {
+  const { nav } = useServices();
   const EmotionTheme = useTheme();
 
   // https://reactnavigation.org/docs/themes
@@ -25,7 +28,12 @@ export const AppStack: React.FC<AppStackProps> = ({ authed, themeMode }) => {
   };
 
   return (
-    <NavigationContainer theme={MyTheme}>
+    <NavigationContainer
+      ref={nav.n}
+      onReady={nav.onReady}
+      onStateChange={nav.onStateChange}
+      theme={MyTheme}
+    >
       <If _={authed}
       _then={<MainNavigator />}
       _else={<LandingNavigator />} />

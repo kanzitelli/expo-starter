@@ -88,7 +88,7 @@ const AuthScreen: React.FC<AuthScreenProps> = observer(({
     navigation.setOptions({
       headerRight: () => (
         <Button noBg noSpace
-          title='Close'
+          title={t.do('buttons.close')}
           onPress={navigation.popToTop}
           containerStyle={Platform.OS === 'web' ? { marginRight: C.sizes.l } : {}}
         />
