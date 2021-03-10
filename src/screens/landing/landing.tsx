@@ -30,10 +30,10 @@ const LandingScreen: React.FC<LandingScreenProps> = observer(({
 }) => {
   // const { param } = route.params;
   const { ui } = useStores();
-  const { t } = useServices();
+  const { t, nav } = useServices();
 
-  const openAuth = (am: AuthMethod) => () => /// @ts-ignore
-    navigation.navigate('Auth', { screen: 'AuthScreen', params: { method: am } });
+  const openAuth = (am: AuthMethod) => () =>
+    nav.toAuth({ screen: 'AuthScreen', params: { method: am } });
 
   return (
     <ScrollContainer>

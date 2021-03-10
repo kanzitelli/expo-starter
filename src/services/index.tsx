@@ -2,9 +2,11 @@ import React from 'react';
 
 import AuthService from './auth';
 import TranslateService from './translate';
+import NavService from './nav';
 
 export const services = {
   t: TranslateService,
+  nav: NavService,
   auth: AuthService,
 };
 
