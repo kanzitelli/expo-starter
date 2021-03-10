@@ -2,7 +2,9 @@
   "buttons": {
     "signUp": "Sign Up",
     "logIn": "Login",
-    "toggleTheme": "Toggle Theme"
+    "logOut": "Logout",
+    "toggleTheme": "Toggle Theme",
+    "github": "Github"
   },
 
   "landing": {
@@ -20,6 +22,14 @@
       "email": "Email",
       "password": "Password"
     }
+  },
+
+  "main": {
+    "title": "Main"
+  },
+
+  "settings": {
+    "title": "Settings"
   },
 
   "example": {

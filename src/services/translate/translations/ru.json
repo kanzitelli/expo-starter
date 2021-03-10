@@ -2,6 +2,7 @@
   "buttons": {
     "signUp": "Регистрация",
     "logIn": "Логин",
+    "logOut": "Выйти",
     "toggleTheme": "Поменять тему"
   },
 
@@ -20,5 +21,18 @@
       "email": "Email",
       "password": "Пароль"
     }
+  },
+
+  "main": {
+    "title": "Главная"
+  },
+
+  "settings": {
+    "title": "Настройки"
+  },
+
+  "example": {
+    "title": "Пример",
+    "text": "Пример Текст"
   }
 }

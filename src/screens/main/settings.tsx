@@ -26,7 +26,7 @@ const SettingsScreen: React.FC<SettingsScreenProps> = observer(({
 }) => {
   // const { param } = route.params;
   const { ui } = useStores();
-  const { auth } = useServices();
+  const { auth, t } = useServices();
 
   const _openGithub = () =>
     Linking.openURL(C.links.github);
@@ -34,17 +34,17 @@ const SettingsScreen: React.FC<SettingsScreenProps> = observer(({
   return (
     <ScrollContainer>
       <Button noBg
-        title='Toggle theme'
+        title={t.do('buttons.toggleTheme')}
         onPress={ui.toggleThemeMode}
       />
 
       <Button noBg
-        title='Github'
+        title={t.do('buttons.github')}
         onPress={_openGithub}
       />
 
       <Button shadow
-        title='Logout'
+        title={t.do('buttons.logOut')}
         onPress={auth.logOut}
       />
     </ScrollContainer>
