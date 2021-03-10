@@ -20,5 +20,10 @@
       "email": "Email",
       "password": "Password"
     }
+  },
+
+  "example": {
+    "title": "Example",
+    "text": "Example Text"
   }
 }
