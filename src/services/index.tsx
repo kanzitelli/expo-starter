@@ -1,8 +1,10 @@
 import React from 'react';
 
 import AuthService from './auth';
+import TranslateService from './translate';
 
 export const services = {
+  t: TranslateService,
   auth: AuthService,
 };
 
