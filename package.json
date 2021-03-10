@@ -26,8 +26,10 @@
     "@react-navigation/native": "^5.9.3",
     "@react-navigation/stack": "^5.14.3",
     "expo": "~40.0.0",
+    "expo-localization": "~9.1.0",
     "expo-status-bar": "~1.0.3",
     "formik": "^2.2.6",
+    "i18n-js": "^3.8.0",
     "mobx": "^6.1.7",
     "mobx-persist-store": "^0.5.19",
     "mobx-react": "^7.1.0",
@@ -42,6 +44,7 @@
   },
   "devDependencies": {
     "@babel/core": "~7.9.0",
+    "@types/i18n-js": "^3.8.0",
     "@types/react": "~16.9.35",
     "@types/react-dom": "~16.9.8",
     "@types/react-native": "~0.63.2",
