@@ -2,12 +2,15 @@ import React from 'react';
 import { createNativeStackNavigator } from 'react-native-screens/native-stack';
 
 import { navBarStyle } from '../../utils/help';
+import { useServices } from '../../services';
 
 import AuthNavigator from '../auth';
 import LandingScreen from './landing';
 
 const LandingNavigator: React.FC<NavigatorProps> = ({
 }) => {
+  const { t } = useServices();
+
   const Stack = createNativeStackNavigator();
 
   return (
@@ -16,7 +19,7 @@ const LandingNavigator: React.FC<NavigatorProps> = ({
         name={'Landing'}
         component={LandingScreen}
         options={{
-          title: 'Landing',
+          title: t.do('landing.title'),
         }}
       />
       <Stack.Screen
