@@ -25,7 +25,7 @@ const ExampleScreen: React.FC<ExampleScreenProps> = observer(({
 }) => {
   // const { param } = route.params;
   const { G } = useStores();
-  const {} = useServices();
+  const { t } = useServices();
 
   useEffect(() => { start() }, []);
 
@@ -34,7 +34,7 @@ const ExampleScreen: React.FC<ExampleScreenProps> = observer(({
   return (
     <ScrollContainer>
       <ExampleText>
-        Example
+        { t.do('example.text') }
       </ExampleText>
     </ScrollContainer>
   )

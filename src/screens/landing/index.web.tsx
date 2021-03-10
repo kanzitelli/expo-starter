@@ -1,11 +1,15 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
+import { useServices } from '../../services';
+
 import AuthNavigator from '../auth';
 import LandingScreen from './landing';
 
 const LandingNavigator: React.FC<NavigatorProps> = ({
 }) => {
+  const { t } = useServices();
+
   const Stack = createStackNavigator();
 
   return (
@@ -14,7 +18,7 @@ const LandingNavigator: React.FC<NavigatorProps> = ({
         name={'Landing'}
         component={LandingScreen}
         options={{
-          title: 'Landing',
+          title: t.do('landing.title'),
         }}
       />
       <Stack.Screen

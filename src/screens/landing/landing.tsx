@@ -30,7 +30,7 @@ const LandingScreen: React.FC<LandingScreenProps> = observer(({
 }) => {
   // const { param } = route.params;
   const { ui } = useStores();
-  const {} = useServices();
+  const { t } = useServices();
 
   const openAuth = (am: AuthMethod) => () => /// @ts-ignore
     navigation.navigate('Auth', { screen: 'AuthScreen', params: { method: am } });
@@ -38,21 +38,21 @@ const LandingScreen: React.FC<LandingScreenProps> = observer(({
   return (
     <ScrollContainer>
       <HeaderText>
-        {'Welcome to\nexpo-starter\n🦥'}
+        {t.do('landing.welcome')}
       </HeaderText>
 
       <ButtonsContainer>
         <Button shadow
-          title='Sign Up'
+          title={t.do('buttons.signUp')}
           onPress={openAuth('signup')}
         />
         <Button noBg
-          title='Login'
+          title={t.do('buttons.logIn')}
           onPress={openAuth('login')}
         />
 
         <Button noBg
-          title='Toggle theme'
+          title={t.do('buttons.toggleTheme')}
           onPress={ui.toggleThemeMode}
         />
       </ButtonsContainer>

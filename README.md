@@ -18,7 +18,8 @@ Simple tab-based app with auth flow logic: `Landing → Auth → Main (2 tabs)`.
 - [Emotion](https://github.com/emotion-js/emotion) - for styling components
 
 #### Extra features
-- Dark Mode 🌚🌝 - achieved with [React Navigation](https://reactnavigation.org/docs/themes/) + [Emotion](https://emotion.sh/docs/theming) theming
+- Dark Mode 🌚🌝 - achieved with [react-navigation](https://reactnavigation.org/docs/themes/) & [emotion](https://emotion.sh/docs/theming) theming
+- Localization 🌐 - achieved with [expo-localization](https://docs.expo.io/versions/latest/sdk/localization/) & [i18n-js](https://github.com/fnando/i18n-js)
 
 ## Try it
 - App - [Expo](https://expo.io/@kanzitelli/projects/expo-starter)

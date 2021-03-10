@@ -3,11 +3,15 @@ import React from 'react';
 import { Ionicons } from '@expo/vector-icons';
 import { createStackNavigator } from '@react-navigation/stack';
 
+import { useServices } from '../../services';
+
 import MainScreen from './main';
 import SettingsScreen from './settings';
 
 const MainNavigator: React.FC<NavigatorProps> = ({
 }) => {
+  const { t } = useServices();
+
   const MainStack = createStackNavigator();
   const Main = () => (
     <MainStack.Navigator>
@@ -15,7 +19,7 @@ const MainNavigator: React.FC<NavigatorProps> = ({
         name={'MainScreen'}
         component={MainScreen}
         options={{
-          title: 'Main',
+          title: t.do('main.title'),
         }}
       />
     </MainStack.Navigator>
@@ -28,7 +32,7 @@ const MainNavigator: React.FC<NavigatorProps> = ({
         name={'SettingsScreen'}
         component={SettingsScreen}
         options={{
-          title: 'Settings',
+          title: t.do('settings.title'),
         }}
       />
     </SettingsStack.Navigator>
@@ -59,12 +63,12 @@ const MainNavigator: React.FC<NavigatorProps> = ({
       <Tab.Screen
         name={'Main'}
         component={Main}
-        options={{ title: 'Main' }}
+        options={{ title: t.do('main.title') }}
       />
       <Tab.Screen
         name={'Settings'}
         component={Settings}
-        options={{ title: 'Settings' }}
+        options={{ title: t.do('settings.title') }}
       />
     </Tab.Navigator>
   )

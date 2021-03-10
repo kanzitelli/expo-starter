@@ -1,0 +1,39 @@
+{
+  "buttons": {
+    "signUp": "Sign Up",
+    "logIn": "Login",
+    "logOut": "Logout",
+    "toggleTheme": "Toggle Theme",
+    "github": "Github"
+  },
+
+  "landing": {
+    "title": "Landing",
+    "welcome": "Welcome to\nexpo-starter\n🦥"
+  },
+
+  "auth": {
+    "info": {
+      "logIn": "Don't have an account?",
+      "signUp": "Already have an account?",
+      "alert": "Please enter some data"
+    },
+    "placeholder": {
+      "email": "Email",
+      "password": "Password"
+    }
+  },
+
+  "main": {
+    "title": "Main"
+  },
+
+  "settings": {
+    "title": "Settings"
+  },
+
+  "example": {
+    "title": "Example",
+    "text": "Example Text"
+  }
+}
