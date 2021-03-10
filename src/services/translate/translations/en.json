@@ -1,11 +1,24 @@
 {
+  "buttons": {
+    "signUp": "Sign Up",
+    "logIn": "Login",
+    "toggleTheme": "Toggle Theme"
+  },
+
   "landing": {
     "title": "Landing",
-    "welcome": "Welcome to\nexpo-starter\n🦥",
-    "buttons": {
-      "signUp": "Sign Up",
-      "logIn": "Login",
-      "toggleTheme": "Toggle Theme"
+    "welcome": "Welcome to\nexpo-starter\n🦥"
+  },
+
+  "auth": {
+    "info": {
+      "logIn": "Don't have an account?",
+      "signUp": "Already have an account?",
+      "alert": "Please enter some data"
+    },
+    "placeholder": {
+      "email": "Email",
+      "password": "Password"
     }
   }
 }

@@ -36,7 +36,7 @@ const AuthScreen: React.FC<AuthScreenProps> = observer(({
 }) => {
   const { method } = route.params;
   const { G } = useStores();
-  const { auth } = useServices();
+  const { auth, t } = useServices();
 
   const state = useLocalObservable(() => ({
     loading: false,
@@ -44,10 +44,10 @@ const AuthScreen: React.FC<AuthScreenProps> = observer(({
 
     method: method,
     setMethod(v: AuthMethod) { this.method = v; },
-    toggleMethod() { this.method = this.method === 'login' ? 'signup' : 'login'; _updateNavOptions() },
-    actionButtonText() { return this.method === 'login' ? 'Login' : 'Sign Up' },
-    toggleButtonText() { return this.method === 'login' ? 'Sign Up' : 'Login' },
-    infoText() { return this.method === 'login' ? 'Don\'t have an account?' : 'Already have an account?' }
+    toggleMethod()     { this.method = this.method === 'login' ? 'signup' : 'login'; _updateNavOptions() },
+    actionButtonText() { return this.method === 'login' ? t.do('buttons.logIn')   : t.do('buttons.signUp') },
+    toggleButtonText() { return this.method === 'login' ? t.do('buttons.signUp')  : t.do('buttons.logIn') },
+    infoText()         { return this.method === 'login' ? t.do('auth.info.logIn') : t.do('auth.info.signUp') }
   }));
 
   const form = useFormik({
@@ -59,7 +59,7 @@ const AuthScreen: React.FC<AuthScreenProps> = observer(({
       const { email, password } = values;
 
       if (!email || !password) {
-        alert('Please enter some data');
+        alert(t.do('auth.info.alert'));
         return;
       }
 
@@ -109,7 +109,7 @@ const AuthScreen: React.FC<AuthScreenProps> = observer(({
     <ScrollContainer>
       <ContentContainer>
         <Input
-          placeholder='Email'
+          placeholder={t.do('auth.placeholder.email')}
           value={form.values.email}
           onChangeText={form.handleChange('email')}
           props={{
@@ -118,7 +118,7 @@ const AuthScreen: React.FC<AuthScreenProps> = observer(({
           }}
         />
         <Input
-          placeholder='Password'
+          placeholder={t.do('auth.placeholder.password')}
           value={form.values.password}
           onChangeText={form.handleChange('password')}
           props={{
