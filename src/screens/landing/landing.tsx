@@ -43,16 +43,16 @@ const LandingScreen: React.FC<LandingScreenProps> = observer(({
 
       <ButtonsContainer>
         <Button shadow
-          title={t.do('landing.buttons.signUp')}
+          title={t.do('buttons.signUp')}
           onPress={openAuth('signup')}
         />
         <Button noBg
-          title={t.do('landing.buttons.logIn')}
+          title={t.do('buttons.logIn')}
           onPress={openAuth('login')}
         />
 
         <Button noBg
-          title={t.do('landing.buttons.toggleTheme')}
+          title={t.do('buttons.toggleTheme')}
           onPress={ui.toggleThemeMode}
         />
       </ButtonsContainer>
