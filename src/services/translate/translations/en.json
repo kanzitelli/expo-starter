@@ -1,0 +1,11 @@
+{
+  "landing": {
+    "title": "Landing",
+    "welcome": "Welcome to\nexpo-starter\n🦥",
+    "buttons": {
+      "signUp": "Sign Up",
+      "logIn": "Login",
+      "toggleTheme": "Toggle Theme"
+    }
+  }
+}
