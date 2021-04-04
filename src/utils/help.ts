@@ -17,6 +17,7 @@ export const generateShadow = (p?: GenerateShadowProps): ViewStyle =>
 // NAVIGATION
 export const navBarStyle = () => ({
   headerLargeTitle: true,
+  headerTranslucent: true,
   // headerStyle: {
   //   backgroundColor: theme.colors.background,
   // },
