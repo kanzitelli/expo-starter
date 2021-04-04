@@ -23,7 +23,7 @@ Simple tab-based app with auth flow logic: `Landing → Auth → Main (2 tabs)`.
 
 ## Try it
 - App - [Expo](https://expo.io/@kanzitelli/projects/expo-starter)
-- Web - [app.expo.batyr.io](https://app.expo.batyr.io)
+- Web - [expo-starter.batyr.io](https://expo-starter.batyr.io)
 - QR Code
 <img src="https://xxx-files.ggc.team/oss/expo-starter/qr_code.png" width="30%" title="QR">
 
