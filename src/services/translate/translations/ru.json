@@ -4,7 +4,8 @@
     "logIn": "Логин",
     "logOut": "Выйти",
     "toggleTheme": "Поменять тему",
-    "close": "Закрыть"
+    "close": "Закрыть",
+    "fakeLogIn": "Фейковый Логин"
   },
 
   "landing": {

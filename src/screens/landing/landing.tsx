@@ -30,10 +30,15 @@ const LandingScreen: React.FC<LandingScreenProps> = observer(({
 }) => {
   // const { param } = route.params;
   const { ui } = useStores();
-  const { t, nav } = useServices();
+  const { t, nav, auth } = useServices();
 
   const openAuth = (am: AuthMethod) => () =>
     nav.toAuth({ screen: 'AuthScreen', params: { method: am } });
+
+  const makeFakeAuth = () => auth.logIn({
+    email: 'fake@account.com',
+    password: 'fakeacc'
+  });
 
   return (
     <ScrollContainer>
@@ -49,6 +54,10 @@ const LandingScreen: React.FC<LandingScreenProps> = observer(({
         <Button noBg
           title={t.do('buttons.logIn')}
           onPress={openAuth('login')}
+        />
+        <Button noBg
+          title={t.do('buttons.fakeLogIn')}
+          onPress={makeFakeAuth}
         />
 
         <Button noBg

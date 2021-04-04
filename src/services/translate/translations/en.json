@@ -5,7 +5,8 @@
     "logOut": "Logout",
     "toggleTheme": "Toggle Theme",
     "close": "Close",
-    "github": "Github"
+    "github": "Github",
+    "fakeLogIn": "Fake Login"
   },
 
   "landing": {
