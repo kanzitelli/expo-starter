@@ -2,9 +2,10 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import styled from '@emotion/native';
+import { useTheme } from '@emotion/react';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 import useConstants from '../utils/useConstants';
-import { useTheme } from '@emotion/react';
 
 type ContainerProps = {
   row?: boolean;
@@ -41,5 +42,10 @@ export const ScrollContainer = ({ children }: any) => {
 }
 
 export const Container = styled(ViewFlex1)<ContainerProps>(p => ({
+  flexDirection: p.row ? 'row' : 'column',
+}));
+
+export const SafeContainer = styled(SafeAreaView)<ContainerProps>(p => ({
+  flex: 1,
   flexDirection: p.row ? 'row' : 'column',
 }));
