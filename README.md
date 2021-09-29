@@ -7,12 +7,12 @@ For more information, check out [Why](#why) section.
 #### Quick start with [cli-rn](https://github.com/kanzitelli/cli-rn)
 
 ```bash
-> npx cli-rn new AppName -t expo
+> npx cli-rn new App -t expo
 ```
 
 If you encounter any problems with `cli-rn`, please open an issue [here](https://github.com/kanzitelli/cli-rn/issues).
 
-In order to rename the app, please open `app.json` file and make necessary changes.
+In order to rename the app, please make necessary changes in `app.json`.
 
 <details>
 <summary>Manual setup</summary>
@@ -20,7 +20,7 @@ In order to rename the app, please open `app.json` file and make necessary chang
 1. Clone the repo
 
 ```bash
-> git clone https://github.com/kanzitelli/expo-starter.git AppName && cd AppName
+> git clone https://github.com/kanzitelli/expo-starter.git App && cd App
 ```
 
 2. Remove `.git` file (if not planning to contribute)
@@ -32,7 +32,7 @@ In order to rename the app, please open `app.json` file and make necessary chang
 3. Install packages
 
 ```bash
-> yarn && yarn start
+> yarn
 ```
 
 4. Run it!
@@ -40,6 +40,8 @@ In order to rename the app, please open `app.json` file and make necessary chang
 ```bash
 > yarn start
 ```
+
+Scan the QR code and open it in the Expo Go app.
 
 </details>
 
@@ -171,7 +173,6 @@ Feel free to open an issue for suggestions.
 ## Why
 
 ...do we need yet another starter/boilerplate? Well, I work with React Native for more than 3 years and during the time I started having my own project structure which was a good fit for almost all of the delivered apps. Also, I have come up with some custom [useful services/methods](#useful-servicesmethods) which simplify usage of [React Navigation](https://github.com/react-navigation/react-navigation) and other libraries. Check out [Advantages](#advantages) section.
-
 
 ## License
 
