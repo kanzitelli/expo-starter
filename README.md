@@ -9,7 +9,7 @@ For more information, check out [Why](#why) section.
 #### Quick start with [cli-rn](https://github.com/kanzitelli/cli-rn)
 
 ```bash
-> npx cli-rn new App -t expo
+> npx cli-rn new App
 ```
 
 In order to change app's name, please make necessary changes in `app.json`.
