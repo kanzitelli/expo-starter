@@ -1,3 +1,5 @@
+https://user-images.githubusercontent.com/4402166/135329411-adb90a0a-c884-4bbb-9f62-33e9adbd3123.MP4
+
 This starter is a collection of libraries and approaches from my personal experience. No hard judgements ✌️
 
 For more information, check out [Why](#why) section.
@@ -11,6 +13,8 @@ For more information, check out [Why](#why) section.
 ```
 
 In order to change app's name, please make necessary changes in `app.json`.
+
+Try it out w/ Expo Go - https://expo.dev/@kanzitelli/expo-starter.
 
 <details>
 <summary>Manual setup</summary>
