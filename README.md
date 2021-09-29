@@ -12,7 +12,10 @@ For more information, check out [Why](#why) section.
 
 If you encounter any problems with `cli-rn`, please open an issue [here](https://github.com/kanzitelli/cli-rn/issues).
 
-#### Manual setup
+In order to rename the app, please open `app.json` file and make necessary changes.
+
+<details>
+<summary>Manual setup</summary>
 
 1. Clone the repo
 
@@ -26,22 +29,19 @@ If you encounter any problems with `cli-rn`, please open an issue [here](https:/
 > rm -rf .git
 ```
 
-3. Install packages and pods
+3. Install packages
 
 ```bash
-> yarn && yarn ios:pods
+> yarn && yarn start
 ```
 
 4. Run it!
 
-Open XCode or Android Studio to run the project (recommended) or do
-
 ```bash
-> yarn ios
-> yarn android
+> yarn start
 ```
 
-In order to rename the app, please open `app.json` file and make necessary changes.
+</details>
 
 ## What's inside
 
