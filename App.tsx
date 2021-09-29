@@ -1,45 +1,28 @@
-import React, { useEffect, useState } from 'react';
-import { StatusBar } from 'expo-status-bar';
-import { enableScreens } from 'react-native-screens';
-import { reaction } from 'mobx';
-import { Observer } from 'mobx-react';
-import { ThemeProvider } from '@emotion/react';
+import React, {useCallback, useEffect, useState} from 'react';
 
-import { AppStack } from './src/app';
-import { StoresProvider, useStores } from './src/stores';
-import { initServices, ServicesProvider } from './src/services';
-import { getStatusBarStyle, getTheme } from './src/utils/themePresets';
+import {AppNavigator} from './src/app';
+import {configureDesignSystem} from './src/utils/designSystem';
+import {hydrateStores, StoresProvider} from './src/stores';
+import {initServices} from './src/services';
 
-enableScreens();
-initServices();
-
-export default () => {
-  const { G, ui } = useStores();
+export default (): JSX.Element => {
   const [ready, setReady] = useState(false);
 
-  useEffect(() => { start() }, []);
+  const startApp = useCallback(async () => {
+    await hydrateStores();
+    await initServices();
+    configureDesignSystem();
 
-  const start = async () => {
-    if (G.isSynced) startApp();
-    reaction(() => G.isSynced === true, startApp);
-  }
-
-  const startApp = () => {
     setReady(true);
-  }
+  }, []);
 
-  if (!ready) return null;
+  useEffect(() => {
+    startApp();
+  }, [startApp]);
 
   return (
-    <StoresProvider><ServicesProvider>
-      <Observer>
-        {() => (
-          <ThemeProvider theme={getTheme(ui.themeMode)}>
-            <StatusBar style={getStatusBarStyle(ui.themeMode)} />
-            <AppStack authed={G.isAuthed} themeMode={ui.themeMode} />
-          </ThemeProvider>
-        )}
-      </Observer>
-    </ServicesProvider></StoresProvider>
+    <StoresProvider>
+      <StoresProvider>{ready ? <AppNavigator /> : null}</StoresProvider>
+    </StoresProvider>
   );
-}
+};
