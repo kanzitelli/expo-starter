@@ -10,9 +10,7 @@ For more information, check out [Why](#why) section.
 > npx cli-rn new App -t expo
 ```
 
-If you encounter any problems with `cli-rn`, please open an issue [here](https://github.com/kanzitelli/cli-rn/issues).
-
-In order to rename the app, please make necessary changes in `app.json`.
+In order to change app's name, please make necessary changes in `app.json`.
 
 <details>
 <summary>Manual setup</summary>
