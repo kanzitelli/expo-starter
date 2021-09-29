@@ -41,8 +41,6 @@ In order to rename the app, please make necessary changes in `app.json`.
 > yarn start
 ```
 
-Scan the QR code and open it in the Expo Go app.
-
 </details>
 
 ## What's inside
