@@ -1,42 +1,26 @@
 import React from 'react';
-import {
-  NavigationContainer,
-  DefaultTheme,
-  DarkTheme,
-} from '@react-navigation/native';
-import { useTheme } from '@emotion/react';
-import { If } from '@kanzitelli/if-component';
+import {StatusBar, useColorScheme} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
 
-import { useServices } from './services';
+import {RootNavigator} from './screens';
+import {getNavigationTheme, getThemeStatusBarStyle} from './utils/designSystem';
+import {useServices} from './services';
 
-import MainNavigator from './screens/main';
-import LandingNavigator from './screens/landing';
-
-export const AppStack: React.FC<AppStackProps> = ({ authed, themeMode }) => {
-  const { nav } = useServices();
-  const EmotionTheme = useTheme();
-
-  // https://reactnavigation.org/docs/themes
-  // https://emotion.sh/docs/theming
-  const CurrentTheme = themeMode === 'dark' ? DarkTheme : DefaultTheme;
-  const MyTheme = {
-    ...CurrentTheme,
-    colors: {
-      ...CurrentTheme.colors,
-      ...EmotionTheme.colors,
-    },
-  };
+export const AppNavigator = (): JSX.Element => {
+  useColorScheme();
+  const {nav} = useServices();
 
   return (
-    <NavigationContainer
-      ref={nav.n}
-      onReady={nav.onReady}
-      onStateChange={nav.onStateChange}
-      theme={MyTheme}
-    >
-      <If _={authed}
-      _then={<MainNavigator />}
-      _else={<LandingNavigator />} />
-    </NavigationContainer>
-  )
+    <>
+      <StatusBar barStyle={getThemeStatusBarStyle()} />
+      <NavigationContainer
+        ref={nav.n}
+        onReady={nav.onReady}
+        onStateChange={nav.onStateChange}
+        theme={getNavigationTheme()}
+      >
+        <RootNavigator />
+      </NavigationContainer>
+    </>
+  );
 };

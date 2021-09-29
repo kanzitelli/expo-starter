@@ -1,31 +1,29 @@
 import React from 'react';
 
-import AuthService from './auth';
-import TranslateService from './translate';
-import NavService from './nav';
+import {OnStart} from './onStart';
+import {Nav} from './navigation';
+import {Translate} from './translate';
+import {Api} from './api';
 
 export const services = {
-  t: TranslateService,
-  nav: NavService,
-  auth: AuthService,
+  t: new Translate(), // should be first
+  nav: new Nav(),
+  onStart: new OnStart(),
+  api: new Api(),
 };
+type ContextServices = typeof services;
 
-const servicesContext = React.createContext(services);
+const servicesContext = React.createContext<ContextServices>(services);
+export const StoresProvider = ({children}: any) => (
+  <servicesContext.Provider value={services}>{children}</servicesContext.Provider>
+);
 
-export const ServicesProvider = ({ children }: any) => {
-  return (
-    <servicesContext.Provider value={services}>
-      { children }
-    </servicesContext.Provider>
-  );
-};
+export const useServices = (): ContextServices => React.useContext(servicesContext);
 
-export const useServices = () => React.useContext(servicesContext);
-
-export const initServices = async () => {
+export const initServices = async (): PVoid => {
   for (const key in services) {
     if (Object.prototype.hasOwnProperty.call(services, key)) {
-      const s = services[key];
+      const s = (services as Services)[key];
 
       if (s.init) {
         await s.init();
