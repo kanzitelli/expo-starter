@@ -46,7 +46,7 @@ In order to rename the app, please open `app.json` file and make necessary chang
 ## What's inside
 
 - [Expo SDK 42](https://github.com/expo/expo) - a set of tools and services built around React Native and native platforms.
-- [React Navigation (v6)](https://github.com/react-navigation/react-navigation) - routing and navigation for React Native apps. If you'd like to use [React Native Navigation](https://github.com/wix/react-native-navigation) by Wix, check out [rnn-starter](https://github.com/kanzitelli/rnn-starter), or for bare React Native w/ React Navigation setup, check out [rn-starter](https://github.com/kanzitelli/rnn-starter).
+- [React Navigation (v6)](https://github.com/react-navigation/react-navigation) - routing and navigation for React Native apps.
 - [RN UI lib](https://github.com/wix/react-native-ui-lib) - amazing Design System, UI toolset & components library for React Native. Dark Mode is implemented using this library.
 - [Reanimated 2](https://github.com/software-mansion/react-native-reanimated) - React Native's Animated library reimplemented.
 - [MobX](https://github.com/mobxjs/mobx) - simple, scalable state management, with [mobx-persist-store](https://github.com/quarrant/mobx-persist-store) for persisting your stores.
@@ -149,12 +149,17 @@ Feel free to open an issue for suggestions.
 
 ## Worth checking
 
+### Other starters
+
+- [rn-starter](https://github.com/kanzitelli/rn-starter) - 🦄 Production-ready starter for React Native App! Powered by cli-rn, React Navigation (v6), RN UI lib, Mobx, Reanimated 2, Dark Mode, Localization, Notifications, Permissions, and much more.
+- [rnn-starter](https://github.com/kanzitelli/rnn-starter) - 🤹 Production-ready starter for React Native App! Powered by cli-rn, React Native Navigation, RN UI lib, Mobx, Reanimated 2, Dark Mode, Localization, Notifications, Permissions, and much more.
+
 ### Articles
 
 - Expo + React Native Navigation? Yes! - [Medium](https://kanzitelli.medium.com/expo-react-native-navigation-yes-ebda0cbfa4b1), [Dev.to](https://dev.to/kanzitelli/expo-react-native-navigation-1pll)
 - cli-rn — making RN app developing experience as smooth as possible - [Medium](https://kanzitelli.medium.com/cli-rn-making-rn-app-developing-experience-as-smooth-as-possible-1022aae3a0d3), [Dev.to](https://dev.to/kanzitelli/cli-rn-making-rn-app-developing-experience-as-smooth-as-possible-4e98)
 
-### Apps in production (bootstrapped from [rnn-starter](https://github.com/kanzitelli/rnn-starter))
+### Apps in production
 
 - Wallpapers App - [Twitter](https://twitter.com/kanzitelli/status/1408192827155177472?s=20), App Store soon
 - Rabbit App. Lite Reddit client - [Github](https://github.com/kanzitelli/rabbit-app), [App Store](https://apps.apple.com/ru/app/rabbit-app-lite-reddit-client/id1535084154), [Google Play](https://play.google.com/store/apps/details?id=io.batyr.rabbitapp)
@@ -166,7 +171,7 @@ Feel free to open an issue for suggestions.
 ## Why
 
 ...do we need yet another starter/boilerplate? Well, I work with React Native for more than 3 years and during the time I started having my own project structure which was a good fit for almost all of the delivered apps. Also, I have come up with some custom [useful services/methods](#useful-servicesmethods) which simplify usage of [React Navigation](https://github.com/react-navigation/react-navigation) and other libraries. Check out [Advantages](#advantages) section.
-If you'd like to use [React Native Navigation](https://github.com/wix/react-native-navigation) by Wix, check out [rnn-starter](https://github.com/kanzitelli/rnn-starter).
+
 
 ## License
 
