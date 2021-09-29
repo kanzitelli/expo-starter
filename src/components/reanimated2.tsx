@@ -9,7 +9,7 @@ type Reanimated2Props = {
 };
 
 export const Reanimated2: React.FC<Reanimated2Props> = ({stID}: Reanimated2Props) => {
-  const offset = useSharedValue(0); 
+  const offset = useSharedValue(0);
 
   const animatedStyles = useAnimatedStyle(() => ({
     transform: [{translateX: offset.value * 250 - 100}],

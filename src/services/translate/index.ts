@@ -21,7 +21,7 @@ export class Translate implements IService {
     const {ui} = stores;
     const lng = Localization.locale;
 
-    i18n.translations = { en, ru };
+    i18n.translations = {en, ru};
     i18n.fallbacks = true;
     if (ui.isSystemLanguage) {
       i18n.locale = lng;

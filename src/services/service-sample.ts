@@ -8,8 +8,4 @@ export class ExampleService implements IService {
       this.inited = true;
     }
   };
-
-
-
-  
 }

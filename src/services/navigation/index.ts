@@ -1,7 +1,6 @@
 import React from 'react';
 import {reloadAsync} from 'expo-updates';
 
-
 import {ModalProps, ScreenProps} from '../../screens';
 import {CommonActions, NavigationContainerRef, StackActions} from '@react-navigation/native';
 

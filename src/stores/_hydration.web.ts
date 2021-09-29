@@ -8,11 +8,11 @@ configurePersistable({
       await localStorage.setItem(key, value);
       return Promise.resolve();
     },
-    getItem: async (key) => {
+    getItem: async key => {
       const value = await localStorage.getItem(key);
       return Promise.resolve(value);
     },
-    removeItem: async (key) => {
+    removeItem: async key => {
       await localStorage.removeItem(key);
       return Promise.resolve();
     },

@@ -24,11 +24,11 @@ configurePersistable({
       await AsyncStorage.setItem(key, value);
       return Promise.resolve();
     },
-    getItem: async (key) => {
+    getItem: async key => {
       const value = await AsyncStorage.getItem(key);
       return Promise.resolve(value);
     },
-    removeItem: async (key) => {
+    removeItem: async key => {
       await AsyncStorage.removeItem(key);
       return Promise.resolve();
     },

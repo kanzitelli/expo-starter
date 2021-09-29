@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Text, Colors} from 'react-native-ui-lib';
-import { Ionicons } from '@expo/vector-icons';
+import {Ionicons} from '@expo/vector-icons';
 import {Bounceable} from 'rn-bounceable';
 
 type ActionProps = {
