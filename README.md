@@ -77,8 +77,7 @@ It gives us ability to build custom dev clients for iOS and Android with pre-ins
 You can find available plugins under `./plugins` folders.
 
 <details>
-<summary>Instructions for [react-native-mmkv](https://github.com/mrousavy/react-native-mmkv)</summary>
-<!-- Instructions for [react-native-mmkv](https://github.com/mrousavy/react-native-mmkv) -->
+<summary>Instructions for react-native-mmkv</summary>
 
 1. Install [react-native-mmkv](https://github.com/mrousavy/react-native-mmkv) (compatible version - 1.3.2):
 
@@ -96,7 +95,7 @@ You can find available plugins under `./plugins` folders.
 4. Run on a simulator or device
 
 ```bash
-> expo run:ios # -d - to run on device
+> expo run:ios # add -d to run on device
 > expo run:android
 ```
 
