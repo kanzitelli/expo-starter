@@ -16,3 +16,7 @@ web-build/
 *.env
 _scripts/
 .expo
+
+# will be generated after `expo run:ios` or `expo run:android`
+ios/
+android/
