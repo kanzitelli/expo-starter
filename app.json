@@ -7,6 +7,7 @@
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "automatic",
     "plugins": ["./expo-plugins/withMMKV"],
+    "jsEngine": "hermes",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
