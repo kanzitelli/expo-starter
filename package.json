@@ -51,7 +51,8 @@
     "react-native-screens": "~3.8.0",
     "react-native-ui-lib": "^6.2.0",
     "react-native-web": "0.17.1",
-    "rn-bounceable": "^0.2.0"
+    "rn-bounceable": "^0.2.0",
+    "expo-splash-screen": "~0.13.3"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
