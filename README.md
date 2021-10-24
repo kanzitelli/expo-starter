@@ -76,8 +76,7 @@ It gives us ability to build custom dev clients for iOS and Android with pre-ins
 
 You can find available plugins under `./plugins` folders.
 
-<details>
-<summary>Instructions for react-native-mmkv</summary>
+Instructions for [react-native-mmkv](https://github.com/mrousavy/react-native-mmkv):
 
 1. Install [react-native-mmkv](https://github.com/mrousavy/react-native-mmkv) (compatible version - 1.3.2):
 
@@ -99,7 +98,9 @@ You can find available plugins under `./plugins` folders.
 > expo run:android
 ```
 
-</details>
+5. Open `src/stores/_hydration.ts`, uncomment MMKV initialization code and enjoy its perfomance within Expo!
+
+You can find more information about Expo dev clients [here](https://docs.expo.dev/clients/getting-started/).
 
 #### Describe app screens in one place
 
