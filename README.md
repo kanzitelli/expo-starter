@@ -52,7 +52,7 @@ Try it out w/ Expo Go - https://expo.dev/@kanzitelli/expo-starter.
 - [RN UI lib](https://github.com/wix/react-native-ui-lib) - amazing Design System, UI toolset & components library for React Native. Dark Mode is implemented using this library.
 - [Reanimated 2](https://github.com/software-mansion/react-native-reanimated) - React Native's Animated library reimplemented.
 - [MobX](https://github.com/mobxjs/mobx) - simple, scalable state management, with [mobx-persist-store](https://github.com/quarrant/mobx-persist-store) for persisting your stores.
-- [AsyncStorage](https://github.com/react-native-async-storage/async-storage) - an asynchronous, persistent, key-value storage system.
+- ~~AsyncStorage~~ [MMKV](https://github.com/mrousavy/react-native-mmkv) - efficient, small mobile key-value storage framework developed by WeChat. [~30x faster](https://github.com/mrousavy/react-native-mmkv#benchmark) than _AsyncStorage_! Available only within Expo dev clients. Instructions on installation could be found [here](#instructions-for-react-native-mmkv).
 
 #### Extra helpful libraries
 
@@ -69,6 +69,38 @@ Try it out w/ Expo Go - https://expo.dev/@kanzitelli/expo-starter.
 - `configureDesignSystem()` - a method where all settings for an app's design system is taking place. You can customize there colors, schemes, typegraphy, spacings, etc.
 
 ## Advantages
+
+#### Ready-to-use [Expo config plugins](https://docs.expo.dev/guides/config-plugins)
+
+It gives us ability to build custom dev clients for iOS and Android with pre-installed [react-native-mmvk](https://github.com/mrousavy/react-native-mmkv) and other libraries.
+
+You can find available plugins under `./plugins` folders.
+
+##### Instructions for [react-native-mmkv](https://github.com/mrousavy/react-native-mmkv):
+
+1. Install [react-native-mmkv](https://github.com/mrousavy/react-native-mmkv) (compatible version - 1.3.2):
+
+```bash
+> yarn add react-native-mmkv@1.3.2
+```
+
+2. Add `"./plugins/withMMKV"` to `expo.plugins` in `app.json` file.
+3. Start Expo dev server with for dev client
+
+```bash
+> expo start --dev-client
+```
+
+4. Run on a simulator or device
+
+```bash
+> expo run:ios # add -d to run on device
+> expo run:android
+```
+
+5. Open `src/stores/_hydration.ts`, uncomment MMKV initialization code and enjoy its perfomance within Expo!
+
+You can find more information about Expo dev clients [here](https://docs.expo.dev/clients/getting-started/).
 
 #### Describe app screens in one place
 
