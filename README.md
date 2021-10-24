@@ -70,6 +70,38 @@ Try it out w/ Expo Go - https://expo.dev/@kanzitelli/expo-starter.
 
 ## Advantages
 
+### Ready-to-use [Expo config plugins](https://docs.expo.dev/guides/config-plugins)
+
+It gives us ability to build custom dev clients for iOS and Android with pre-installed [react-native-mmvk](https://github.com/mrousavy/react-native-mmkv) and other libraries.
+
+You can find available plugins under `./plugins` folders.
+
+<details>
+<summary>Instructions for [react-native-mmkv](https://github.com/mrousavy/react-native-mmkv)</summary>
+<!-- Instructions for [react-native-mmkv](https://github.com/mrousavy/react-native-mmkv) -->
+
+1. Install [react-native-mmkv](https://github.com/mrousavy/react-native-mmkv) (compatible version - 1.3.2):
+
+```bash
+> yarn add react-native-mmkv@1.3.2
+```
+
+2. Add `"./plugins/withMMKV"` to `expo.plugins` in `app.json` file.
+3. Start Expo dev server with for dev client
+
+```bash
+> expo start --dev-client
+```
+
+4. Run on a simulator or device
+
+```bash
+> expo run:ios # -d - to run on device
+> expo run:android
+```
+
+</details>
+
 #### Describe app screens in one place
 
 All setup for your screens takes place in one file `src/screens/index.ts`:
