@@ -1,9 +1,13 @@
+import 'expo-dev-client';
 import React, {useCallback, useEffect, useState} from 'react';
+import {LogBox} from 'react-native';
 
 import {AppNavigator} from './src/app';
 import {configureDesignSystem} from './src/utils/designSystem';
 import {hydrateStores, StoresProvider} from './src/stores';
 import {initServices} from './src/services';
+
+LogBox.ignoreLogs(['Require']);
 
 export default (): JSX.Element => {
   const [ready, setReady] = useState(false);
