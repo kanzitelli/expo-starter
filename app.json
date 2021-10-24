@@ -1,12 +1,14 @@
 {
   "expo": {
-    "name": "expo-starter",
+    "name": "Expo Starter",
     "slug": "expo-starter",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "automatic",
-    "plugins": ["./plugins/withMMKV"],
+    "plugins": [
+      "./plugins/withMMKV"
+    ],
     "jsEngine": "hermes",
     "splash": {
       "image": "./assets/splash.png",
@@ -16,15 +18,19 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "io.batyr.expo-starter"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "io.batyr.expostarter"
     },
     "web": {
       "favicon": "./assets/favicon.png"
