@@ -70,13 +70,13 @@ Try it out w/ Expo Go - https://expo.dev/@kanzitelli/expo-starter.
 
 ## Advantages
 
-### Ready-to-use [Expo config plugins](https://docs.expo.dev/guides/config-plugins)
+#### Ready-to-use [Expo config plugins](https://docs.expo.dev/guides/config-plugins)
 
 It gives us ability to build custom dev clients for iOS and Android with pre-installed [react-native-mmvk](https://github.com/mrousavy/react-native-mmkv) and other libraries.
 
 You can find available plugins under `./plugins` folders.
 
-Instructions for [react-native-mmkv](https://github.com/mrousavy/react-native-mmkv):
+##### Instructions for [react-native-mmkv](https://github.com/mrousavy/react-native-mmkv):
 
 1. Install [react-native-mmkv](https://github.com/mrousavy/react-native-mmkv) (compatible version - 1.3.2):
 
