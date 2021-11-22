@@ -1,4 +1,6 @@
-https://user-images.githubusercontent.com/4402166/135329411-adb90a0a-c884-4bbb-9f62-33e9adbd3123.MP4
+<p align="center">
+  <img src="https://xxx-files.ggc.team/oss/expo-starter/cover.png" width="80%" title="Logo">
+</p>
 
 This starter is a collection of libraries and approaches from my personal experience. No hard judgements ✌️
 
@@ -67,6 +69,8 @@ Try it out w/ Expo Go - https://expo.dev/@kanzitelli/expo-starter.
 - `translate` - a service that brings easy integration of localization for an app by using [i18n-js](https://github.com/fnando/i18n-js) and [react-native-localize](https://github.com/zoontek/react-native-localize). You can see an example of `en` and `ru` localizations in `Example` screen.
 - `onStart` - a service where you can write your own logic when app is launched. For example, you can increment number of `appLaunches` there.
 - `configureDesignSystem()` - a method where all settings for an app's design system is taking place. You can customize there colors, schemes, typegraphy, spacings, etc.
+
+https://user-images.githubusercontent.com/4402166/135329411-adb90a0a-c884-4bbb-9f62-33e9adbd3123.MP4
 
 ## Advantages
 
