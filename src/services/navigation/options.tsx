@@ -16,7 +16,9 @@ export const screenDefaultOptions = (): NativeStackNavigationOptions => ({
     ios: {
       headerLargeTitle: true,
       headerTransparent: true,
-      headerBlurEffect: getHeaderBlurEffect(),
+      headerBlurEffect: getHeaderBlurEffect(), // this sets up blurred nav bar
+      // if you'd like to have a solid color for a nav bar, then you should
+      // set up `headerStyle: {backgroundColor: Colors.bg2Color}`
     },
   }),
 });
