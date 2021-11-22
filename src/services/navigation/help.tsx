@@ -1,11 +1,9 @@
 import React from 'react';
+import {useColorScheme} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import merge from 'lodash/merge';
 
-import {screenDefaultOptions, tabBarDefaultOptions} from './options';
 import {GenStackNavigatorProps, GenTabNavigatorProps, ModalScreenInfo} from './types';
-import {useColorScheme} from 'react-native';
 
 export const genStackNavigator = (screens: GenStackNavigatorProps): JSX.Element => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -13,12 +11,7 @@ export const genStackNavigator = (screens: GenStackNavigatorProps): JSX.Element 
 
   const Stack = createNativeStackNavigator();
   const stackScreens = screens.map(it => (
-    <Stack.Screen
-      key={it.name}
-      name={it.name}
-      component={it.component}
-      options={merge(screenDefaultOptions(), it.options())}
-    />
+    <Stack.Screen key={it.name} name={it.name} component={it.component} options={it.options()} />
   ));
 
   return <Stack.Navigator>{stackScreens}</Stack.Navigator>;
@@ -33,15 +26,7 @@ export const genTabNavigator = (screens: GenTabNavigatorProps): JSX.Element => {
     <Tab.Screen key={it.name} name={it.name} component={it.component} options={it.options()} />
   ));
 
-  return (
-    <Tab.Navigator
-      screenOptions={({route}) => ({
-        ...tabBarDefaultOptions(route.name),
-      })}
-    >
-      {tabScreens}
-    </Tab.Navigator>
-  );
+  return <Tab.Navigator>{tabScreens}</Tab.Navigator>;
 };
 
 export const genRootNavigator = (app: React.FC, modals: ModalScreenInfo[]): JSX.Element => {
