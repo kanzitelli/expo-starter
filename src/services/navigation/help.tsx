@@ -8,6 +8,9 @@ import {GenStackNavigatorProps, GenTabNavigatorProps, ModalScreenInfo} from './t
 import {useColorScheme} from 'react-native';
 
 export const genStackNavigator = (screens: GenStackNavigatorProps): JSX.Element => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  useColorScheme(); // needs to be here to correctly change nav bar appearance
+
   const Stack = createNativeStackNavigator();
   const stackScreens = screens.map(it => (
     <Stack.Screen
