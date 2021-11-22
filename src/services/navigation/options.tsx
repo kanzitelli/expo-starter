@@ -3,9 +3,9 @@ import {Platform} from 'react-native';
 import {BottomTabNavigationOptions} from '@react-navigation/bottom-tabs';
 import {NativeStackNavigationOptions} from '@react-navigation/native-stack';
 import {Colors} from 'react-native-ui-lib';
-import Icon from 'react-native-vector-icons/Ionicons';
 
 import {getHeaderBlurEffect} from '../../utils/designSystem';
+import {Icon} from '../../components/icon';
 
 export const screenDefaultOptions = (): NativeStackNavigationOptions => ({
   headerShadowVisible: false,
