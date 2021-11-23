@@ -1,6 +1,5 @@
-import React, {useCallback} from 'react';
+import React, {useCallback, useEffect} from 'react';
 import {ScrollView, Alert, ActivityIndicator} from 'react-native';
-import {useFocusEffect} from '@react-navigation/core';
 import {View, Button, Text} from 'react-native-ui-lib';
 import {observer} from 'mobx-react';
 import {If} from '@kanzitelli/if-component';
@@ -16,10 +15,6 @@ export const Main: React.FC = observer(({}) => {
   const {nav, t, api} = useServices();
   const {counter, ui} = useStores();
 
-  // useNavigationButtonPress(counter.inc, componentId, 'inc');
-  // useNavigationButtonPress(counter.dec, componentId, 'dec');
-  // useNavigationButtonPress(() => nav.push(componentId, 'Settings'), componentId, 'settings');
-
   const start = useCallback(async () => {
     try {
       await api.counter.get();
@@ -28,11 +23,9 @@ export const Main: React.FC = observer(({}) => {
     }
   }, [api.counter]);
 
-  useFocusEffect(
-    useCallback(() => {
-      start();
-    }, [start]),
-  );
+  useEffect(() => {
+    start();
+  }, []);
 
   return (
     <View flex bg-bgColor>

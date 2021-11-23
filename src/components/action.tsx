@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text, Colors} from 'react-native-ui-lib';
-import {Ionicons} from '@expo/vector-icons';
 import {Bounceable} from 'rn-bounceable';
+import {Icon} from './icon';
 
 type ActionProps = {
   title: string;
@@ -30,7 +30,7 @@ export const Action: React.FC<ActionProps> = ({
           <View row centerV>
             {icon ? (
               <View marginR-s2>
-                <Ionicons name={icon} size={iconSize} color={Colors.primary} />
+                <Icon name={icon} size={iconSize} color={Colors.primary} />
               </View>
             ) : null}
 
@@ -50,7 +50,7 @@ export const Action: React.FC<ActionProps> = ({
 
             {rightIcon ? (
               <View marginL-s2>
-                <Ionicons name={rightIcon} size={iconSize} color={Colors.primary} />
+                <Icon name={rightIcon} size={iconSize} color={Colors.primary} />
               </View>
             ) : null}
           </View>

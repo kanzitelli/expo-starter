@@ -4,6 +4,7 @@ import {Main} from './main';
 import {Settings} from './settings';
 import {Example} from './screen-sample';
 import {genRootNavigator, genStackNavigator, genTabNavigator} from '../services/navigation/help';
+import {screenDefaultOptions, tabBarDefaultOptions} from '../services/navigation/options';
 
 // Describe your screens here
 export type Tabs = 'Main' | 'WIP' | 'Settings';
@@ -26,6 +27,7 @@ const screens: ScreenLayouts = {
     component: Main,
     options: () => ({
       title: 'Home',
+      ...screenDefaultOptions(),
     }),
   },
   Example: {
@@ -33,6 +35,7 @@ const screens: ScreenLayouts = {
     component: Example,
     options: () => ({
       title: 'Example',
+      ...screenDefaultOptions(),
     }),
   },
   Settings: {
@@ -40,6 +43,7 @@ const screens: ScreenLayouts = {
     component: Settings,
     options: () => ({
       title: 'Settings',
+      ...screenDefaultOptions(),
     }),
   },
 };
@@ -55,6 +59,7 @@ const tabs: TabScreenLayouts = {
     component: HomeStack,
     options: () => ({
       title: 'Home',
+      ...tabBarDefaultOptions('MainNavigator'),
     }),
   },
   WIP: {
@@ -62,6 +67,7 @@ const tabs: TabScreenLayouts = {
     component: ExampleStack,
     options: () => ({
       title: 'WIP',
+      ...tabBarDefaultOptions('ExampleNavigator'),
     }),
   },
   Settings: {
@@ -69,6 +75,7 @@ const tabs: TabScreenLayouts = {
     component: SettingsStack,
     options: () => ({
       title: 'Settings',
+      ...tabBarDefaultOptions('SettingsNavigator'),
     }),
   },
 };

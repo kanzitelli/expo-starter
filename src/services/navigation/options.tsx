@@ -3,9 +3,9 @@ import {Platform} from 'react-native';
 import {BottomTabNavigationOptions} from '@react-navigation/bottom-tabs';
 import {NativeStackNavigationOptions} from '@react-navigation/native-stack';
 import {Colors} from 'react-native-ui-lib';
-import Icon from 'react-native-vector-icons/Ionicons';
 
 import {getHeaderBlurEffect} from '../../utils/designSystem';
+import {Icon} from '../../components/icon';
 
 export const screenDefaultOptions = (): NativeStackNavigationOptions => ({
   headerShadowVisible: false,
@@ -16,7 +16,9 @@ export const screenDefaultOptions = (): NativeStackNavigationOptions => ({
     ios: {
       headerLargeTitle: true,
       headerTransparent: true,
-      headerBlurEffect: getHeaderBlurEffect(),
+      headerBlurEffect: getHeaderBlurEffect(), // this sets up blurred nav bar
+      // if you'd like to have a solid color for a nav bar, then you should
+      // set up `headerStyle: {backgroundColor: Colors.bg2Color}`
     },
   }),
 });
