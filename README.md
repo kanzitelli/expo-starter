@@ -83,7 +83,8 @@ You can find available plugins under `./plugins` folders.
 Links to the docs: [Expo Dev Clients](https://docs.expo.dev/clients/getting-started/) and [Expo Config Plugins](https://docs.expo.dev/guides/config-plugins).
 
 <details>
-<summary>Instructions for [react-native-mmkv](https://github.com/mrousavy/react-native-mmkv)</summary>
+<summary>Instructions for react-native-mmkv</summary>
+
 1. Install [react-native-mmkv](https://github.com/mrousavy/react-native-mmkv) (compatible version - 1.3.2):
 
 ```bash
@@ -105,6 +106,7 @@ Links to the docs: [Expo Dev Clients](https://docs.expo.dev/clients/getting-star
 ```
 
 5. Open `src/stores/_hydration.ts`, uncomment MMKV initialization code and enjoy its perfomance within Expo!
+
 </details>
 
 #### Describe app screens in one place
