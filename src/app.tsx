@@ -3,7 +3,11 @@ import {StatusBar, useColorScheme} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 
 import {RootNavigator} from './screens';
-import {getNavigationTheme, getThemeStatusBarStyle} from './utils/designSystem';
+import {
+  getNavigationTheme,
+  getThemeStatusBarBGColor,
+  getThemeStatusBarStyle,
+} from './utils/designSystem';
 import {useServices} from './services';
 
 export const AppNavigator = (): JSX.Element => {
@@ -12,7 +16,7 @@ export const AppNavigator = (): JSX.Element => {
 
   return (
     <>
-      <StatusBar barStyle={getThemeStatusBarStyle()} />
+      <StatusBar barStyle={getThemeStatusBarStyle()} backgroundColor={getThemeStatusBarBGColor()} />
       <NavigationContainer
         ref={nav.n}
         onReady={nav.onReady}

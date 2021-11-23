@@ -60,6 +60,10 @@ export const getThemeStatusBarStyle = (ca?: CurrentAppearance): StatusBarStyle =
   }
 };
 
+export const getThemeStatusBarBGColor = (ca?: CurrentAppearance): string => {
+  return Colors.bg2Color;
+};
+
 export const getNavigationTheme = (ca?: CurrentAppearance): Theme => {
   const {ui} = stores;
 
