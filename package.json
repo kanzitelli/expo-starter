@@ -20,7 +20,7 @@
     "release": "dotenv release-it"
   },
   "dependencies": {
-    "@kanzitelli/if-component": "^0.2.1",
+    "@kanzitelli/if-component": "^0.3.0",
     "@react-native-async-storage/async-storage": "~1.15.0",
     "@react-native-community/datetimepicker": "3.5.2",
     "@react-native-community/masked-view": "^0.1.11",
@@ -53,12 +53,13 @@
     "react-native-screens": "~3.8.0",
     "react-native-ui-lib": "^6.4.2",
     "react-native-web": "0.17.1",
-    "rn-bounceable": "^1.0.0",
+    "rn-bounceable": "^1.1.0",
     "yup": "^0.32.11"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
     "@expo/config-plugins": "^4.0.7",
+    "@expo/webpack-config": "^0.16.13",
     "@react-native-community/eslint-config": "^3.0.1",
     "@types/i18n-js": "^3.8.2",
     "@types/lodash": "^4.14.177",
