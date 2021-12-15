@@ -6,10 +6,15 @@ export class CounterApi {
 
     counter.setLoading(true);
 
-    const resp = await fetch('https://cli-rn.batyr.io/api/counter');
-    const json: CounterGetResponse = await resp.json();
+    try {
+      const resp = await fetch('https://cli-rn.batyr.io/api/counter');
+      const json: CounterGetResponse = await resp.json();
 
-    counter.set(json.value);
+      counter.set(json.value);
+    } catch (e) {
+      console.log(e);
+    }
+
     counter.setLoading(false);
   };
 }

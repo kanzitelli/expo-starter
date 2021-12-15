@@ -1,6 +1,6 @@
 import React, {useCallback, useEffect} from 'react';
 import {ScrollView, Alert, ActivityIndicator} from 'react-native';
-import {View, Button, Text} from 'react-native-ui-lib';
+import {View, Text} from 'react-native-ui-lib';
 import {observer} from 'mobx-react';
 import {If} from '@kanzitelli/if-component';
 
@@ -10,6 +10,7 @@ import {useStores} from '../stores';
 import {Section} from '../components/section';
 import {Reanimated2} from '../components/reanimated2';
 import {randomNum} from '../utils/help';
+import {BButton} from '../components/button';
 
 export const Main: React.FC = observer(({}) => {
   const {nav, t, api} = useServices();
@@ -32,17 +33,17 @@ export const Main: React.FC = observer(({}) => {
       <ScrollView contentInsetAdjustmentBehavior="automatic">
         <View padding-s4>
           <Section title={t.do('section.navigation.title')}>
-            <Button
+            <BButton
               marginV-s1
               label={t.do('section.navigation.button.push')}
               onPress={() => nav.push('Example', {value: randomNum()})}
             />
-            <Button
+            <BButton
               marginV-s1
               label={t.do('section.navigation.button.show')}
               onPress={() => nav.show('ExampleModal')}
             />
-            <Button
+            <BButton
               marginV-s1
               label={t.do('section.navigation.button.sharedTransition')}
               onPress={() => Alert.alert('future feature: shared transition')}
@@ -66,15 +67,19 @@ export const Main: React.FC = observer(({}) => {
                   _else={<Text>{counter.value}</Text>}
                 />
               </Text>
-              <Button margin-s1 label="-" onPress={counter.dec} />
-              <Button margin-s1 label="+" onPress={counter.inc} />
-              <Button margin-s1 label="reset" onPress={counter.reset} link />
+              <BButton margin-s1 label="-" onPress={counter.dec} />
+              <BButton margin-s1 label="+" onPress={counter.inc} />
+              <BButton margin-s1 label="reset" onPress={counter.reset} />
             </View>
           </Section>
 
           <Section title="API">
-            <Button margin-s1 label="Update counter value from API" onPress={api.counter.get} />
+            <BButton margin-s1 label="Update counter value from API" onPress={api.counter.get} />
           </Section>
+
+          <Text textColor center>
+            localized with i18n-js
+          </Text>
         </View>
       </ScrollView>
     </View>
