@@ -16,7 +16,7 @@ For more information, check out [Why](#why) section.
 
 In order to change app's name, please make necessary changes in `app.json`.
 
-Try it out w/ Expo Go - https://expo.dev/@kanzitelli/expo-starter.
+See it with [Expo Web](https://expo-starter.batyr.io) or [Expo Go](https://expo.dev/@kanzitelli/expo-starter).
 
 <details>
 <summary>Manual setup</summary>
@@ -145,13 +145,22 @@ const tabs: TabScreenLayouts = {
 Stack Navigator:
 
 ```
-const HomeStack = () => genStackNavigator([screens.Main, screens.Example]);
+const HomeStack = () =>
+  genStackNavigator([
+    screens.Main,
+    screens.Example,
+  ]);
 ```
 
 Tab Navigator:
 
 ```
-const TabNavigator = () => genTabNavigator([tabs.Main, tabs.WIP, tabs.Settings]);
+const TabNavigator = () =>
+  genTabNavigator([
+    tabs.Main,
+    tabs.WIP,
+    tabs.Settings,
+  ]);
 ```
 
 #### Navigate to other screens with predictability
@@ -184,6 +193,7 @@ There are still some things I would like to add to the starter:
 - [x] Passing props to a screen example
 - [x] Constants: add Dimensions
 - [x] AsyncStorage stores persisting example
+- [x] Expo Web support
 - [ ] Shared transitions — [IjzerenHein/react-navigation-shared-element](https://github.com/IjzerenHein/react-navigation-shared-element)
 
 Feel free to open an issue for suggestions.
