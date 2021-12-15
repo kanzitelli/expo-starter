@@ -25,7 +25,9 @@ export const Reanimated2: React.FC<Reanimated2Props> = ({stID}: Reanimated2Props
         <View center padding-s1>
           <Bounceable onPress={moveObject} activeScale={0.9}>
             <View center bg-primary padding-s8 br40>
-              <Text whitish>Bounceable</Text>
+              <Text text65M whitish>
+                Bounceable
+              </Text>
             </View>
           </Bounceable>
         </View>
