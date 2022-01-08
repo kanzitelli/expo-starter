@@ -49,7 +49,7 @@ See it with [Expo Web](https://expo-starter.batyr.io) or [Expo Go](https://expo.
 
 ## What's inside
 
-- [Expo SDK 43](https://github.com/expo/expo) - a set of tools and services built around React Native and native platforms.
+- [Expo SDK](https://github.com/expo/expo) - a set of tools and services built around React Native and native platforms.
 - [React Navigation (v6)](https://github.com/react-navigation/react-navigation) - routing and navigation for React Native apps.
 - [RN UI lib](https://github.com/wix/react-native-ui-lib) - amazing Design System, UI toolset & components library for React Native. Dark Mode is implemented using this library.
 - [Reanimated 2](https://github.com/software-mansion/react-native-reanimated) - React Native's Animated library reimplemented.
