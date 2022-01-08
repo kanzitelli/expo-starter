@@ -6,8 +6,8 @@ export const useConstants = () => {
   return {
     dim,
     links: {
-      github: 'https://github.com/kanzitelli/rn-starter',
-      website: 'https://batyr.io',
+      github: 'https://github.com/kanzitelli/expo-starter',
+      website: 'https://github.com/kanzitelli/expo-starter',
     },
   };
 };
