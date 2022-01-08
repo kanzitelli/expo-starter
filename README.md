@@ -91,7 +91,16 @@ Links to the docs: [Expo Dev Clients](https://docs.expo.dev/clients/getting-star
 > yarn add react-native-mmkv@1.3.2
 ```
 
-2. Add `"./plugins/withMMKV"` to `expo.plugins` in `app.json` file.
+2. Open `app.json` and add the following:
+```
+{
+  "expo": {
+    ...
+    "plugins": ["./plugins/withMMKV"],
+    ...
+  }
+}
+```
 3. Start Expo dev server with for dev client
 
 ```bash
