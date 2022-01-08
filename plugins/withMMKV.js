@@ -10,9 +10,15 @@ const withCustomMainApplication = config => {
 ${mainApplication.substring(0, publicClassIndex - 1)}
 import java.util.Collections;
 
+// REACT
 import com.facebook.react.bridge.JSIModuleSpec;
 import com.facebook.react.bridge.JavaScriptContextHolder;
 import com.facebook.react.bridge.ReactApplicationContext;
+
+// REANIMATED
+import com.swmansion.reanimated.ReanimatedJSIModulePackage;
+
+// MMKV
 import com.reactnativemmkv.MmkvModule;
 
 ${mainApplication.substring(publicClassIndex)}
