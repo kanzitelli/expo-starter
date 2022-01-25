@@ -14,7 +14,7 @@ export const services = {
 type ContextServices = typeof services;
 
 const servicesContext = React.createContext<ContextServices>(services);
-export const StoresProvider = ({children}: any) => (
+export const ServicesProvider = ({children}: any) => (
   <servicesContext.Provider value={services}>{children}</servicesContext.Provider>
 );
 

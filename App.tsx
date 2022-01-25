@@ -7,7 +7,7 @@ import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import {AppNavigator} from './src/app';
 import {configureDesignSystem} from './src/utils/designSystem';
 import {hydrateStores, StoresProvider} from './src/stores';
-import {initServices} from './src/services';
+import {initServices, ServicesProvider} from './src/services';
 
 LogBox.ignoreLogs(['Require']);
 
@@ -32,7 +32,7 @@ export default (): JSX.Element => {
   return (
     <GestureHandlerRootView style={{flex: 1}}>
       <StoresProvider>
-        <StoresProvider>{ready ? <AppNavigator /> : null}</StoresProvider>
+        <ServicesProvider>{ready ? <AppNavigator /> : null}</ServicesProvider>
       </StoresProvider>
     </GestureHandlerRootView>
   );
