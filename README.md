@@ -54,7 +54,7 @@ See it with [Expo Web](https://expo-starter.batyr.io) or [Expo Go](https://expo.
 - [RN UI lib](https://github.com/wix/react-native-ui-lib) - amazing Design System, UI toolset & components library for React Native. Dark Mode is implemented using this library.
 - [Reanimated 2](https://github.com/software-mansion/react-native-reanimated) - React Native's Animated library reimplemented.
 - [MobX](https://github.com/mobxjs/mobx) - simple, scalable state management, with [mobx-persist-store](https://github.com/quarrant/mobx-persist-store) for persisting your stores.
-- ~~AsyncStorage~~ [MMKV](https://github.com/mrousavy/react-native-mmkv) - efficient, small mobile key-value storage framework developed by WeChat. [~30x faster](https://github.com/mrousavy/react-native-mmkv#benchmark) than _AsyncStorage_! Available only within Expo dev clients. Instructions on installation could be found [here](#ready-to-use-expo-config-plugins).
+- ~~AsyncStorage~~ [MMKV](https://github.com/mrousavy/react-native-mmkv) - efficient, small mobile key-value storage framework developed by WeChat. [~30x faster](https://github.com/mrousavy/react-native-mmkv#benchmark) than _AsyncStorage_! Available only within Expo dev clients. Instructions on installation could be found [here](https://github.com/mrousavy/react-native-mmkv#expo).
 
 #### Extra helpful libraries
 
@@ -73,50 +73,6 @@ See it with [Expo Web](https://expo-starter.batyr.io) or [Expo Go](https://expo.
 https://user-images.githubusercontent.com/4402166/135329411-adb90a0a-c884-4bbb-9f62-33e9adbd3123.MP4
 
 ## Advantages
-
-#### Ready-to-use Expo Config Plugins
-
-It gives us ability to build custom dev clients for iOS and Android with pre-installed [react-native-mmvk](https://github.com/mrousavy/react-native-mmkv) and other libraries.
-
-You can find available plugins under `./plugins` folders.
-
-Links to the docs: [Expo Dev Clients](https://docs.expo.dev/clients/getting-started/) and [Expo Config Plugins](https://docs.expo.dev/guides/config-plugins).
-
-<details>
-<summary>Instructions for react-native-mmkv</summary>
-
-1. Install [react-native-mmkv](https://github.com/mrousavy/react-native-mmkv) (compatible version - 1.3.2):
-
-```bash
-> yarn add react-native-mmkv@1.3.2
-```
-
-2. Open `app.json` and add the following:
-```
-{
-  "expo": {
-    ...
-    "plugins": ["./plugins/withMMKV"],
-    ...
-  }
-}
-```
-3. Start Expo dev server with for dev client
-
-```bash
-> expo start --dev-client
-```
-
-4. Run on a simulator or device
-
-```bash
-> expo run:ios # add -d to run on device
-> expo run:android
-```
-
-5. Open `src/stores/_hydration.ts`, uncomment MMKV initialization code and enjoy its perfomance within Expo!
-
-</details>
 
 #### Describe app screens in one place
 
@@ -203,6 +159,7 @@ There are still some things I would like to add to the starter:
 - [x] Constants: add Dimensions
 - [x] AsyncStorage stores persisting example
 - [x] Expo Web support
+- [x] Simple Auth [example](https://github.com/kanzitelli/expo-starter/issues/14#issuecomment-1020730141)
 - [ ] Shared transitions — [IjzerenHein/react-navigation-shared-element](https://github.com/IjzerenHein/react-navigation-shared-element)
 
 Feel free to open an issue for suggestions.
