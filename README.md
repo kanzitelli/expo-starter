@@ -159,6 +159,7 @@ There are still some things I would like to add to the starter:
 - [x] Constants: add Dimensions
 - [x] AsyncStorage stores persisting example
 - [x] Expo Web support
+- [x] Simple Auth [example](https://github.com/kanzitelli/expo-starter/issues/14#issuecomment-1020730141)
 - [ ] Shared transitions — [IjzerenHein/react-navigation-shared-element](https://github.com/IjzerenHein/react-navigation-shared-element)
 
 Feel free to open an issue for suggestions.
