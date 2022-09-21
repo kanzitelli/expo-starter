@@ -7,7 +7,7 @@ import {Root} from './screens';
 import {getNavigationTheme, getStatusBarStyle, getStatusBarBGColor} from './utils/designSystem';
 import {useServices} from './services';
 
-export const AppNavigator = (): JSX.Element => {
+export const App = (): JSX.Element => {
   useColorScheme();
   const {nav} = useServices();
 

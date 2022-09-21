@@ -12,10 +12,9 @@ export const genStack = (screens: Partial<ScreensInfo>): JSX.Element => {
 
   const Stack = createNativeStackNavigator();
   const stackScreens = Object.keys(screens).map(it => {
-    const s = screens[it as ScreenName]!!;
-    return (
-      <Stack.Screen key={it} name={it as ScreenName} component={s.component} options={s.options} />
-    );
+    const key = it as ScreenName;
+    const s = screens[key]!!;
+    return <Stack.Screen key={key} name={key} component={s.component} options={s.options} />;
   });
 
   return <Stack.Navigator>{stackScreens}</Stack.Navigator>;
@@ -26,36 +25,35 @@ const genTabs = (tabs: TabsInfo): JSX.Element => {
   useColorScheme(); // needs to be here to correctly change tab bar appearance
 
   const Tabs = createBottomTabNavigator();
-  const tabScreens = Object.keys(tabs).map(it => (
-    <Tabs.Screen
-      key={it}
-      name={it as TabName}
-      component={tabs[it as TabName].component}
-      options={tabs[it as TabName].options}
-    />
-  ));
+  const tabScreens = Object.keys(tabs).map(it => {
+    const key = it as TabName;
+    const t = tabs[key]!!;
+    return <Tabs.Screen key={it} name={key} component={t.component} options={t.options} />;
+  });
 
   return <Tabs.Navigator>{tabScreens}</Tabs.Navigator>;
 };
 
 const genModals = (modals: ModalsInfo, stack: any) =>
-  Object.keys(modals).map(it => (
-    <stack.Screen key={it} name={it} component={modals[it as ModalName].component} />
-  ));
+  Object.keys(modals).map(it => {
+    const key = it as ModalName;
+    const m = modals[key]!!;
+    return <stack.Screen key={key} name={key} component={m.component} />;
+  });
 
 export const genRoot = (params: GenRootParams): JSX.Element => {
   const {modals, tabs} = params;
 
   const RootStack = createNativeStackNavigator();
-  const app = () => genTabs(tabs);
-  const appScreen = <RootStack.Screen name="App" component={app} />;
-  const modalScreens = genModals(modals, RootStack);
+  const App = () => genTabs(tabs);
+  const AppScreen = <RootStack.Screen name="App" component={App} />;
+  const ModalScreens = genModals(modals, RootStack);
 
   return (
     <RootStack.Navigator screenOptions={{headerShown: false}}>
-      <RootStack.Group>{appScreen}</RootStack.Group>
+      <RootStack.Group>{AppScreen}</RootStack.Group>
 
-      <RootStack.Group screenOptions={{presentation: 'modal'}}>{modalScreens}</RootStack.Group>
+      <RootStack.Group screenOptions={{presentation: 'modal'}}>{ModalScreens}</RootStack.Group>
     </RootStack.Navigator>
   );
 };
