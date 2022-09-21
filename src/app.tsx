@@ -1,13 +1,10 @@
 import React from 'react';
-import {StatusBar, useColorScheme} from 'react-native';
+import {useColorScheme} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
+import {StatusBar} from 'expo-status-bar';
 
-import {RootNavigator} from './screens';
-import {
-  getNavigationTheme,
-  getThemeStatusBarBGColor,
-  getThemeStatusBarStyle,
-} from './utils/designSystem';
+import {Root} from './screens';
+import {getNavigationTheme, getStatusBarStyle, getStatusBarBGColor} from './utils/designSystem';
 import {useServices} from './services';
 
 export const AppNavigator = (): JSX.Element => {
@@ -16,14 +13,14 @@ export const AppNavigator = (): JSX.Element => {
 
   return (
     <>
-      <StatusBar barStyle={getThemeStatusBarStyle()} backgroundColor={getThemeStatusBarBGColor()} />
+      <StatusBar style={getStatusBarStyle()} backgroundColor={getStatusBarBGColor()} />
       <NavigationContainer
         ref={nav.n}
         onReady={nav.onReady}
         onStateChange={nav.onStateChange}
         theme={getNavigationTheme()}
       >
-        <RootNavigator />
+        <Root />
       </NavigationContainer>
     </>
   );

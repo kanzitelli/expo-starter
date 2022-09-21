@@ -6,6 +6,7 @@ import {Colors} from 'react-native-ui-lib';
 
 import {getHeaderBlurEffect} from '../../utils/designSystem';
 import {Icon} from '../../components/icon';
+import {TabName} from '../../screens';
 
 export const screenDefaultOptions = (): NativeStackNavigationOptions => ({
   headerShadowVisible: false,
@@ -23,25 +24,25 @@ export const screenDefaultOptions = (): NativeStackNavigationOptions => ({
   }),
 });
 
-export const tabBarDefaultOptions = (routeName: string): BottomTabNavigationOptions => ({
+export const tabBarDefaultOptions = (tabName: TabName): BottomTabNavigationOptions => ({
   headerShown: false,
   tabBarActiveTintColor: Colors.primary,
   tabBarInactiveTintColor: Colors.grey40,
   tabBarStyle: {backgroundColor: Colors.bgColor, borderTopWidth: 0, elevation: 0},
   tabBarIcon: ({focused, color, size}) => (
-    <Icon name={getIconName(routeName, focused)} size={size} color={color} />
+    <Icon name={getTabIconName(tabName, focused)} size={size} color={color} />
   ),
 });
 
-const getIconName = (routeName: string, focused: boolean): string => {
-  if (routeName === 'MainNavigator') {
-    return focused ? 'newspaper' : 'newspaper-outline';
+const getTabIconName = (tabName: TabName, focused: boolean): string => {
+  if (tabName === 'MainTab') {
+    return focused ? 'home' : 'home-outline';
   }
-  if (routeName === 'ExampleNavigator') {
+  if (tabName === 'PlaygroundTab') {
     return focused ? 'construct' : 'construct-outline';
   }
-  if (routeName === 'SettingsNavigator') {
-    return focused ? 'cog' : 'cog-outline';
+  if (tabName === 'SettingsTab') {
+    return focused ? 'settings' : 'settings-outline';
   }
 
   return 'list';

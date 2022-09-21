@@ -1,97 +1,104 @@
-import {ModalScreenLayouts, ScreenLayouts, TabScreenLayouts} from '../services/navigation/types';
+import pick from 'lodash/pick';
 
+import {ModalsInfo, ScreensInfo, TabsInfo} from '../services/navigation/types';
 import {Main} from './main';
+import {Playground} from './playground';
 import {Settings} from './settings';
-import {Example} from './screen-sample';
-import {genRootNavigator, genStackNavigator, genTabNavigator} from '../services/navigation/help';
+import {Example, Props as ExampleProps} from './_screen-sample';
+import {genRoot, genStack} from '../services/navigation/help';
 import {screenDefaultOptions, tabBarDefaultOptions} from '../services/navigation/options';
 
-// Describe your screens here
-export type Tabs = 'Main' | 'WIP' | 'Settings';
-export type Modal = 'ExampleModal';
-export type Screen = 'Main' | 'Example' | 'Settings';
-
-export type ModalProps = {
+// Props
+type ScreenProps = {
+  Main: undefined;
+  Playground: undefined;
+  Settings: undefined;
+  Example: ExampleProps;
+};
+type ModalProps = {
   ExampleModal: undefined;
 };
-export type ScreenProps = {
-  Main: undefined;
-  Example: ExampleScreenProps;
-  Settings: undefined;
-} & ModalProps;
+type TabProps = {
+  MainTab: undefined;
+  PlaygroundTab: undefined;
+  SettingsTab: undefined;
+};
+export type ScreenAndModalProps = ModalProps & ScreenProps;
+
+export type ScreenName = keyof ScreenProps;
+export type ModalName = keyof ModalProps;
+export type TabName = keyof TabProps;
 
 // Screens
-const screens: ScreenLayouts = {
+const screens: ScreensInfo = {
   Main: {
-    name: 'Main',
     component: Main,
     options: () => ({
       title: 'Home',
       ...screenDefaultOptions(),
     }),
   },
-  Example: {
-    name: 'Example',
-    component: Example,
+  Playground: {
+    component: Playground,
     options: () => ({
-      title: 'Example',
+      title: 'Playground',
       ...screenDefaultOptions(),
     }),
   },
   Settings: {
-    name: 'Settings',
     component: Settings,
     options: () => ({
       title: 'Settings',
       ...screenDefaultOptions(),
     }),
   },
+  Example: {
+    component: Example,
+    options: () => ({
+      title: 'Example',
+      ...screenDefaultOptions(),
+    }),
+  },
 };
-const HomeStack = () => genStackNavigator([screens.Main, screens.Example]);
-const ExampleStack = () => genStackNavigator([screens.Example]);
-const SettingsStack = () => genStackNavigator([screens.Settings]);
-const ExampleModalStack = () => genStackNavigator([screens.Main, screens.Example]);
+const HomeStack = () => genStack(pick(screens, ['Main', 'Example']));
+const PlaygroundStack = () => genStack(pick(screens, ['Playground']));
+const SettingsStack = () => genStack(pick(screens, ['Settings']));
+const ExampleStack = () => genStack(pick(screens, ['Example']));
 
 // Tabs
-const tabs: TabScreenLayouts = {
-  Main: {
-    name: 'MainNavigator',
+const tabs: TabsInfo = {
+  MainTab: {
     component: HomeStack,
     options: () => ({
       title: 'Home',
-      ...tabBarDefaultOptions('MainNavigator'),
+      ...tabBarDefaultOptions('MainTab'),
     }),
   },
-  WIP: {
-    name: 'ExampleNavigator',
-    component: ExampleStack,
+  PlaygroundTab: {
+    component: PlaygroundStack,
     options: () => ({
-      title: 'WIP',
-      ...tabBarDefaultOptions('ExampleNavigator'),
+      title: 'Playground',
+      ...tabBarDefaultOptions('PlaygroundTab'),
     }),
   },
-  Settings: {
-    name: 'SettingsNavigator',
+  SettingsTab: {
     component: SettingsStack,
     options: () => ({
       title: 'Settings',
-      ...tabBarDefaultOptions('SettingsNavigator'),
+      ...tabBarDefaultOptions('SettingsTab'),
     }),
   },
 };
-const TabNavigator = () => genTabNavigator([tabs.Main, tabs.WIP, tabs.Settings]);
 
 // Modals
-const modals: ModalScreenLayouts = {
+const modals: ModalsInfo = {
   ExampleModal: {
-    name: 'ExampleModal',
-    component: ExampleModalStack,
+    component: ExampleStack,
     options: () => ({
       title: 'ExampleModal',
     }),
   },
 };
 
-// Root Navigator
-export const RootNavigator = (): JSX.Element =>
-  genRootNavigator(TabNavigator, [modals.ExampleModal]);
+// Root
+export const Root = (): JSX.Element => genRoot({tabs, modals});
