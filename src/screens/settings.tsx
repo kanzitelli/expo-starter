@@ -14,10 +14,12 @@ import {
   languagesUI,
   languageUIToInternal,
 } from '../utils/types/enums';
+import {useAppearance} from '../utils/hooks';
 import {useStores} from '../stores';
 import {HeaderButton} from '../components/button';
 
 export const Settings: React.FC = observer(({}) => {
+  useAppearance();
   const navigation = useNavigation();
   const {ui} = useStores();
 
@@ -40,7 +42,7 @@ export const Settings: React.FC = observer(({}) => {
       headerRight: () =>
         unsavedChanges ? <HeaderButton onPress={handleSave} label="Save" /> : null,
     });
-  }, [unsavedChanges]);
+  }, [unsavedChanges, appearance, language]);
 
   // Methods
   const handleAppearanceIndexChange = (index: number) =>

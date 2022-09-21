@@ -1,17 +1,19 @@
 import React from 'react';
+import {ScrollView} from 'react-native';
 import {View} from 'react-native-ui-lib';
+import {observer} from 'mobx-react';
 
-// import {screens} from '.';
 import {useServices} from '../services';
 // import {useStores} from '../stores';
 import {Section} from '../components/section';
 import {BButton} from '../components/button';
-import {ScrollView} from 'react-native';
+import {useAppearance} from '../utils/hooks';
 
 export type Props = {
   type?: 'push' | 'show';
 };
-export const Example: React.FC<Props> = ({type = 'push'}) => {
+export const Example: React.FC<Props> = observer(({type = 'push'}) => {
+  useAppearance(); // for Dark Mode
   const {nav, t} = useServices();
   // const {ui} = useStores();
 
@@ -21,12 +23,7 @@ export const Example: React.FC<Props> = ({type = 'push'}) => {
   const push = () => nav.push('Example');
   const show = () => nav.show('ExampleModal');
   const goBack = async () => {
-    // if (type === 'push') {
-    //   screens.pop(componentId);
-    // }
-    // if (type === 'show') {
-    //   screens.N.dismissAllModals();
-    // }
+    nav.pop();
   };
 
   // UI Methods
@@ -42,4 +39,4 @@ export const Example: React.FC<Props> = ({type = 'push'}) => {
       </ScrollView>
     </View>
   );
-};
+});

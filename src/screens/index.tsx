@@ -1,11 +1,11 @@
 import pick from 'lodash/pick';
 
-import {ModalsInfo, ScreensInfo, TabsInfo} from '../services/navigation/types';
 import {Main} from './main';
 import {Playground} from './playground';
 import {Settings} from './settings';
 import {Example, Props as ExampleProps} from './_screen-sample';
-import {genRoot, genStack} from '../services/navigation/help';
+import {ModalsInfo, ScreensInfo, TabsInfo} from '../services/navigation/types';
+import {Root, Stack} from '../services/navigation/layout';
 import {screenDefaultOptions, tabBarDefaultOptions} from '../services/navigation/options';
 
 // Props
@@ -60,10 +60,10 @@ const screens: ScreensInfo = {
     }),
   },
 };
-const HomeStack = () => genStack(pick(screens, ['Main', 'Example']));
-const PlaygroundStack = () => genStack(pick(screens, ['Playground']));
-const SettingsStack = () => genStack(pick(screens, ['Settings']));
-const ExampleStack = () => genStack(pick(screens, ['Example']));
+const HomeStack = () => <Stack screens={pick(screens, ['Main', 'Example'])} />;
+const PlaygroundStack = () => <Stack screens={pick(screens, ['Playground'])} />;
+const SettingsStack = () => <Stack screens={pick(screens, ['Settings'])} />;
+const ExampleStack = () => <Stack screens={pick(screens, ['Example'])} />;
 
 // Tabs
 const tabs: TabsInfo = {
@@ -101,4 +101,4 @@ const modals: ModalsInfo = {
 };
 
 // Root
-export const Root = (): JSX.Element => genRoot({tabs, modals});
+export const AppRoot: React.FC = () => <Root tabs={tabs} modals={modals} />;

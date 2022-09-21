@@ -4,8 +4,8 @@ import {Text, View} from 'react-native-ui-lib';
 import Constants from 'expo-constants';
 import * as Application from 'expo-application';
 import {If} from '@kanzitelli/if-component';
-import {observer} from 'mobx-react';
 import {useNavigation} from '@react-navigation/native';
+import {observer} from 'mobx-react';
 
 import {useServices} from '../services';
 import {useStores} from '../stores';
@@ -13,8 +13,10 @@ import {Section} from '../components/section';
 import {BButton, HeaderButton} from '../components/button';
 import {Reanimated2} from '../components/reanimated2';
 import {Row} from '../components/row';
+import {useAppearance} from '../utils/hooks';
 
 export const Main: React.FC = observer(({}) => {
+  useAppearance();
   const navigation = useNavigation();
   const {counter, ui} = useStores();
   const {t, api, nav} = useServices();
