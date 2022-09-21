@@ -1,6 +1,8 @@
 import {DarkTheme, DefaultTheme, Theme} from '@react-navigation/native';
 import {StatusBarStyle} from 'expo-status-bar';
-import {Appearance as RNAppearance} from 'react-native';
+import {reaction} from 'mobx';
+import {useState} from 'react';
+import {Appearance as RNAppearance, useColorScheme} from 'react-native';
 import {Colors, Typography} from 'react-native-ui-lib';
 
 import {stores} from '../stores';
@@ -34,8 +36,7 @@ const themes: Record<Appearance, ThemeColors> = {
 export const configureDesignSystem = async (): PVoid => {
   const {ui} = stores;
 
-  console.log(ui.isAppearanceSystem);
-
+  setColorsScheme(ui.appearance); // needed here
   if (ui.isAppearanceSystem) {
     Colors.loadColors(colors);
     Colors.loadSchemes(themes);
@@ -47,6 +48,11 @@ export const configureDesignSystem = async (): PVoid => {
   Typography.loadTypographies({
     section: {fontSize: 26, fontWeight: '600'},
   });
+};
+
+const setColorsScheme = (appearance: Appearance) => {
+  if (appearance === 'system') Colors.setScheme('default');
+  else Colors.setScheme(appearance);
 };
 
 export const getStatusBarStyle = (): StatusBarStyle => {
