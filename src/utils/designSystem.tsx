@@ -1,36 +1,42 @@
 import {DarkTheme, DefaultTheme, Theme} from '@react-navigation/native';
-import {Appearance} from 'react-native';
+import {StatusBarStyle} from 'expo-status-bar';
+import {Appearance as RNAppearance} from 'react-native';
 import {Colors, Typography} from 'react-native-ui-lib';
-import {stores} from '../stores';
 
-const colors: DesignSystemColors = {
+import {stores} from '../stores';
+import {Appearance} from './types/enums';
+
+const colors = {
   primary: '#5383b8', // blue
   secondary: '#469c57', // green
   accent: '#fed330', // yellow
-  blackish: Colors.rgba(20, 20, 20, 1),
-  blackish2: Colors.rgba(50, 50, 50, 1),
-  whitish: Colors.rgba(250, 250, 250, 1),
-  whitish2: Colors.rgba(230, 230, 230, 1),
+  _black: Colors.rgba(20, 20, 20, 1),
+  _black2: Colors.rgba(50, 50, 50, 1),
+  _white: Colors.rgba(250, 250, 250, 1),
+  _white2: Colors.rgba(230, 230, 230, 1),
 };
 
-const themes: Record<AppearanceMode, ThemeColors> = {
+const themes: Record<Appearance, ThemeColors> = {
+  system: {} as any,
   light: {
-    textColor: colors.blackish,
-    bgColor: colors.whitish,
-    bg2Color: colors.whitish2,
+    textColor: colors._black,
+    bgColor: colors._white,
+    bg2Color: colors._white2,
   },
   dark: {
-    textColor: colors.whitish,
-    bgColor: colors.blackish,
-    bg2Color: colors.blackish2,
+    textColor: colors._white,
+    bgColor: colors._black,
+    bg2Color: colors._black2,
   },
 };
 
 // for more information - https://wix.github.io/react-native-ui-lib/foundation/style
-export const configureDesignSystem = (): void => {
+export const configureDesignSystem = async (): PVoid => {
   const {ui} = stores;
 
-  if (ui.isSystemAppearance) {
+  console.log(ui.isAppearanceSystem);
+
+  if (ui.isAppearanceSystem) {
     Colors.loadColors(colors);
     Colors.loadSchemes(themes);
   } else {
@@ -43,34 +49,31 @@ export const configureDesignSystem = (): void => {
   });
 };
 
-export const getThemeStatusBarStyle = (ca?: CurrentAppearance): StatusBarStyle => {
+export const getStatusBarStyle = (): StatusBarStyle => {
   const {ui} = stores;
 
-  const current: CurrentAppearance = ca ?? {
-    value: ui.appearance,
-    system: ui.isSystemAppearance,
-  };
-
-  const appearance = current.system ? Appearance.getColorScheme() : current.value;
-  switch (appearance) {
-    case 'dark':
-      return 'light-content';
-    case 'light':
-      return 'dark-content';
+  if (ui.isAppearanceSystem) {
+    return 'auto';
+  } else {
+    switch (ui.appearance) {
+      case 'dark':
+        return 'light';
+      case 'light':
+        return 'dark';
+      default:
+        return 'auto';
+    }
   }
 };
 
-export const getThemeStatusBarBGColor = (ca?: CurrentAppearance): string => {
-  return Colors.bg2Color;
+export const getStatusBarBGColor = (): string => {
+  const {ui} = stores;
+  const appearance = ui.isAppearanceSystem ? RNAppearance.getColorScheme() : ui.appearance;
+  return themes[appearance ?? 'light'].bg2Color;
 };
 
-export const getNavigationTheme = (ca?: CurrentAppearance): Theme => {
+export const getNavigationTheme = (): Theme => {
   const {ui} = stores;
-
-  const current: CurrentAppearance = ca ?? {
-    value: ui.appearance,
-    system: ui.isSystemAppearance,
-  };
 
   // for more information - https://reactnavigation.org/docs/themes
   const MyDefaultTheme: Theme = {
@@ -99,7 +102,7 @@ export const getNavigationTheme = (ca?: CurrentAppearance): Theme => {
     },
   };
 
-  const appearance = current.system ? Appearance.getColorScheme() : current.value;
+  const appearance = ui.isAppearanceSystem ? RNAppearance.getColorScheme() : ui.appearance;
   switch (appearance) {
     case 'dark':
       return MyDarkTheme;
@@ -110,13 +113,8 @@ export const getNavigationTheme = (ca?: CurrentAppearance): Theme => {
   return DefaultTheme;
 };
 
-export const getHeaderBlurEffect = (ca?: CurrentAppearance): 'regular' | 'light' | 'dark' => {
+export const getHeaderBlurEffect = (): 'regular' | 'light' | 'dark' => {
   const {ui} = stores;
 
-  const current: CurrentAppearance = ca ?? {
-    value: ui.appearance,
-    system: ui.isSystemAppearance,
-  };
-
-  return current.system ? 'regular' : current.value;
+  return ui.isAppearanceSystem ? 'regular' : (ui.appearance as 'light' | 'dark');
 };

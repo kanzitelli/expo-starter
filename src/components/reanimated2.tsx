@@ -1,14 +1,9 @@
 import React from 'react';
 import {View, Text} from 'react-native-ui-lib';
 import Animated, {withSpring, useAnimatedStyle, useSharedValue} from 'react-native-reanimated';
-
 import {Bounceable} from 'rn-bounceable';
 
-type Reanimated2Props = {
-  stID?: string;
-};
-
-export const Reanimated2: React.FC<Reanimated2Props> = ({stID}: Reanimated2Props) => {
+export const Reanimated2: React.FC = () => {
   const offset = useSharedValue(0);
 
   const animatedStyles = useAnimatedStyle(() => ({
@@ -25,9 +20,7 @@ export const Reanimated2: React.FC<Reanimated2Props> = ({stID}: Reanimated2Props
         <View center padding-s1>
           <Bounceable onPress={moveObject} activeScale={0.9}>
             <View center bg-primary padding-s8 br40>
-              <Text text65M whitish>
-                Bounceable
-              </Text>
+              <Text _white>Bounceable</Text>
             </View>
           </Bounceable>
         </View>
