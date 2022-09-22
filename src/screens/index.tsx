@@ -7,6 +7,7 @@ import {Example, Props as ExampleProps} from './_screen-sample';
 import {ModalsInfo, ScreensInfo, TabsInfo} from '../services/navigation/types';
 import {Root, Stack} from '../services/navigation/layouts';
 import {screenDefaultOptions, tabBarDefaultOptions} from '../services/navigation/options';
+import {services} from '../services';
 
 // Describe screens props here
 // They will be also used for defining screens, tabs and modals names
@@ -35,7 +36,7 @@ const screens: ScreensInfo = {
   Main: {
     component: Main,
     options: () => ({
-      title: 'Home',
+      title: services.t.do('home.title'),
       ...screenDefaultOptions(),
     }),
   },
@@ -49,14 +50,14 @@ const screens: ScreensInfo = {
   Settings: {
     component: Settings,
     options: () => ({
-      title: 'Settings',
+      title: services.t.do('settings.title'),
       ...screenDefaultOptions(),
     }),
   },
   Example: {
     component: Example,
     options: () => ({
-      title: 'Example',
+      title: services.t.do('example.title'),
       ...screenDefaultOptions(),
     }),
   },

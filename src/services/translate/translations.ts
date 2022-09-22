@@ -2,6 +2,9 @@ export const en = {
   home: {
     title: 'Home',
   },
+  settings: {
+    title: 'Settings',
+  },
   example: {
     title: 'Example',
   },
@@ -20,6 +23,9 @@ export const en = {
 export const ru = {
   home: {
     title: 'Хоум',
+  },
+  settings: {
+    title: 'Настройки',
   },
   example: {
     title: 'Пример',
