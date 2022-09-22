@@ -71,7 +71,7 @@ This starter is using [RN UI lib](https://github.com/wix/react-native-ui-lib) as
 
 `configureDesignSystem()` - a method where all settings for an app's design system is taking place. You can customize colors, schemes, typegraphy, spacings, etc. Located at `src/utils/designSystem.tsx`.
 
-https://user-images.githubusercontent.com/4402166/135329411-adb90a0a-c884-4bbb-9f62-33e9adbd3123.MP4
+https://user-images.githubusercontent.com/4402166/191781571-57749464-982b-4d36-b3bc-b97ce4ace705.MP4
 
 ## Advantages
 
