@@ -5,7 +5,7 @@ import {Playground} from './playground';
 import {Settings} from './settings';
 import {Example, Props as ExampleProps} from './_screen-sample';
 import {ModalsInfo, ScreensInfo, TabsInfo} from '../services/navigation/types';
-import {Root, Stack} from '../services/navigation/layout';
+import {Root, Stack} from '../services/navigation/layouts';
 import {screenDefaultOptions, tabBarDefaultOptions} from '../services/navigation/options';
 
 // Describe screens props here
