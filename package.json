@@ -17,7 +17,7 @@
     "run:ios": "npx expo run:ios",
     "run:ios:release": "npx expo run:ios --configuration Release",
     "pub:web": "npx expo export:web && cd web-build && vercel --prod && cd ..",
-    "pub:app": "npx expo p",
+    "pub:app": "npx eas update",
     "pub:all": "yarn pub:app && yarn pub:web",
     "format": "prettier --check ./src",
     "format:write": "prettier --write ./src",
