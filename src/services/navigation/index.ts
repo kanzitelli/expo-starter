@@ -1,13 +1,12 @@
 import React from 'react';
-import {reloadAsync} from 'expo-updates';
 
-import {ModalProps, ScreenProps} from '../../screens';
+import {ModalName, ScreenName, ScreenAndModalProps} from '../../screens';
 import {CommonActions, NavigationContainerRef, StackActions} from '@react-navigation/native';
 
-export class Nav implements IService {
+export class NavService implements IService {
   private inited = false;
 
-  n: React.RefObject<NavigationContainerRef<ScreenProps>> = React.createRef();
+  n: React.RefObject<NavigationContainerRef<ScreenAndModalProps>> = React.createRef();
   r: string | undefined;
 
   init = async (): PVoid => {
@@ -30,19 +29,14 @@ export class Nav implements IService {
 
       // send some statistics
       // facebook.event('ScreenOpen', params);
-      // yandex.event('ScreenOpen', params);
       console.log('onStateChange:', JSON.stringify(params, null, 2));
     }
 
     this.r = currentName;
   };
 
-  restart = async (): PVoid => {
-    await reloadAsync();
-  };
-
   // Navigation methods
-  push = <T extends keyof ScreenProps>(name: T, passProps?: ScreenProps[T]): void => {
+  push = <T extends ScreenName>(name: T, passProps?: ScreenAndModalProps[T]): void => {
     this.n.current?.dispatch(StackActions.push(name, passProps));
   };
 
@@ -50,11 +44,14 @@ export class Nav implements IService {
     this.n.current?.goBack();
   };
 
-  show = <T extends keyof ModalProps>(name: T, passProps?: ScreenProps[T]): void => {
+  show = <T extends ModalName>(name: T, passProps?: ScreenAndModalProps[T]): void => {
     this.navigate(name, passProps);
   };
 
-  private navigate = <T extends keyof ScreenProps>(name: T, passProps?: ScreenProps[T]): void => {
+  private navigate = <T extends ScreenName | ModalName>(
+    name: T,
+    passProps?: ScreenAndModalProps[T],
+  ): void => {
     this.n.current?.dispatch(
       CommonActions.navigate({
         name,

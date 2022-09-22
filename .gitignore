@@ -17,6 +17,7 @@ web-build/
 *.env
 _scripts/
 .expo
+media/
 
 # will be generated after `expo run:ios` or `expo run:android`
 ios/

@@ -4,10 +4,11 @@ import * as SplashScreen from 'expo-splash-screen';
 import {LogBox} from 'react-native';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 
-import {AppNavigator} from './src/app';
+import {AppRoot} from './src/screens';
 import {configureDesignSystem} from './src/utils/designSystem';
-import {hydrateStores, StoresProvider} from './src/stores';
-import {initServices, ServicesProvider} from './src/services';
+import {hydrateStores} from './src/stores';
+import {initServices} from './src/services';
+import {AppearanceProvider, SSProvider} from './src/utils/providers';
 
 LogBox.ignoreLogs(['Require']);
 
@@ -18,8 +19,8 @@ export default (): JSX.Element => {
     await SplashScreen.preventAutoHideAsync();
 
     await hydrateStores();
-    await initServices();
     configureDesignSystem();
+    await initServices();
 
     setReady(true);
     await SplashScreen.hideAsync();
@@ -29,11 +30,14 @@ export default (): JSX.Element => {
     startApp();
   }, [startApp]);
 
+  if (!ready) <></>;
   return (
     <GestureHandlerRootView style={{flex: 1}}>
-      <StoresProvider>
-        <ServicesProvider>{ready ? <AppNavigator /> : null}</ServicesProvider>
-      </StoresProvider>
+      <SSProvider>
+        <AppearanceProvider>
+          <AppRoot />
+        </AppearanceProvider>
+      </SSProvider>
     </GestureHandlerRootView>
   );
 };

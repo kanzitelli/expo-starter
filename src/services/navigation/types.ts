@@ -1,31 +1,22 @@
 import {BottomTabNavigationOptions} from '@react-navigation/bottom-tabs';
+import {ParamListBase, RouteProp} from '@react-navigation/native';
 import {NativeStackNavigationOptions} from '@react-navigation/native-stack';
 
-import {Modal, Screen, Tabs} from '../../screens';
+import {ModalName, ScreenName, TabName} from '../../screens';
 
-type BaseScreenInfo = {
-  name: string;
+type BaseScreenInfo<Name extends string, OptionsReturn = NativeStackNavigationOptions> = {
   component: React.FC<any>;
-  // component: React.FC<NativeStackScreenProps<ScreenProps, Screen>>; // idk why it doesn't work
+  options: (props: {route: RouteProp<ParamListBase, Name>; navigation: any}) => OptionsReturn;
 };
 
-type ScreenInfo = BaseScreenInfo & {
-  options: () => NativeStackNavigationOptions;
-};
-export type ScreenLayouts = {
-  [key in Screen]: ScreenInfo;
-};
-export type GenStackNavigatorProps = ScreenInfo[];
+export type ScreenInfo = BaseScreenInfo<ScreenName>;
+export type ScreensInfo = Record<ScreenName, ScreenInfo>;
+export type ScreensInfoPartial = Partial<ScreensInfo>;
 
-export type TabScreenInfo = BaseScreenInfo & {
-  options: () => BottomTabNavigationOptions;
-};
-export type TabScreenLayouts = {
-  [key in Tabs]: TabScreenInfo;
-};
-export type GenTabNavigatorProps = TabScreenInfo[];
+export type ModalInfo = BaseScreenInfo<ModalName>;
+export type ModalsInfo = Record<ModalName, ModalInfo>;
+export type ModalsInfoPartial = Partial<ModalsInfo>;
 
-export type ModalScreenInfo = ScreenInfo;
-export type ModalScreenLayouts = {
-  [key in Modal]: ScreenInfo;
-};
+export type TabScreenInfo = BaseScreenInfo<TabName, BottomTabNavigationOptions>;
+export type TabsInfo = Record<TabName, TabScreenInfo>;
+export type TabsInfoPartial = Partial<TabsInfo>;

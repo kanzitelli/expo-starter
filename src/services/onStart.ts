@@ -2,14 +2,12 @@ import * as Font from 'expo-font';
 import {IconComponent} from '../components/icon';
 import {stores} from '../stores';
 
-const {ui} = stores;
-
-export class OnStart implements IService {
+export class OnStartService implements IService {
   private inited = false;
 
   init = async (): PVoid => {
     if (!this.inited) {
-      ui.incAppLaunces();
+      this.incAppLaunches();
 
       await this.loadAssets();
 
@@ -24,4 +22,10 @@ export class OnStart implements IService {
 
     await Promise.all([...fontAssets]);
   };
+
+  private incAppLaunches() {
+    const {ui} = stores;
+
+    ui.set('appLaunches', ui.appLaunches + 1);
+  }
 }

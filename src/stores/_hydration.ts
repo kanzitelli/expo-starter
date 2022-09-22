@@ -17,6 +17,7 @@ import {configurePersistable} from 'mobx-persist-store';
 // });
 
 // AsyncStorage configuration
+// for web support, change AsyncStorage to localStorage (or localForage, etc.)
 configurePersistable({
   debugMode: __DEV__,
   storage: {
