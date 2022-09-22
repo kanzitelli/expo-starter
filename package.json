@@ -17,8 +17,9 @@
     "run:ios": "npx expo run:ios",
     "run:ios:release": "npx expo run:ios --configuration Release",
     "pub:web": "npx expo export:web && cd web-build && vercel --prod && cd ..",
-    "pub:app": "npx eas update",
-    "pub:all": "yarn pub:app && yarn pub:web",
+    "pub:app:prod": "eas update --branch production",
+    "pub:app:dev": "eas update --branch development",
+    "pub:all": "yarn pub:app:dev && yarn pub:web",
     "format": "prettier --check ./src",
     "format:write": "prettier --write ./src",
     "release": "dotenv release-it"
