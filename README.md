@@ -169,6 +169,8 @@ Feel free to open an issue for suggestions.
 - [rnn-starter](https://github.com/kanzitelli/rnn-starter) - 🤹 Production-ready starter for React Native App! Powered by cli-rn, React Native Navigation, RN UI lib, Mobx, Reanimated 2, Dark Mode, Localization, Notifications, Permissions, and much more.
 - [rn-starter](https://github.com/kanzitelli/rn-starter) - 🦄 Production-ready starter for React Native App! Powered by cli-rn, React Navigation (v6), RN UI lib, Mobx, Reanimated 2, Dark Mode, Localization, Notifications, Permissions, and much more.
 
+> Icons have been generated with [BuildIcon](https://buildicon.netlify.app) created by [Evan Bacon](https://github.com/EvanBacon).
+
 ### Articles
 
 - "Build React Native Apps with Simplified and Predictable Navigation" - [Medium](https://kanzitelli.medium.com/build-react-native-apps-with-simplified-and-predictable-navigation-2859f047f29e), [Dev.to](https://dev.to/kanzitelli/build-react-native-apps-with-simplified-and-predictable-navigation-5b3j)
