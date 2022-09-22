@@ -55,8 +55,6 @@ export const Settings: React.FC = observer(({}) => {
       appearance,
       language,
     });
-
-    // restartApp();
   };
 
   return (

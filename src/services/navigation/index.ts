@@ -1,5 +1,4 @@
 import React from 'react';
-import {reloadAsync} from 'expo-updates';
 
 import {ModalName, ScreenName, ScreenAndModalProps} from '../../screens';
 import {CommonActions, NavigationContainerRef, StackActions} from '@react-navigation/native';
@@ -34,10 +33,6 @@ export class NavService implements IService {
     }
 
     this.r = currentName;
-  };
-
-  restart = async (): PVoid => {
-    await reloadAsync();
   };
 
   // Navigation methods
