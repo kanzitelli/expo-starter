@@ -15,6 +15,8 @@ export type ScreensInfoPartial = Partial<ScreensInfo>;
 
 export type ModalInfo = BaseScreenInfo<ModalName>;
 export type ModalsInfo = Record<ModalName, ModalInfo>;
+export type ModalsInfoPartial = Partial<ModalsInfo>;
 
 export type TabScreenInfo = BaseScreenInfo<TabName, BottomTabNavigationOptions>;
 export type TabsInfo = Record<TabName, TabScreenInfo>;
+export type TabsInfoPartial = Partial<TabsInfo>;

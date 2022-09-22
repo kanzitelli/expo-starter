@@ -2,7 +2,7 @@ import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-import {ModalsInfo, ScreensInfoPartial, TabsInfo} from './types';
+import {ModalsInfoPartial, ScreensInfoPartial, TabsInfoPartial} from './types';
 import {ModalName, ScreenName, TabName} from '../../screens';
 import {useAppearance} from '../../utils/hooks';
 
@@ -19,7 +19,7 @@ export const Stack: React.FC<{screens: ScreensInfoPartial}> = ({screens}) => {
   return <Stack.Navigator>{stackScreens}</Stack.Navigator>;
 };
 
-const Tabs: React.FC<{tabs: TabsInfo}> = ({tabs}) => {
+export const Tabs: React.FC<{tabs: TabsInfoPartial}> = ({tabs}) => {
   useAppearance(); // for Dark Mode
 
   const Tabs = createBottomTabNavigator();
@@ -32,16 +32,19 @@ const Tabs: React.FC<{tabs: TabsInfo}> = ({tabs}) => {
   return <Tabs.Navigator>{tabScreens}</Tabs.Navigator>;
 };
 
-const genModals = ({modals, stack}: {modals: ModalsInfo; stack: any}) =>
+const genModals = ({modals, stack}: {modals: ModalsInfoPartial; stack: any}) =>
   Object.keys(modals).map(it => {
     const key = it as ModalName;
     const m = modals[key]!!;
     return <stack.Screen key={key} name={key} component={m.component} />;
   });
 
+// Root takes 3 props.
+// If `tabs` is passed, it will be used to set up App layout.
+// Otherwise `screens` must be provided.
 export const Root: React.FC<{
-  tabs?: TabsInfo;
-  modals?: ModalsInfo;
+  tabs?: TabsInfoPartial;
+  modals?: ModalsInfoPartial;
   screens?: ScreensInfoPartial;
 }> = ({modals, tabs, screens}) => {
   const RootStack = createNativeStackNavigator();
