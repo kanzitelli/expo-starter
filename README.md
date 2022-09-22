@@ -14,8 +14,6 @@ npx cli-rn new app
 
 In order to change app's name, please make necessary changes in `app.json`.
 
-See it with [Expo Web](https://expo-starter.batyr.io) or [Expo Go](https://expo.dev/@kanzitelli/expo-starter).
-
 <details>
 <summary>Manual setup</summary>
 
@@ -122,7 +120,7 @@ const AppTabs = () => <Tabs tabs={tabs} />;
 Root:
 
 ```tsx
-const AppRoot = () => <Root tabs={tabs} />;
+const AppRoot = () => <Root tabs={tabs} modals={modals} />;
 ```
 
 #### Navigate to other screens with predictability
