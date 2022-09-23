@@ -15,6 +15,7 @@ web-build/
 .DS_Store
 
 *.env
+.eas.json
 _scripts/
 .expo
 media/
