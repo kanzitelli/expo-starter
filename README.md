@@ -41,13 +41,14 @@ yarn start
 
 - [Expo SDK](https://github.com/expo/expo) - a set of tools and services built around React Native and native platforms.
 - [React Navigation (v6)](https://github.com/react-navigation/react-navigation) - routing and navigation for React Native apps.
+- [Navio](https://github.com/kanzitelli/rn-navio) - universal navigation library for React Native. Built on top of [React Navigation](https://github.com/react-navigation/react-navigation).
 - [RN UI lib](https://github.com/wix/react-native-ui-lib) - amazing Design System, UI toolset & components library for React Native. Dark Mode is implemented using this library.
 - [Reanimated 2](https://github.com/software-mansion/react-native-reanimated) - React Native's Animated library reimplemented.
 - [MobX](https://github.com/mobxjs/mobx) - simple, scalable state management, with [mobx-persist-store](https://github.com/quarrant/mobx-persist-store) for persisting your stores.
 - [Flash List](https://github.com/Shopify/flash-list) - a better list for React Native (by Shopify).
 - [React Native Gesture Handler](https://github.com/kmagiera/react-native-gesture-handler) - native touches and gesture system for React Native.
 
-#### Recommended libraries
+#### Native libraries
 
 In order to use them, you will need to run `yarn prebuild` command to generate `ios/` and `android/` folders with native code.
 
@@ -60,7 +61,7 @@ In order to use them, you will need to run `yarn prebuild` command to generate `
 
 #### Useful services/methods
 
-- `nav` - a service where some of navigation configuration takes place in (such as default options).
+- `navio` - a service that exposes all navigation methods of [Navio](https://github.com/kanzitelli/rn-navio) instance.
 - `translate` - a service that brings an easy integration of localization for an app by using [i18n-js](https://github.com/fnando/i18n-js) and [expo-localization](https://github.com/expo/expo/tree/master/packages/expo-localization).
 - `api` - a service where API-related methods are located.
 - `onStart` - a service where you can write your own logic when app is launched. For example, you can increment number of `appLaunches` there.
@@ -75,67 +76,76 @@ https://user-images.githubusercontent.com/4402166/191781571-57749464-982b-4d36-b
 
 ## Advantages
 
-#### Describe app screens in one place
+#### Describe app layout in one place (w/ [Navio](https://github.com/kanzitelli/rn-navio))
 
-All setup for your screens, tabs and modals take place in one file `src/screens/index.ts`:
+All setup for your screens, tabs and modals take place in one file `src/screens/index.ts`.
 
 ```tsx
-const screens: ScreensInfo = {
-  Main: {
-    component: Main,
-    options: () => ({
-      title: 'Main',
-      ...screenDefaultOptions(),
-    }),
+import {Navio} from 'rn-navio';
+
+export const navio = Navio.build({
+  screens: {
+    Main,
+    Settings,
+    Example,
+    Playground: {
+      component: Playground,
+      options: () => ({
+        title: 'Playground',
+      }),
+    },
   },
-  // ...
-};
-const HomeStack = () => <Stack screens={pick(screens, ['Main', 'Example'])} />;
-
-const tabs: TabsInfo = {
-  HomeTab: {
-    component: HomeStack,
-    options: () => ({
-      title: 'Home',
-      ...tabBarDefaultOptions('HomeTab'),
-    }),
+  stacks: {
+    MainStack: ['Main', 'Example'],
+    ExampleStack: ['Example'],
   },
-};
+  tabs: {
+    MainTab: {
+      stack: 'MainStack',
+      options: {
+        title: 'Home',
+      },
+    },
+    PlaygroundTab: {
+      stack: ['Playground'],
+      options: () => ({
+        title: 'Playground',
+      }),
+    },
+    SettingsTab: {
+      stack: ['Settings'],
+      options: () => ({
+        title: 'Settings',
+      }),
+    },
+  },
+  modals: {
+    ExampleModal: 'ExampleStack',
+  },
+  root: 'Tabs',
+  hooks: [useAppearance],
+  options: {
+    stack: screenDefaultOptions,
+    tab: tabDefaultOptions,
+  },
+});
+
+export const AppRoot = navio.Root;
 ```
 
-#### Build layouts with ease
-
-Stack Navigator:
+#### Navigate with predictability
 
 ```tsx
-const HomeStack = () => <Stack screens={pick(screens, ['Main', 'Example'])} />;
-```
-
-Tab Navigator:
-
-```tsx
-const AppTabs = () => <Tabs tabs={tabs} />;
-```
-
-Root:
-
-```tsx
-const AppRoot = () => <Root tabs={tabs} modals={modals} />;
-```
-
-#### Navigate to other screens with predictability
-
-```tsx
-const Screen = ({componentId}) => {
-  const {nav} = useServices();
+export const Screen = () => {
+  const {navio} = useServices();
 
   return (
     <View>
       <Button
-        label="Open Settings"
+        label="Push Settings"
         onPress={() => {
-          // IDE will autocomplete with registered screens
-          nav.push('Settings');
+          // Typescript and IDE will help with autocompletion
+          navio.push('Settings');
         }}
       />
     </View>
@@ -156,6 +166,7 @@ So you have one structure within the project. You can find them in corresponding
 There are still some things I would like to add to the starter:
 
 - [x] Auth flow [example](https://github.com/kanzitelli/expo-starter/issues/14#issuecomment-1020730141)
+- [x] [Navigation library](https://github.com/kanzitelli/rn-navio) to reduce boilerplate code.
 - [ ] Shared transitions
 
 Feel free to open an issue for suggestions.
