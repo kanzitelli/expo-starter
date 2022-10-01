@@ -19,6 +19,7 @@
     "pub:web": "npx expo export:web && cd web-build && vercel --prod && cd ..",
     "pub:app:prod": "eas update --branch production",
     "pub:app:dev": "eas update --branch development",
+    "pub:config": "eas update:config",
     "pub:all": "yarn pub:app:dev && yarn pub:web",
     "format": "prettier --check ./src",
     "format:write": "prettier --write ./src",
