@@ -83,6 +83,13 @@ All setup for your screens, tabs and modals take place in one file `src/screens/
 ```tsx
 import {Navio} from 'rn-navio';
 
+// importing screen components
+import {Main} from './main';
+import {Playground} from './playground';
+import {Settings} from './settings';
+import {Example} from './_screen-sample';
+
+// building layout
 export const navio = Navio.build({
   screens: {
     Main,
