@@ -60,7 +60,7 @@
     "react-native-ui-lib": "^6.21.2",
     "react-native-web": "~0.18.7",
     "rn-bounceable": "^1.2.0",
-    "rn-navio": "^0.0.1-rc.0",
+    "rn-navio": "^0.0.1",
     "yup": "^0.32.11"
   },
   "devDependencies": {
