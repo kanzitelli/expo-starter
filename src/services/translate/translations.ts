@@ -9,10 +9,12 @@ export const en = {
     title: 'Example',
   },
   section: {
-    navigation: {
-      title: 'Navigation',
+    navio: {
+      title: 'Navio',
       button: {
         push: 'Push →',
+        push_stack: 'Push stack →',
+        jump_to: 'Jump to ⤵',
         show: 'Show ↑',
         back: '← Back',
       },
@@ -31,10 +33,11 @@ export const de = {
     title: 'Beispiel',
   },
   section: {
-    navigation: {
-      title: 'Navigation',
+    navio: {
+      title: 'Navio',
       button: {
         push: 'Schieben →',
+        push_stack: 'Schieben (stack) →',
         show: 'Zeigen ↑',
         back: '← Zurück',
       },
@@ -53,10 +56,11 @@ export const ru = {
     title: 'Пример',
   },
   section: {
-    navigation: {
-      title: 'Навигация',
+    navio: {
+      title: 'Навио',
       button: {
         push: 'Запушить →',
+        push_stack: 'Запушить стэк →',
         show: 'Показать ↑',
         back: '← Назад',
       },
