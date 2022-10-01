@@ -6,7 +6,7 @@ import {stores} from '../stores';
 import {configureDesignSystem} from './designSystem';
 import {services} from '../services';
 
-// put this hook in any component which you'd like to keep in sync with appearance
+// put this hook into any component which you'd like to keep in sync with appearance
 // for example, Main screen or list item component
 export const useAppearance = () => {
   useColorScheme();
