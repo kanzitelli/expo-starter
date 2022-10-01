@@ -22,11 +22,12 @@ export const navio = Navio.build({
     },
   },
   stacks: {
+    MainStack: ['Main', 'Example'],
     ExampleStack: ['Example'],
   },
   tabs: {
     MainTab: {
-      stack: ['Main', 'Example'],
+      stack: 'MainStack',
       options: {
         title: 'Home',
         tabBarIcon: getTabBarIcon('MainTab'),
