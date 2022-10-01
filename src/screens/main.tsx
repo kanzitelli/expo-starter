@@ -4,10 +4,11 @@ import {Text, View} from 'react-native-ui-lib';
 import Constants from 'expo-constants';
 import * as Application from 'expo-application';
 import {If} from '@kanzitelli/if-component';
-import {useNavigation} from '@react-navigation/native';
 import {observer} from 'mobx-react';
+import {useNavigation} from '@react-navigation/native';
+import {NavioScreen} from 'rn-navio';
 
-import {useServices} from '../services';
+import {services, useServices} from '../services';
 import {useStores} from '../stores';
 import {Section} from '../components/section';
 import {BButton, HeaderButton} from '../components/button';
@@ -15,11 +16,11 @@ import {Reanimated2} from '../components/reanimated2';
 import {Row} from '../components/row';
 import {useAppearance} from '../utils/hooks';
 
-export const Main: React.FC = observer(({}) => {
+export const Main: NavioScreen = observer(({}) => {
   useAppearance();
   const navigation = useNavigation();
   const {counter, ui} = useStores();
-  const {t, api, nav} = useServices();
+  const {t, api, navio} = useServices();
 
   // State (local)
   const [loading, setLoading] = useState(false);
@@ -39,8 +40,11 @@ export const Main: React.FC = observer(({}) => {
   }, [api.counter, counter]);
 
   // Methods
-  const push = () => nav.push('Example', {type: 'push'});
-  const show = () => nav.show('ExampleModal');
+  const push = () => navio.push('Example', {type: 'push'});
+  const pushStack = () => navio.pushStack('ExampleStack');
+  const jumpTo = () => navio.jumpTo('PlaygroundTab');
+  const show = () => navio.show('ExampleModal');
+  const setRoot = () => navio.setRoot('ExampleStack');
 
   const handleCounterDec = () => counter.set('value', counter.value - 1);
   const handleCounterInc = () => counter.set('value', counter.value + 1);
@@ -76,9 +80,12 @@ export const Main: React.FC = observer(({}) => {
           </Text>
         </Section>
 
-        <Section title={t.do('section.navigation.title')}>
-          <BButton marginV-s1 label={t.do('section.navigation.button.push')} onPress={push} />
-          <BButton marginV-s1 label={t.do('section.navigation.button.show')} onPress={show} />
+        <Section title={t.do('section.navio.title')}>
+          <BButton marginV-s1 label={t.do('section.navio.button.push')} onPress={push} />
+          <BButton marginV-s1 label={t.do('section.navio.button.push_stack')} onPress={pushStack} />
+          <BButton marginV-s1 label={t.do('section.navio.button.jump_to')} onPress={jumpTo} />
+          <BButton marginV-s1 label={t.do('section.navio.button.show')} onPress={show} />
+          <BButton marginV-s1 label={'Set Root - Stack'} onPress={setRoot} />
         </Section>
 
         <Section title="Reanimated 2">
@@ -114,4 +121,7 @@ export const Main: React.FC = observer(({}) => {
       </ScrollView>
     </View>
   );
+});
+Main.options = () => ({
+  title: services.t.do('home.title'),
 });

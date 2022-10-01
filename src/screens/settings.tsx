@@ -3,6 +3,7 @@ import {ScrollView} from 'react-native';
 import {Text, View, SegmentedControl, Colors} from 'react-native-ui-lib';
 import {observer} from 'mobx-react';
 import {useNavigation} from '@react-navigation/native';
+import {NavioScreen} from 'rn-navio';
 
 import {Section} from '../components/section';
 import {Row} from '../components/row';
@@ -17,8 +18,9 @@ import {
 import {useAppearance} from '../utils/hooks';
 import {useStores} from '../stores';
 import {HeaderButton} from '../components/button';
+import {services} from '../services';
 
-export const Settings: React.FC = observer(({}) => {
+export const Settings: NavioScreen = observer(({}) => {
   useAppearance();
   const navigation = useNavigation();
   const {ui} = useStores();
@@ -102,4 +104,7 @@ export const Settings: React.FC = observer(({}) => {
       </ScrollView>
     </View>
   );
+});
+Settings.options = () => ({
+  title: services.t.do('settings.title'),
 });
