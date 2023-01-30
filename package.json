@@ -4,9 +4,8 @@
   "description": "Production-ready starter for Expo (React Native) App! Powered by cli-rn, React Navigation (v6), RN UI lib, Mobx, Reanimated 2, Dark Mode, Localization, and much more.",
   "author": "Batyr <dev@batyr.io> (https://github.com/kanzitelli)",
   "homepage": "https://github.com/kanzitelli/expo-starter",
-  "main": "node_modules/expo/AppEntry.js",
   "scripts": {
-    "start": "npx expo start",
+    "start": "expo start --dev-client",
     "start:prod": "npx expo start --no-dev --minify",
     "start:android": "npx expo start --android",
     "start:ios": "npx expo start --ios",
@@ -23,7 +22,9 @@
     "pub:all": "yarn pub:app:dev && yarn pub:web",
     "format": "prettier --check ./src",
     "format:write": "prettier --write ./src",
-    "release": "dotenv release-it"
+    "release": "dotenv release-it",
+    "android": "expo run:android",
+    "ios": "expo run:ios"
   },
   "dependencies": {
     "@kanzitelli/if-component": "^0.3.0",
@@ -36,7 +37,7 @@
     "@react-navigation/stack": "^6.3.0",
     "@shopify/flash-list": "1.1.0",
     "date-fns": "^2.29.3",
-    "expo": "^46.0.0",
+    "expo": "~46.0.13",
     "expo-dev-client": "~1.2.1",
     "expo-localization": "~13.1.0",
     "expo-splash-screen": "~0.16.2",
