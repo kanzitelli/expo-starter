@@ -17,11 +17,11 @@ class Services {
 }
 export const services = new Services();
 
-const servicesContext = React.createContext<Services>(services);
+const ServicesContext = React.createContext<Services>(services);
 export const ServicesProvider = ({children}: any) => (
-  <servicesContext.Provider value={services}>{children}</servicesContext.Provider>
+  <ServicesContext.Provider value={services}>{children}</ServicesContext.Provider>
 );
-export const useServices = (): Services => React.useContext(servicesContext);
+export const useServices = (): Services => React.useContext(ServicesContext);
 
 export const initServices = async (): PVoid => {
   for (const key in services) {
