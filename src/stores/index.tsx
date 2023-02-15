@@ -10,11 +10,11 @@ class Stores {
 }
 export const stores = new Stores();
 
-const storeContext = React.createContext<Stores>(stores);
+const StoresContext = React.createContext<Stores>(stores);
 export const StoresProvider = ({children}: any) => (
-  <storeContext.Provider value={stores}>{children}</storeContext.Provider>
+  <StoresContext.Provider value={stores}>{children}</StoresContext.Provider>
 );
-export const useStores = (): Stores => React.useContext(storeContext);
+export const useStores = (): Stores => React.useContext(StoresContext);
 
 export const hydrateStores = async (): PVoid => {
   for (const key in stores) {

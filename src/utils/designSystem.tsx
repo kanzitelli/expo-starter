@@ -8,6 +8,7 @@ import {Colors, Typography} from 'react-native-ui-lib';
 import {stores} from '../stores';
 import {Icon} from '../components/icon';
 import {Appearance} from './types/enums';
+import {DrawerNavigationOptions} from '@react-navigation/drawer';
 
 // =============
 // | RN UI Lib |
@@ -150,12 +151,13 @@ export const screenDefaultOptions = (): NativeStackNavigationOptions => ({
   }),
 });
 
-export const tabDefaultOptions = (): BottomTabNavigationOptions => ({
-  headerShown: false,
+export const tabScreenDefaultOptions = (): BottomTabNavigationOptions => ({
   tabBarActiveTintColor: Colors.primary,
   tabBarInactiveTintColor: Colors.grey40,
   tabBarStyle: {backgroundColor: Colors.bgColor, borderTopWidth: 0, elevation: 0},
 });
+
+export const drawerScreenDefaultOptions = (): DrawerNavigationOptions => ({});
 
 export const getTabBarIcon =
   (tabName: string) =>
