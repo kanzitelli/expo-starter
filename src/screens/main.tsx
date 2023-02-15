@@ -15,6 +15,7 @@ import {BButton, HeaderButton} from '../components/button';
 import {Reanimated2} from '../components/reanimated2';
 import {Row} from '../components/row';
 import {useAppearance} from '../utils/hooks';
+import {NavioSection} from '../components/sections/NavioSection';
 
 export const Main: NavioScreen = observer(({}) => {
   useAppearance();
@@ -40,12 +41,6 @@ export const Main: NavioScreen = observer(({}) => {
   }, [api.counter, counter]);
 
   // Methods
-  const push = () => navio.push('Example', {type: 'push'});
-  const pushStack = () => navio.pushStack('ExampleStack');
-  const jumpTo = () => navio.jumpTo('PlaygroundTab');
-  const show = () => navio.show('ExampleModal');
-  const setRoot = () => navio.setRoot('ExampleStack');
-
   const handleCounterDec = () => counter.set('value', counter.value - 1);
   const handleCounterInc = () => counter.set('value', counter.value + 1);
   const handleCounterReset = () => counter.set('value', 0);
@@ -54,6 +49,12 @@ export const Main: NavioScreen = observer(({}) => {
   useEffect(() => {
     configureUI();
     getCounterValue();
+
+    // setTimeout(() => {
+    //   navio.tabs.updateOptions('PlaygroundTab', {
+    //     tabBarBadge: 2,
+    //   });
+    // }, 3000);
   }, []);
 
   // UI Methods
@@ -71,6 +72,8 @@ export const Main: NavioScreen = observer(({}) => {
   return (
     <View flex bg-bgColor>
       <ScrollView contentInsetAdjustmentBehavior="always">
+        <NavioSection />
+
         <Section title="Expo">
           <Text text60R textColor>
             Session ID: {Constants.sessionId}
@@ -78,14 +81,6 @@ export const Main: NavioScreen = observer(({}) => {
           <Text text60R textColor>
             App name: {Application.applicationName}
           </Text>
-        </Section>
-
-        <Section title={t.do('section.navio.title')}>
-          <BButton marginV-s1 label={t.do('section.navio.button.push')} onPress={push} />
-          <BButton marginV-s1 label={t.do('section.navio.button.push_stack')} onPress={pushStack} />
-          <BButton marginV-s1 label={t.do('section.navio.button.jump_to')} onPress={jumpTo} />
-          <BButton marginV-s1 label={t.do('section.navio.button.show')} onPress={show} />
-          <BButton marginV-s1 label={'Set Root - Stack'} onPress={setRoot} />
         </Section>
 
         <Section title="Reanimated 2">
