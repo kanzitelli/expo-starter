@@ -101,40 +101,71 @@ export const navio = Navio.build({
         title: 'Playground',
       }),
     },
+    ProductPage: {
+      component: Example,
+      options: {
+        headerShown: false,
+      },
+    },
   },
   stacks: {
     MainStack: ['Main', 'Example'],
-    ExampleStack: ['Example'],
-  },
-  tabs: {
-    MainTab: {
-      stack: 'MainStack',
-      options: {
-        title: 'Home',
+    ExampleStack: {
+      screens: ['Example'],
+      navigatorProps: {
+        screenListeners: {
+          focus: () => {},
+        },
       },
     },
-    PlaygroundTab: {
-      stack: ['Playground'],
-      options: () => ({
-        title: 'Playground',
-      }),
+    ProductPageStack: {
+      screens: ['ProductPage'],
+      containerOptions: {
+        headerShown: true,
+        title: 'Product page',
+      },
     },
-    SettingsTab: {
-      stack: ['Settings'],
-      options: () => ({
-        title: 'Settings',
-      }),
+  },
+  tabs: {
+    AppTabs: {
+      content: {
+        MainTab: {
+          stack: 'MainStack',
+          options: () => ({
+            title: 'Main',
+            tabBarIcon: getTabBarIcon('MainTab'),
+          }),
+        },
+        PlaygroundTab: {
+          stack: ['Playground'],
+          options: () => ({
+            title: 'Playground',
+            tabBarIcon: getTabBarIcon('PlaygroundTab'),
+          }),
+        },
+        SettingsTab: {
+          stack: ['Settings'],
+          options: () => ({
+            title: services.t.do('settings.title'),
+            tabBarIcon: getTabBarIcon('SettingsTab'),
+          }),
+        },
+      },
     },
   },
   modals: {
     ExampleModal: 'ExampleStack',
   },
-  root: 'Tabs',
-  hooks: [useAppearance],
-  options: {
-    stack: screenDefaultOptions,
-    tab: tabDefaultOptions,
+  drawers: {
+    MainDrawer: {
+      content: {
+        Main: 'MainStack',
+        Example: 'ExampleStack',
+        Playground: ['Playground'],
+      },
+    },
   },
+  root: 'AppTabs',
 });
 
 export const AppRoot = navio.Root;
