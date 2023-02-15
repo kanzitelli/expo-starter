@@ -3,7 +3,7 @@ import React from 'react';
 import {OnStartService} from './onStart';
 import {TranslateService} from './translate';
 import {ApiService} from './api';
-import {getNavio} from '../screens';
+import {getNavio} from '../navio';
 
 class Services {
   t = new TranslateService();
