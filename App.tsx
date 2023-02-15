@@ -2,9 +2,10 @@ import 'expo-dev-client';
 import React, {useCallback, useEffect, useState} from 'react';
 import {LogBox} from 'react-native';
 import * as SplashScreen from 'expo-splash-screen';
+import {StatusBar} from 'expo-status-bar';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 
-import {AppRoot} from './src/screens';
+import {AppRoot} from './src/navio';
 import {
   configureDesignSystem,
   getNavigationTheme,
@@ -13,11 +14,13 @@ import {
 } from './src/utils/designSystem';
 import {hydrateStores} from './src/stores';
 import {initServices} from './src/services';
-import {SSProvider} from './src/utils/providers';
-import {StatusBar} from 'expo-status-bar';
+import {AppProvider} from './src/utils/providers';
 import {useAppearance} from './src/utils/hooks';
 
-LogBox.ignoreLogs(['Require']);
+LogBox.ignoreLogs([
+  'Require',
+  'Found screens with the same name nested inside one another.', // for navio in some cases
+]);
 
 export default (): JSX.Element => {
   useAppearance();
@@ -41,10 +44,10 @@ export default (): JSX.Element => {
   if (!ready) return <></>;
   return (
     <GestureHandlerRootView style={{flex: 1}}>
-      <SSProvider>
+      <AppProvider>
         <StatusBar style={getStatusBarStyle()} backgroundColor={getStatusBarBGColor()} />
         <AppRoot navigationContainerProps={{theme: getNavigationTheme()}} />
-      </SSProvider>
+      </AppProvider>
     </GestureHandlerRootView>
   );
 };
