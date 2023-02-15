@@ -12,11 +12,27 @@ export const en = {
     navio: {
       title: 'Navio',
       button: {
-        push: 'Push →',
-        push_stack: 'Push stack →',
-        jump_to: 'Jump to ⤵',
-        show: 'Show ↑',
-        back: '← Back',
+        common: {
+          push: 'Push →',
+          go_back: '← Back',
+          set_root: 'Set root ↺',
+        },
+        stacks: {
+          push: 'Push →',
+          set_root: 'Set root ↺',
+        },
+        tabs: {
+          jump_to: 'Jump to ⤵',
+          set_root: 'Set root ↺',
+        },
+        drawers: {
+          toggle: 'Toggle ↔',
+          jump_to: 'Jump to ↩',
+          set_root: 'Set root ↺',
+        },
+        modals: {
+          show: 'Show ↑',
+        },
       },
     },
   },
@@ -36,10 +52,16 @@ export const de = {
     navio: {
       title: 'Navio',
       button: {
-        push: 'Schieben →',
-        push_stack: 'Schieben (stack) →',
-        show: 'Zeigen ↑',
-        back: '← Zurück',
+        common: {
+          push: 'Schieben →',
+          go_back: '← Zurück',
+        },
+        stacks: {
+          push: 'Schieben (stack) →',
+        },
+        modals: {
+          show: 'Zeigen ↑',
+        },
       },
     },
   },
@@ -59,10 +81,16 @@ export const ru = {
     navio: {
       title: 'Навио',
       button: {
-        push: 'Запушить →',
-        push_stack: 'Запушить стэк →',
-        show: 'Показать ↑',
-        back: '← Назад',
+        common: {
+          push: 'Запушить →',
+          go_back: '← Назад',
+        },
+        stacks: {
+          push: 'Запушить (стэк) →',
+        },
+        modals: {
+          show: 'Показать ↑',
+        },
       },
     },
   },
