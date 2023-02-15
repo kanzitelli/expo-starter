@@ -3261,6 +3261,20 @@
     react-is "^16.13.0"
     use-latest-callback "^0.1.5"
 
+"@react-navigation/drawer@^6.5.8":
+  version "6.5.8"
+  resolved "https://registry.yarnpkg.com/@react-navigation/drawer/-/drawer-6.5.8.tgz#1bab9f761099fefd5a3e7080851076d0b4310dac"
+  integrity sha512-24okwc1gVJex+NMwau1QfxIRUDfFvdbnwFS/N0bCUXDVu8bqsMeYA00C3xwCpvdRmANbBH4rFRniNbJLAvD4Jg==
+  dependencies:
+    "@react-navigation/elements" "^1.3.14"
+    color "^4.2.3"
+    warn-once "^0.1.0"
+
+"@react-navigation/elements@^1.3.14":
+  version "1.3.14"
+  resolved "https://registry.yarnpkg.com/@react-navigation/elements/-/elements-1.3.14.tgz#ee9ef7f57e0877700ebb359947728b255bbb9c65"
+  integrity sha512-RBbPhYq+KNFPAkWPaHB9gypq0jTGp/0fkMwRLToJ8jkLtWG4LV+JoQ/erFQnVARkR3Q807n0VnES15EYP4ITMQ==
+
 "@react-navigation/elements@^1.3.6":
   version "1.3.6"
   resolved "https://registry.yarnpkg.com/@react-navigation/elements/-/elements-1.3.6.tgz#fa700318528db93f05144b1be4b691b9c1dd1abe"
@@ -12956,10 +12970,10 @@ rn-bounceable@^1.2.0:
   resolved "https://registry.yarnpkg.com/rn-bounceable/-/rn-bounceable-1.2.0.tgz#10cbbe880df6acf5cbae59819b268b444118680c"
   integrity sha512-lotMXOiwGQbaL9yLW0CFqNJnVvwJaW7b7tBVtBeEScqcAzmETJkDf9ZRd1RLF9PrSbgQlLzd9+SDeOo6eKSSPg==
 
-rn-navio@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/rn-navio/-/rn-navio-0.0.1.tgz#718d0ec51017d226f11cdb222f1214fad8a02904"
-  integrity sha512-SXdltmMsVzipPSgezOgwRR/feGhog/ba7N7tpoeVsO+eszYiXeQQCKLsreSI/ZODC1wbSjZ4IyTHF/R73MdAIQ==
+rn-navio@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/rn-navio/-/rn-navio-0.0.5.tgz#b0031d6593b0a5ba36d642b93af8fcecb791fe2a"
+  integrity sha512-O4hqh9hWiJbuaWCsCnXy3OSht9v5OsbLmi6yEU88Yr4/sxeXYRF16im2D6aCtaJPIuCdjUJYnIzlmHhThZkAzw==
 
 rtl-detect@^1.0.2:
   version "1.0.2"
