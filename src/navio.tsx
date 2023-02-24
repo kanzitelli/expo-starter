@@ -73,6 +73,7 @@ export const navio = Navio.build({
           options: () => ({
             title: services.t.do('settings.title'),
             tabBarIcon: getTabBarIcon('SettingsTab'),
+            tabBarBadge: 23,
           }),
         },
       },
@@ -84,7 +85,12 @@ export const navio = Navio.build({
   drawers: {
     MainDrawer: {
       content: {
-        Main: 'MainStack',
+        Main: {
+          stack: 'MainStack',
+          options: {
+            drawerType: 'front',
+          },
+        },
         Example: 'ExampleStack',
         Playground: ['Playground'],
       },
@@ -106,4 +112,4 @@ export const navio = Navio.build({
 });
 
 export const getNavio = () => navio;
-export const AppRoot = navio.Root;
+export const App = navio.App;
