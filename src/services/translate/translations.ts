@@ -23,6 +23,8 @@ export const en = {
         },
         tabs: {
           jump_to: 'Jump to ⤵',
+          update_badge_options: 'Update tab badge',
+          update_title_options: 'Update title',
           set_root: 'Set root ↺',
         },
         drawers: {

@@ -3,6 +3,8 @@ import {Text} from 'react-native-ui-lib';
 import {useServices} from '../../services';
 import {BButton} from '../button';
 import {Section} from '../section';
+import {randomNum} from '../../utils/help';
+import {Row} from '../row';
 
 type Props = {};
 
@@ -16,6 +18,10 @@ export const NavioSection: React.FC<Props> = ({}) => {
   const stacksPush = () => navio.stacks.push('ProductPageStack');
   const stacksSetRoot = () => navio.stacks.setRoot('MainStack');
   const tabsJumpTo = () => navio.tabs.jumpTo('PlaygroundTab');
+  const tabsUpdateOptionsBadge = () =>
+    navio.tabs.updateOptions('SettingsTab', {tabBarBadge: randomNum()});
+  const tabsUpdateOptionsTitle = () =>
+    navio.tabs.updateOptions('SettingsTab', {title: `Random Title ${randomNum()}`});
   const tabsSetRoot = () => navio.tabs.setRoot('AppTabs');
   const drawersToggle = () => navio.drawers.toggle();
   const drawersJumpTo = () => navio.drawers.jumpTo('Playground');
@@ -49,6 +55,24 @@ export const NavioSection: React.FC<Props> = ({}) => {
         Tabs
       </Text>
       <BButton marginV-s1 label={t.do('section.navio.button.tabs.jump_to')} onPress={tabsJumpTo} />
+      <Row>
+        <BButton
+          flex
+          marginV-s1
+          marginR-s1
+          size="small"
+          label={t.do('section.navio.button.tabs.update_badge_options')}
+          onPress={tabsUpdateOptionsBadge}
+        />
+        <BButton
+          flex
+          marginV-s1
+          marginL-s1
+          size="small"
+          label={t.do('section.navio.button.tabs.update_title_options')}
+          onPress={tabsUpdateOptionsTitle}
+        />
+      </Row>
       <BButton
         marginV-s1
         label={t.do('section.navio.button.tabs.set_root')}
