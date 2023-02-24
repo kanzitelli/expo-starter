@@ -41,6 +41,7 @@
     "date-fns": "^2.29.3",
     "expo": "^47.0.0",
     "expo-dev-client": "~2.0.1",
+    "expo-linking": "~3.3.0",
     "expo-localization": "~14.0.0",
     "expo-splash-screen": "~0.17.5",
     "expo-status-bar": "~1.4.2",
