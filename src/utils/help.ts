@@ -1,5 +1,3 @@
-export const randomNum = (max = 100): number => Math.floor(Math.random() * max);
-
 export const randomStr = (len: number = 16) => {
   const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
   let result = '';
@@ -9,4 +7,10 @@ export const randomStr = (len: number = 16) => {
   }
 
   return result;
+};
+
+export const randomNum = (min: number = 1, max: number = 99) => {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
 };

@@ -1,18 +1,22 @@
 import React from 'react';
-import {View, Text, MarginModifiers} from 'react-native-ui-lib';
+import {View, Text, MarginModifiers, Modifiers} from 'react-native-ui-lib';
 import {Bounceable} from 'rn-bounceable';
 
-type Props = MarginModifiers & {
-  label?: string;
-  onPress?: PureFunc;
-};
+type Props = Modifiers.MarginModifiers &
+  Modifiers.FlexModifiers & {
+    label?: string;
+    onPress?: PureFunc;
+    size?: 'medium' | 'small';
+  };
 
-export const BButton: React.FC<Props> = ({label, onPress, ...modifiers}) => {
+export const BButton: React.FC<Props> = ({label, onPress, size = 'medium', ...modifiers}) => {
+  const textSize = size === 'medium' ? {text65M: true} : {text70: true};
+
   return (
     <View {...modifiers}>
       <Bounceable onPress={onPress}>
         <View center bg-primary padding-s4 br40>
-          <Text text65M _white>
+          <Text _white {...textSize}>
             {label}
           </Text>
         </View>

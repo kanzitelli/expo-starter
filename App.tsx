@@ -2,10 +2,11 @@ import 'expo-dev-client';
 import React, {useCallback, useEffect, useState} from 'react';
 import {LogBox} from 'react-native';
 import * as SplashScreen from 'expo-splash-screen';
+import * as Linking from 'expo-linking';
 import {StatusBar} from 'expo-status-bar';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 
-import {AppRoot} from './src/navio';
+import {App} from './src/navio';
 import {
   configureDesignSystem,
   getNavigationTheme,
@@ -46,7 +47,14 @@ export default (): JSX.Element => {
     <GestureHandlerRootView style={{flex: 1}}>
       <AppProvider>
         <StatusBar style={getStatusBarStyle()} backgroundColor={getStatusBarBGColor()} />
-        <AppRoot navigationContainerProps={{theme: getNavigationTheme()}} />
+        <App
+          navigationContainerProps={{
+            theme: getNavigationTheme(),
+            linking: {
+              prefixes: [Linking.createURL('/')],
+            },
+          }}
+        />
       </AppProvider>
     </GestureHandlerRootView>
   );
