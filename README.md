@@ -55,10 +55,6 @@ In order to use them, you will need to run `yarn prebuild` command to generate `
 
 - [MMKV](https://github.com/mrousavy/react-native-mmkv) - efficient, small mobile key-value storage framework developed by WeChat. [~30x faster](https://github.com/mrousavy/react-native-mmkv#benchmark) than _AsyncStorage_! Available only within Expo dev clients. Instructions on installation could be found [here](https://github.com/mrousavy/react-native-mmkv#expo).
 
-#### Extra helpful libraries
-
-- [Release It](https://github.com/release-it/release-it) - automate versioning and publishing of your app.
-
 #### Useful services/methods
 
 - `navio` - a service that exposes all navigation methods of [Navio](https://github.com/kanzitelli/rn-navio) instance.
