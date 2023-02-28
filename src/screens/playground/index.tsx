@@ -1,12 +1,14 @@
 import React, {useMemo} from 'react';
-import {Image} from 'react-native';
-// import FastImage from 'react-native-fast-image';
+import {Image} from 'expo-image';
 import {Text, View} from 'react-native-ui-lib';
 import {FlashList} from '@shopify/flash-list';
 import {observer} from 'mobx-react';
 
-import {useAppearance} from '../utils/hooks';
-import {randomStr} from '../utils/help';
+import {useAppearance} from '@app/utils/hooks';
+import {randomStr} from '@app/utils/help';
+
+const blurhash =
+  '|rF?hV%2WCj[ayj[a|j[az_NaeWBj@ayfRayfQfQM{M|azj[azf6fQfQfQIpWXofj[ayj[j[fQayWCoeoeaya}j[ayfQa{oLj?j[WVj[ayayj[fQoff7azayj[ayj[j[ayofayayayj[fQj[ayayj[ayfjj[j[ayjuayj[';
 
 export const Playground: React.FC = observer(() => {
   useAppearance();
@@ -46,15 +48,13 @@ const ListItem = ({item}: any) => {
 
   return (
     <View padding-s2 bg-bgColor>
-      {/* <FastImage
-    style={{width: 120, height: 120, borderRadius: 20}}
-    source={{uri: item.image}}
-    resizeMode={FastImage.resizeMode.contain}
-    /> */}
       <Image
-        source={{uri: item.image}}
         style={{width: 120, height: 120, borderRadius: 20}}
+        source={item.image}
+        placeholder={blurhash}
+        contentFit="cover"
         resizeMode="contain"
+        transition={100}
       />
 
       <Text textColor text50R>

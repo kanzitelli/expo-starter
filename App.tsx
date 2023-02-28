@@ -6,17 +6,17 @@ import * as Linking from 'expo-linking';
 import {StatusBar} from 'expo-status-bar';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 
-import {App} from './src/navio';
+import {App} from '@app/navio';
 import {
   configureDesignSystem,
   getNavigationTheme,
   getStatusBarBGColor,
   getStatusBarStyle,
-} from './src/utils/designSystem';
-import {hydrateStores} from './src/stores';
-import {initServices} from './src/services';
-import {AppProvider} from './src/utils/providers';
-import {useAppearance} from './src/utils/hooks';
+} from '@app/utils/designSystem';
+import {hydrateStores} from '@app/stores';
+import {initServices} from '@app/services';
+import {AppProvider} from '@app/utils/providers';
+import {useAppearance} from '@app/utils/hooks';
 
 LogBox.ignoreLogs([
   'Require',

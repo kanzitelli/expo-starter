@@ -8,14 +8,14 @@ import {observer} from 'mobx-react';
 import {useNavigation} from '@react-navigation/native';
 import {NavioScreen} from 'rn-navio';
 
-import {services, useServices} from '../services';
-import {useStores} from '../stores';
-import {Section} from '../components/section';
-import {BButton, HeaderButton} from '../components/button';
-import {Reanimated2} from '../components/reanimated2';
-import {Row} from '../components/row';
-import {useAppearance} from '../utils/hooks';
-import {NavioSection} from '../components/sections/NavioSection';
+import {services, useServices} from '@app/services';
+import {useStores} from '@app/stores';
+import {Section} from '@app/components/section';
+import {BButton, HeaderButton} from '@app/components/button';
+import {Reanimated2} from '@app/components/reanimated2';
+import {Row} from '@app/components/row';
+import {useAppearance} from '@app/utils/hooks';
+import {NavioSection} from '@app/components/sections/NavioSection';
 
 export const Main: NavioScreen = observer(({}) => {
   useAppearance();

@@ -1,6 +1,5 @@
-// import {stores} from '../../stores';
-
-import {CounterGetResponse} from '../../utils/types/api';
+// import {stores} from 'stores';
+import {CounterGetResponse} from '@app/utils/types/api';
 
 export class CounterApi {
   get = async (): Promise<CounterGetResponse> => {

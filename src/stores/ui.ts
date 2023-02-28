@@ -1,6 +1,6 @@
 import {makeAutoObservable} from 'mobx';
 import {hydrateStore, makePersistable} from 'mobx-persist-store';
-import {Appearance, appearanceToUI, Language, languageToUI} from '../utils/types/enums';
+import {Appearance, appearanceToUI, Language, languageToUI} from '@app/utils/types/enums';
 
 export class UIStore implements IStore {
   appLaunches = 0;

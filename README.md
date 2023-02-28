@@ -47,17 +47,13 @@ yarn start
 - [MobX](https://github.com/mobxjs/mobx) - simple, scalable state management, with [mobx-persist-store](https://github.com/quarrant/mobx-persist-store) for persisting your stores.
 - [Flash List](https://github.com/Shopify/flash-list) - a better list for React Native (by Shopify).
 - [React Native Gesture Handler](https://github.com/kmagiera/react-native-gesture-handler) - native touches and gesture system for React Native.
+- [Expo Image](https://github.com/expo/expo/tree/main/packages/expo-image) - cross-platform React component that loads and renders images.
 
 #### Native libraries
 
 In order to use them, you will need to run `yarn prebuild` command to generate `ios/` and `android/` folders with native code.
 
 - [MMKV](https://github.com/mrousavy/react-native-mmkv) - efficient, small mobile key-value storage framework developed by WeChat. [~30x faster](https://github.com/mrousavy/react-native-mmkv#benchmark) than _AsyncStorage_! Available only within Expo dev clients. Instructions on installation could be found [here](https://github.com/mrousavy/react-native-mmkv#expo).
-- [Fast Image](https://github.com/DylanVann/react-native-fast-image) - performant React Native image component.
-
-#### Extra helpful libraries
-
-- [Release It](https://github.com/release-it/release-it) - automate versioning and publishing of your app.
 
 #### Useful services/methods
 
@@ -205,7 +201,8 @@ There are still some things I would like to add to the starter:
 
 - [x] Auth flow [example](https://github.com/kanzitelli/expo-starter/issues/14#issuecomment-1020730141)
 - [x] [Navigation library](https://github.com/kanzitelli/rn-navio) to reduce boilerplate code.
-- [ ] Shared transitions
+- [x] [Expo Image](https://github.com/expo/expo/tree/main/packages/expo-image) added.
+- [ ] Shared transitions (w/ Reanimated v3)
 
 Feel free to open an issue for suggestions.
 

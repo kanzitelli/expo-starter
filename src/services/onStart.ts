@@ -1,6 +1,6 @@
 import * as Font from 'expo-font';
-import {IconComponent} from '../components/icon';
-import {stores} from '../stores';
+import {IconComponent} from '@app/components/icon';
+import {stores} from '@app/stores';
 
 export class OnStartService implements IService {
   private inited = false;

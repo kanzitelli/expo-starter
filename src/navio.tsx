@@ -1,18 +1,18 @@
 import {Navio} from 'rn-navio';
 
-import {Main} from './screens/main';
-import {Playground} from './screens/playground';
-import {Settings} from './screens/settings';
-import {Example} from './screens/_screen-sample';
+import {Main} from '@app/screens/main';
+import {Playground} from '@app/screens/playground';
+import {Settings} from '@app/screens/settings';
+import {Example} from '@app/screens/_screen-sample';
 
-import {useAppearance} from './utils/hooks';
+import {useAppearance} from '@app/utils/hooks';
 import {
   screenDefaultOptions,
   tabScreenDefaultOptions,
   getTabBarIcon,
   drawerScreenDefaultOptions,
-} from './utils/designSystem';
-import {services} from './services';
+} from '@app/utils/designSystem';
+import {services} from '@app/services';
 
 // NAVIO
 export const navio = Navio.build({
