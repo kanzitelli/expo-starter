@@ -1,7 +1,7 @@
 import React, {PropsWithChildren} from 'react';
 
-import {ServicesProvider} from '../services';
-import {StoresProvider} from '../stores';
+import {ServicesProvider} from '@app/services';
+import {StoresProvider} from '@app/stores';
 
 export const AppProvider: React.FC<PropsWithChildren<{}>> = ({children}) => {
   return (

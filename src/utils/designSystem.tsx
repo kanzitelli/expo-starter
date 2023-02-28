@@ -1,14 +1,14 @@
 import {DarkTheme, DefaultTheme, Theme} from '@react-navigation/native';
 import {NativeStackNavigationOptions} from '@react-navigation/native-stack';
 import {BottomTabNavigationOptions} from '@react-navigation/bottom-tabs';
+import {DrawerNavigationOptions} from '@react-navigation/drawer';
 import {StatusBarStyle} from 'expo-status-bar';
 import {Appearance as RNAppearance, Platform} from 'react-native';
 import {Colors, Typography} from 'react-native-ui-lib';
 
-import {stores} from '../stores';
-import {Icon} from '../components/icon';
-import {Appearance} from './types/enums';
-import {DrawerNavigationOptions} from '@react-navigation/drawer';
+import {stores} from '@app/stores';
+import {Icon} from '@app/components/icon';
+import {Appearance} from '@app/utils/types/enums';
 
 // =============
 // | RN UI Lib |
