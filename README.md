@@ -4,6 +4,8 @@
 
 This starter is a collection of libraries and approaches needed for fast start and productive maintainance of Expo (React Native) App.
 
+> <i>Expo Starter</i> is a part of [starters.dev](https://github.com/starters-dev) collection.
+
 ## Getting Started
 
 #### Quick start with [cli-rn](https://github.com/kanzitelli/cli-rn)
@@ -97,12 +99,6 @@ export const navio = Navio.build({
         title: 'Playground',
       }),
     },
-    ProductPage: {
-      component: Example,
-      options: {
-        headerShown: false,
-      },
-    },
   },
   stacks: {
     MainStack: ['Main', 'Example'],
@@ -112,13 +108,6 @@ export const navio = Navio.build({
         screenListeners: {
           focus: () => {},
         },
-      },
-    },
-    ProductPageStack: {
-      screens: ['ProductPage'],
-      containerOptions: {
-        headerShown: true,
-        title: 'Product page',
       },
     },
   },
@@ -224,6 +213,8 @@ Feel free to open an issue for suggestions.
 ## Why
 
 ...do we need yet another starter/boilerplate? Well, I work with React Native for more than 4 years and during the time I started having my own project structure which was a good fit for almost all of the delivered apps. Also, I have come up with some custom [useful services/methods](#useful-servicesmethods) which simplify usage of [React Navigation](https://github.com/react-navigation/react-navigation) and other libraries. Check out [Advantages](#advantages) section.
+
+> If `Expo Starter` helped you in any way, don't hesitate to ⭐️ the repo!
 
 ## License
 
