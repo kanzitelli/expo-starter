@@ -80,10 +80,10 @@ All setup for your screens, tabs and modals take place in one file `src/screens/
 import {Navio} from 'rn-navio';
 
 // importing screen components
-import {Main} from './main';
-import {Playground} from './playground';
-import {Settings} from './settings';
-import {Example} from './_screen-sample';
+import {Main} from '@app/screens/main';
+import {Playground} from '@app/screens/playground';
+import {Settings} from '@app/screens/settings';
+import {Example} from '@app/screens/_screen-sample';
 
 // building layout
 export const navio = Navio.build({
