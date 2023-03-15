@@ -27,6 +27,9 @@ export const Playground: React.FC = observer(() => {
   const {auth} = useStores();
 
   // Methods
+  const shopFlashList = () => navio.push('PlaygroundFlashList');
+  const shopExpoImage = () => navio.push('PlaygroundExpoImage');
+
   const showAuthFlow = () => {
     // logging out from previous session
     if (auth.state === 'logged-in') {
@@ -38,37 +41,44 @@ export const Playground: React.FC = observer(() => {
     }
   };
 
+  // pushing stack will hide tabs on Product Page
+  const showProductPage = () => navio.stacks.push('ProductPageStack');
+
   // Memos
-  const SectionsData: Record<string, SectionData> = useMemo(() => {
-    return {
-      Libraries: {
-        content: [
-          {
-            title: 'Flash List',
-            subtitle: 'by Shopify',
-            icon: 'list-outline',
-            onPress: () => navio.push('PlaygroundFlashList'),
-          },
-          {
-            title: 'Expo Image',
-            subtitle: 'by Expo',
-            icon: 'image-outline',
-            onPress: () => navio.push('PlaygroundExpoImage'),
-          },
-        ],
-      },
-      Navio: {
-        content: [
-          {
-            title: 'Auth flow',
-            icon: 'lock-closed-outline',
-            subtitle: auth.stateStr,
-            onPress: showAuthFlow,
-          },
-        ],
-      },
-    };
-  }, [auth.state]);
+  const SectionsData: Record<string, SectionData> = {
+    Libraries: {
+      content: [
+        {
+          title: 'Flash List',
+          subtitle: 'by Shopify',
+          icon: 'list-outline',
+          onPress: shopFlashList,
+        },
+        {
+          title: 'Expo Image',
+          subtitle: 'by Expo',
+          icon: 'image-outline',
+          onPress: shopExpoImage,
+        },
+      ],
+    },
+    Navio: {
+      content: [
+        {
+          title: 'Auth flow',
+          icon: 'lock-closed-outline',
+          subtitle: auth.stateStr,
+          onPress: showAuthFlow,
+        },
+        {
+          title: 'Hide tabs',
+          icon: 'eye-off-outline',
+          subtitle: 'Pushes Product Page w/out tabs',
+          onPress: showProductPage,
+        },
+      ],
+    },
+  };
 
   // UI Methods
   const Sections = useMemo(() => {
