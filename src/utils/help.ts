@@ -14,3 +14,5 @@ export const randomNum = (min: number = 1, max: number = 99) => {
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
 };
+
+export const sleep = (ms: number) => new Promise(resolver => setTimeout(resolver, ms));
