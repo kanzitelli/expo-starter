@@ -49,12 +49,6 @@ export const Main: NavioScreen = observer(({}) => {
   useEffect(() => {
     configureUI();
     getCounterValue();
-
-    // setTimeout(() => {
-    //   navio.tabs.updateOptions('PlaygroundTab', {
-    //     tabBarBadge: 2,
-    //   });
-    // }, 3000);
   }, []);
 
   // UI Methods
@@ -83,7 +77,7 @@ export const Main: NavioScreen = observer(({}) => {
           </Text>
         </Section>
 
-        <Section title="Reanimated 2">
+        <Section title="Reanimated">
           <Reanimated2 />
         </Section>
 
