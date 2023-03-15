@@ -1,81 +1,120 @@
 import React, {useMemo} from 'react';
-import {Image} from 'expo-image';
 import {Text, View} from 'react-native-ui-lib';
-import {FlashList} from '@shopify/flash-list';
 import {observer} from 'mobx-react';
+import {ScrollView} from 'react-native-gesture-handler';
+import {Bounceable} from 'rn-bounceable';
+import {If} from '@kanzitelli/if-component';
 
+import {useStores} from '@app/stores';
+import {useServices} from '@app/services';
 import {useAppearance} from '@app/utils/hooks';
-import {randomStr} from '@app/utils/help';
+import {Row} from '@app/components/row';
+import {Icon} from '@app/components/icon';
+import {Section} from '@app/components/section';
 
-const blurhash =
-  '|rF?hV%2WCj[ayj[a|j[az_NaeWBj@ayfRayfQfQM{M|azj[azf6fQfQfQIpWXofj[ayj[j[fQayWCoeoeaya}j[ayfQa{oLj?j[WVj[ayayj[fQoff7azayj[ayj[j[ayofayayayj[fQj[ayayj[ayfjj[j[ayjuayj[';
+type SectionData = {
+  content: {
+    title: string;
+    subtitle?: string;
+    icon: string;
+    onPress: PureFunc;
+  }[];
+};
 
 export const Playground: React.FC = observer(() => {
   useAppearance();
-  // const {t} = useServices();
-  // const {ui} = useStores();
-
-  const DATA = useMemo(
-    () =>
-      Array.from({length: 1000}).map((v, ndx) => ({
-        title: `Item ${ndx}`,
-        image: `https://picsum.photos/200?image=${ndx + 1}`,
-        description: randomStr(300),
-      })),
-    [],
-  );
-
-  // State
+  const {navio} = useServices();
+  const {auth} = useStores();
 
   // Methods
+  const showAuthFlow = () => {
+    // logging out from previous session
+    if (auth.state === 'logged-in') {
+      auth.logout();
+    } else {
+      // we can move `navio.setRoot` inside `auth.logout`
+      // but is left here for more clarity and simplicity
+      navio.setRoot('stacks', 'AuthFlow');
+    }
+  };
+
+  // Memos
+  const SectionsData: Record<string, SectionData> = useMemo(() => {
+    return {
+      Libraries: {
+        content: [
+          {
+            title: 'Flash List',
+            subtitle: 'by Shopify',
+            icon: 'list-outline',
+            onPress: () => navio.push('PlaygroundFlashList'),
+          },
+          {
+            title: 'Expo Image',
+            subtitle: 'by Expo',
+            icon: 'image-outline',
+            onPress: () => navio.push('PlaygroundExpoImage'),
+          },
+        ],
+      },
+      Navio: {
+        content: [
+          {
+            title: 'Auth flow',
+            icon: 'lock-closed-outline',
+            subtitle: auth.stateStr,
+            onPress: showAuthFlow,
+          },
+        ],
+      },
+    };
+  }, [auth.state]);
+
   // UI Methods
+  const Sections = useMemo(() => {
+    const keys = Object.keys(SectionsData) as (keyof typeof SectionsData)[];
+    return keys.map(k => {
+      const s = SectionsData[k];
+      return (
+        <Section key={k} title={k}>
+          {s.content.map(content => {
+            return (
+              <View key={content.title} marginV-s1>
+                <Bounceable onPress={content.onPress}>
+                  <View bg-bg2Color padding-s3 br30>
+                    <Row>
+                      <Icon name={content.icon} size={34} />
+
+                      <View flex marginH-s3>
+                        <Text text60R textColor>
+                          {content.title}
+                        </Text>
+
+                        {If({
+                          _: !!content.subtitle,
+                          _then: (
+                            <Text text70 grey20>
+                              {content.subtitle}
+                            </Text>
+                          ),
+                        })}
+                      </View>
+
+                      <Icon name="chevron-forward" />
+                    </Row>
+                  </View>
+                </Bounceable>
+              </View>
+            );
+          })}
+        </Section>
+      );
+    });
+  }, [SectionsData]);
 
   return (
     <View flex bg-bgColor>
-      <FlashList
-        contentInsetAdjustmentBehavior="always"
-        data={DATA}
-        renderItem={({item}) => <ListItem item={item} />}
-        ListHeaderComponent={ListHeader}
-        estimatedItemSize={300}
-      />
+      <ScrollView contentInsetAdjustmentBehavior="always">{Sections}</ScrollView>
     </View>
   );
 });
-
-const ListItem = ({item}: any) => {
-  useAppearance();
-
-  return (
-    <View padding-s2 bg-bgColor>
-      <Image
-        style={{width: 120, height: 120, borderRadius: 20}}
-        source={item.image}
-        placeholder={blurhash}
-        contentFit="cover"
-        resizeMode="contain"
-        transition={100}
-      />
-
-      <Text textColor text50R>
-        {item.title}
-      </Text>
-
-      <Text textColor text70R>
-        {item.description}
-      </Text>
-    </View>
-  );
-};
-
-const ListHeader = () => {
-  useAppearance();
-
-  return (
-    <View padding-s2 bg-bgColor>
-      <Text text50M textColor>
-        FlashList by Shopify
-      </Text>
-    </View>
-  );
-};

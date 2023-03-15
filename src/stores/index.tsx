@@ -3,10 +3,12 @@ import React from 'react';
 import './_hydration';
 import {UIStore} from './ui';
 import {CounterStore} from './counter';
+import {AuthStore} from './auth';
 
 class Stores {
   ui = new UIStore();
   counter = new CounterStore();
+  auth = new AuthStore();
 }
 export const stores = new Stores();
 

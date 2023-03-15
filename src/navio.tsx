@@ -2,6 +2,8 @@ import {Navio} from 'rn-navio';
 
 import {Main} from '@app/screens/main';
 import {Playground} from '@app/screens/playground';
+import {PlaygroundFlashList} from '@app/screens/playground/flash-list';
+import {PlaygroundExpoImage} from '@app/screens/playground/expo-image';
 import {Settings} from '@app/screens/settings';
 import {Example} from '@app/screens/_screen-sample';
 
@@ -13,6 +15,7 @@ import {
   drawerScreenDefaultOptions,
 } from '@app/utils/designSystem';
 import {services} from '@app/services';
+import {AuthLogin} from './screens/auth/login';
 
 // NAVIO
 export const navio = Navio.build({
@@ -20,18 +23,21 @@ export const navio = Navio.build({
     Main,
     Settings,
     Example,
-    Playground: {
-      component: Playground,
-      options: () => ({
-        title: 'Playground',
-      }),
-    },
+
+    Playground,
+    PlaygroundFlashList,
+    PlaygroundExpoImage,
+
+    // for .pushStack example
     ProductPage: {
       component: Example,
       options: {
         headerShown: false,
       },
     },
+
+    // for auth flow
+    AuthLogin,
   },
   stacks: {
     MainStack: ['Main', 'Example'],
@@ -43,6 +49,11 @@ export const navio = Navio.build({
         },
       },
     },
+    PlaygroundStack: {
+      screens: ['Playground', 'PlaygroundFlashList', 'PlaygroundExpoImage'],
+    },
+
+    // for .pushStack example
     ProductPageStack: {
       screens: ['ProductPage'],
       containerOptions: {
@@ -50,6 +61,9 @@ export const navio = Navio.build({
         title: 'Product page',
       },
     },
+
+    // for auth flow
+    AuthFlow: ['AuthLogin', 'Example'],
   },
   tabs: {
     AppTabs: {
@@ -62,7 +76,7 @@ export const navio = Navio.build({
           }),
         },
         PlaygroundTab: {
-          stack: ['Playground'],
+          stack: 'PlaygroundStack',
           options: () => ({
             title: 'Playground',
             tabBarIcon: getTabBarIcon('PlaygroundTab'),
@@ -92,7 +106,7 @@ export const navio = Navio.build({
           },
         },
         Example: 'ExampleStack',
-        Playground: ['Playground'],
+        Playground: 'PlaygroundStack',
       },
     },
   },
