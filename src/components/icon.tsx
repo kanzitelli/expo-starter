@@ -21,12 +21,12 @@ export const Icon: React.FC<IconProps> = ({
   color = Colors.textColor,
   viewProps,
   onPress,
-  bounceable = true,
+  bounceable = false,
 }: IconProps) => {
   const Icon = useMemo(
     () => (
       <View {...viewProps}>
-        <IconComponent name={name} size={size} color={color} />
+        <IconComponent name={name as any} size={size} color={color} />
       </View>
     ),
     [viewProps, name, size, color],
