@@ -7,7 +7,7 @@ export const Section: React.FC<
   }>
 > = ({children, title}) => {
   return (
-    <View margin-s2 marginV-s3 paddingH-s3>
+    <View margin-s2 marginV-s2 paddingH-s3>
       <Text section textColor>
         {title}
       </Text>
