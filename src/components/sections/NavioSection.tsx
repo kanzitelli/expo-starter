@@ -33,28 +33,56 @@ export const NavioSection: React.FC<Props> = ({}) => {
       <Text text60R textColor>
         Common
       </Text>
-      <BButton marginV-s1 label={t.do('section.navio.button.common.push')} onPress={pushScreen} />
-      <BButton marginV-s1 label={t.do('section.navio.button.common.go_back')} onPress={goBack} />
+      <Row>
+        <BButton
+          flex
+          marginV-s1
+          marginR-s1
+          size="small"
+          label={t.do('section.navio.button.common.push')}
+          onPress={pushScreen}
+        />
+        <BButton
+          flex
+          marginV-s1
+          marginL-s1
+          size="small"
+          label={t.do('section.navio.button.common.go_back')}
+          onPress={goBack}
+        />
+      </Row>
       <BButton
         marginV-s1
+        size="small"
         label={t.do('section.navio.button.common.set_root')}
         onPress={globalSetRoot}
       />
 
-      <Text marginT-s4 text60R textColor>
+      <Text marginT-s2 text60R textColor>
         Stacks
       </Text>
-      <BButton marginV-s1 label={t.do('section.navio.button.stacks.push')} onPress={stacksPush} />
-      <BButton
-        marginV-s1
-        label={t.do('section.navio.button.stacks.set_root')}
-        onPress={stacksSetRoot}
-      />
+      <Row>
+        <BButton
+          flex
+          marginV-s1
+          marginR-s1
+          size="small"
+          label={t.do('section.navio.button.stacks.push')}
+          onPress={stacksPush}
+        />
+        <BButton
+          flex
+          marginV-s1
+          marginL-s1
+          size="small"
+          label={t.do('section.navio.button.stacks.set_root')}
+          onPress={stacksSetRoot}
+        />
+      </Row>
 
-      <Text marginT-s4 text60R textColor>
+      <Text marginT-s2 text60R textColor>
         Tabs
       </Text>
-      <BButton marginV-s1 label={t.do('section.navio.button.tabs.jump_to')} onPress={tabsJumpTo} />
       <Row>
         <BButton
           flex
@@ -73,35 +101,62 @@ export const NavioSection: React.FC<Props> = ({}) => {
           onPress={tabsUpdateOptionsTitle}
         />
       </Row>
-      <BButton
-        marginV-s1
-        label={t.do('section.navio.button.tabs.set_root')}
-        onPress={tabsSetRoot}
-      />
+      <Row>
+        <BButton
+          flex
+          marginV-s1
+          marginR-s1
+          size="small"
+          label={t.do('section.navio.button.tabs.jump_to')}
+          onPress={tabsJumpTo}
+        />
+        <BButton
+          flex
+          marginV-s1
+          marginL-s1
+          size="small"
+          label={t.do('section.navio.button.tabs.set_root')}
+          onPress={tabsSetRoot}
+        />
+      </Row>
 
-      <Text marginT-s4 text60R textColor>
+      <Text marginT-s2 text60R textColor>
         Drawers
       </Text>
+      <Row>
+        <BButton
+          flex
+          marginV-s1
+          marginR-s1
+          size="small"
+          label={t.do('section.navio.button.drawers.toggle')}
+          onPress={drawersToggle}
+        />
+        <BButton
+          flex
+          marginV-s1
+          marginL-s1
+          size="small"
+          label={t.do('section.navio.button.drawers.jump_to')}
+          onPress={drawersJumpTo}
+        />
+      </Row>
       <BButton
         marginV-s1
-        label={t.do('section.navio.button.drawers.toggle')}
-        onPress={drawersToggle}
-      />
-      <BButton
-        marginV-s1
-        label={t.do('section.navio.button.drawers.jump_to')}
-        onPress={drawersJumpTo}
-      />
-      <BButton
-        marginV-s1
+        size="small"
         label={t.do('section.navio.button.drawers.set_root')}
         onPress={drawersSetRoot}
       />
 
-      <Text marginT-s4 text60R textColor>
+      <Text marginT-s2 text60R textColor>
         Modals
       </Text>
-      <BButton marginV-s1 label={t.do('section.navio.button.modals.show')} onPress={modalsShow} />
+      <BButton
+        marginV-s1
+        size="small"
+        label={t.do('section.navio.button.modals.show')}
+        onPress={modalsShow}
+      />
     </Section>
   );
 };

@@ -1,12 +1,13 @@
 import 'expo-dev-client';
-import React, {useCallback, useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useMemo, useState} from 'react';
 import {LogBox} from 'react-native';
-import * as SplashScreen from 'expo-splash-screen';
+
 import * as Linking from 'expo-linking';
 import {StatusBar} from 'expo-status-bar';
+import * as SplashScreen from 'expo-splash-screen';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 
-import {App} from '@app/navio';
+import {NavioApp} from '@app/navio';
 import {
   configureDesignSystem,
   getNavigationTheme,
@@ -27,7 +28,9 @@ export default (): JSX.Element => {
   useAppearance();
   const [ready, setReady] = useState(false);
 
-  const start = useCallback(async () => {
+  // `onLaunch` performs actions that have to be done on app launch before displaying app UI.
+  // If you need to make some api requests, load remote config, or some other "heavy" actions, you can use `@app/services/onLaunch.tsx`.
+  const onLaunch = useCallback(async () => {
     await SplashScreen.preventAutoHideAsync();
 
     await hydrateStores();
@@ -39,21 +42,31 @@ export default (): JSX.Element => {
   }, []);
 
   useEffect(() => {
-    start();
-  }, [start]);
+    onLaunch();
+  }, [onLaunch]);
 
-  if (!ready) return <></>;
+  const NotReady = useMemo(() => {
+    // [Tip]
+    // You can show loading state here.
+    return <></>;
+  }, [ready]);
+
+  if (!ready) return NotReady;
   return (
     <GestureHandlerRootView style={{flex: 1}}>
       <AppProvider>
         <StatusBar style={getStatusBarStyle()} backgroundColor={getStatusBarBGColor()} />
-        <App
+        <NavioApp
           navigationContainerProps={{
             theme: getNavigationTheme(),
             linking: {
               prefixes: [Linking.createURL('/')],
             },
           }}
+
+          // [Tip]
+          // You can use `initialRouteName` to change root of the app depending on global state changes.
+          // initialRouteName="AppTabs"
         />
       </AppProvider>
     </GestureHandlerRootView>

@@ -4,6 +4,10 @@
 
 This starter is a collection of libraries and approaches needed for fast start and productive maintainance of Expo (React Native) App.
 
+> `Expo Starter` is a part of [starters.dev](https://github.com/starters-dev) collection.
+
+> If `Expo Starter` helped you in any way, don't hesitate to ⭐️ the repo!
+
 ## Getting Started
 
 #### Quick start with [cli-rn](https://github.com/kanzitelli/cli-rn)
@@ -80,10 +84,10 @@ All setup for your screens, tabs and modals take place in one file `src/screens/
 import {Navio} from 'rn-navio';
 
 // importing screen components
-import {Main} from './main';
-import {Playground} from './playground';
-import {Settings} from './settings';
-import {Example} from './_screen-sample';
+import {Main} from '@app/screens/main';
+import {Playground} from '@app/screens/playground';
+import {Settings} from '@app/screens/settings';
+import {Example} from '@app/screens/_screen-sample';
 
 // building layout
 export const navio = Navio.build({
@@ -97,12 +101,6 @@ export const navio = Navio.build({
         title: 'Playground',
       }),
     },
-    ProductPage: {
-      component: Example,
-      options: {
-        headerShown: false,
-      },
-    },
   },
   stacks: {
     MainStack: ['Main', 'Example'],
@@ -112,13 +110,6 @@ export const navio = Navio.build({
         screenListeners: {
           focus: () => {},
         },
-      },
-    },
-    ProductPageStack: {
-      screens: ['ProductPage'],
-      containerOptions: {
-        headerShown: true,
-        title: 'Product page',
       },
     },
   },
@@ -187,9 +178,13 @@ export const Screen = () => {
 };
 ```
 
-#### Dark mode support
+#### App flows
 
-You can define modes in `utils/designSystem.tsx`.
+You can find different app flows, such as Auth flow, simple 2 screens, 3 tabs, etc., in the [navio.tsx](https://github.com/kanzitelli/expo-starter/blob/master/src/navio.tsx).
+
+#### Dark mode
+
+You can define modes in [designSystem.tsx](https://github.com/kanzitelli/expo-starter/blob/master/src/utils/designSystem.tsx).
 
 #### Samples for new screens, services, stores and components.
 
