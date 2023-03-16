@@ -14,6 +14,7 @@ import formatRelative from 'date-fns/formatRelative';
 import subDays from 'date-fns/subDays';
 
 type RowData = {
+  key: string;
   title: string;
   image: string;
   description: string;
@@ -31,11 +32,12 @@ export const PlaygroundFlashList: NavioScreen<Props> = observer(() => {
   const DATA: RowData[] = useMemo(
     () =>
       Array.from({length: 1000}).map((v, ndx) => ({
+        key: `${ndx}`,
         title: `Item ${ndx}`,
         image: `https://picsum.photos/200?image=${ndx + 1}`,
         description: randomStr(300),
         pics: [
-          `https://picsum.photos/200?image=${ndx * 89}`,
+          `https://picsum.photos/200?image=${ndx * 69}`,
           `https://picsum.photos/200?image=${ndx * 99}`,
         ],
       })),
@@ -83,8 +85,9 @@ const ListItem = ({item}: {item: RowData}) => {
     <View padding-s2 paddingH-s4 paddingB-s8 bg-bgColor>
       <Row>
         <Image
-          style={{width: 80, height: 80, borderRadius: 16}}
+          recyclingKey={`${item.key}${item.image}`}
           source={item.image}
+          style={{width: 80, height: 80, borderRadius: 16}}
           placeholder={blurhash}
           contentFit="cover"
           resizeMode="contain"

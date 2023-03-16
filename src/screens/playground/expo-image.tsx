@@ -10,7 +10,10 @@ import {FlashList} from '@shopify/flash-list';
 import {Image} from 'expo-image';
 import {Bounceable} from 'rn-bounceable';
 
-type TImage = string;
+type TImage = {
+  key: string;
+  url: string;
+};
 type Images = TImage[];
 
 export type Props = {};
@@ -22,7 +25,11 @@ export const PlaygroundExpoImage: NavioScreen<Props> = observer(() => {
   // const {ui} = useStores();
 
   const DATA: Images = useMemo(
-    () => Array.from({length: 1000}).map((v, ndx) => `https://picsum.photos/200?image=${ndx + 1}`),
+    () =>
+      Array.from({length: 1000}).map((v, index) => ({
+        key: `${index}`,
+        url: `https://picsum.photos/200?image=${index + 1}`,
+      })),
     [],
   );
 
@@ -68,8 +75,9 @@ const ListItem = ({item}: {item: TImage}) => {
     <View flex bg-bgColor>
       <Bounceable>
         <Image
+          recyclingKey={item.key}
+          source={item.url}
           style={{height: 320}}
-          source={item}
           placeholder={blurhash}
           contentFit="cover"
           resizeMode="contain"
