@@ -4,7 +4,7 @@
 
 This starter is a collection of libraries and approaches needed for fast start and productive maintainance of Expo (React Native) App.
 
-> <i>Expo Starter</i> is a part of [starters.dev](https://github.com/starters-dev) collection.
+> `Expo Starter` is a part of [starters.dev](https://github.com/starters-dev) collection.
 
 > If `Expo Starter` helped you in any way, don't hesitate to ⭐️ the repo!
 
