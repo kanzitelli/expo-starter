@@ -126,4 +126,4 @@ export const navio = Navio.build({
 });
 
 export const getNavio = () => navio;
-export const App = navio.App;
+export const NavioApp = navio.App;
