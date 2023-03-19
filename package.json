@@ -1,6 +1,6 @@
 {
   "name": "expo-starter",
-  "version": "6.1.1",
+  "version": "6.2.0",
   "description": "Production-ready starter for Expo (React Native) App! Powered by cli-rn, React Navigation (v6), RN UI lib, Mobx, Reanimated 2, Dark Mode, Localization, and much more.",
   "author": "Batyr <dev@batyr.io> (https://github.com/kanzitelli)",
   "homepage": "https://github.com/kanzitelli/expo-starter",
