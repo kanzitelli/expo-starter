@@ -12163,10 +12163,10 @@ rn-bounceable@^1.2.0:
   resolved "https://registry.yarnpkg.com/rn-bounceable/-/rn-bounceable-1.2.0.tgz#10cbbe880df6acf5cbae59819b268b444118680c"
   integrity sha512-lotMXOiwGQbaL9yLW0CFqNJnVvwJaW7b7tBVtBeEScqcAzmETJkDf9ZRd1RLF9PrSbgQlLzd9+SDeOo6eKSSPg==
 
-rn-navio@^0.0.6:
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/rn-navio/-/rn-navio-0.0.6.tgz#7a6102d918413a254afd263c4a06f309278bfc98"
-  integrity sha512-OaL8FvVEcdq9q5hr8KM8KYiHEv2RYVomTxlibHrX13nkTVqTuatHh87Y4lK+9yJaZdHUA0iPgkd0fWgmziU0JQ==
+rn-navio@^0.0.7:
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/rn-navio/-/rn-navio-0.0.7.tgz#574504b7e3c54e9dae646f835ca442a667b09c51"
+  integrity sha512-9D7pmeDroEjlELjZvUMidyToBJRnSI0NbVgfafWcUtY4AvLt1Lwa7kqPXAn4UlLSJ4dGGLbnazphXGlpA9a+sw==
 
 rtl-detect@^1.0.2:
   version "1.0.2"
