@@ -30,6 +30,7 @@ export const en = {
         drawers: {
           toggle: 'Toggle ↔',
           jump_to: 'Jump to ↩',
+          update_title_options: 'Update opts (title)',
           set_root: 'Set root ↺',
         },
         modals: {

@@ -65,8 +65,8 @@ export default (): JSX.Element => {
           }}
 
           // [Tip]
-          // You can use `initialRouteName` to change root of the app depending on global state changes.
-          // initialRouteName="AppTabs"
+          // You can use `root` to change the root of the app depending on global state changes.
+          // root={isLoggedIn ? 'AuthStack' : 'AppTabs'}
         />
       </AppProvider>
     </GestureHandlerRootView>

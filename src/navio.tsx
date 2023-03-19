@@ -66,6 +66,7 @@ export const navio = Navio.build({
     AuthFlow: ['AuthLogin', 'Example'],
   },
   tabs: {
+    // main 3 tabs
     AppTabs: {
       content: {
         MainTab: {
@@ -92,11 +93,29 @@ export const navio = Navio.build({
         },
       },
     },
-  },
-  modals: {
-    ExampleModal: 'ExampleStack',
+
+    // tabs with drawer
+    // TabsWithDrawer: {
+    //   content: {
+    //     MainTab: {
+    //       stack: 'MainStack',
+    //       options: () => ({
+    //         title: 'Main',
+    //         tabBarIcon: getTabBarIcon('MainTab'),
+    //       }),
+    //     },
+    //     PlaygroundTab: {
+    //       drawer: 'DrawerForTabs',
+    //       options: () => ({
+    //         title: 'Playground',
+    //         tabBarIcon: getTabBarIcon('PlaygroundTab'),
+    //       }),
+    //     },
+    //   },
+    // },
   },
   drawers: {
+    // main drawer
     MainDrawer: {
       content: {
         Main: {
@@ -105,10 +124,40 @@ export const navio = Navio.build({
             drawerType: 'front',
           },
         },
-        Example: 'ExampleStack',
-        Playground: 'PlaygroundStack',
+        Example: {
+          stack: ['Example'],
+        },
+        Playground: {
+          stack: 'PlaygroundStack',
+        },
+        // Tabs: {
+        //   tabs: 'TabsWithDrawer',
+        // },
       },
     },
+
+    // drawer inside tabs
+    // DrawerForTabs: {
+    //   content: {
+    //     FlashList: {
+    //       stack: ['PlaygroundFlashList'],
+    //       options: {
+    //         title: 'Flash List',
+    //         drawerPosition: 'right',
+    //       },
+    //     },
+    //     ExpoImage: {
+    //       stack: ['PlaygroundExpoImage'],
+    //       options: {
+    //         title: 'Expo Image',
+    //         drawerPosition: 'right',
+    //       },
+    //     },
+    //   },
+    // },
+  },
+  modals: {
+    ExampleModal: 'ExampleStack',
   },
   root: 'AppTabs',
   hooks: [useAppearance],

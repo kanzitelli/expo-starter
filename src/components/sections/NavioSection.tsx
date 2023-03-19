@@ -21,10 +21,11 @@ export const NavioSection: React.FC<Props> = ({}) => {
   const tabsUpdateOptionsBadge = () =>
     navio.tabs.updateOptions('SettingsTab', {tabBarBadge: randomNum()});
   const tabsUpdateOptionsTitle = () =>
-    navio.tabs.updateOptions('SettingsTab', {title: `Random Title ${randomNum()}`});
+    navio.tabs.updateOptions('SettingsTab', {title: `Random ${randomNum()}`});
   const tabsSetRoot = () => navio.tabs.setRoot('AppTabs');
   const drawersToggle = () => navio.drawers.toggle();
   const drawersJumpTo = () => navio.drawers.jumpTo('Playground');
+  const drawerUpdateOptions = () => navio.drawers.updateOptions('Main', {title: 'Main (updated)'});
   const drawersSetRoot = () => navio.drawers.setRoot('MainDrawer');
   const modalsShow = () => navio.modals.show('ExampleModal');
 
@@ -141,12 +142,25 @@ export const NavioSection: React.FC<Props> = ({}) => {
           onPress={drawersJumpTo}
         />
       </Row>
-      <BButton
-        marginV-s1
-        size="small"
-        label={t.do('section.navio.button.drawers.set_root')}
-        onPress={drawersSetRoot}
-      />
+      <Row>
+        <BButton
+          flex
+          marginV-s1
+          marginR-s1
+          size="small"
+          label={t.do('section.navio.button.drawers.update_title_options')}
+          onPress={drawerUpdateOptions}
+        />
+
+        <BButton
+          flex
+          marginV-s1
+          marginL-s1
+          size="small"
+          label={t.do('section.navio.button.drawers.set_root')}
+          onPress={drawersSetRoot}
+        />
+      </Row>
 
       <Text marginT-s2 text60R textColor>
         Modals

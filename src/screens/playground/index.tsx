@@ -11,6 +11,7 @@ import {useAppearance} from '@app/utils/hooks';
 import {Row} from '@app/components/row';
 import {Icon} from '@app/components/icon';
 import {Section} from '@app/components/section';
+import {Alert} from 'react-native';
 
 type SectionData = {
   content: {
@@ -27,8 +28,18 @@ export const Playground: React.FC = observer(() => {
   const {auth} = useStores();
 
   // Methods
-  const shopFlashList = () => navio.push('PlaygroundFlashList');
-  const shopExpoImage = () => navio.push('PlaygroundExpoImage');
+  const showFlashList = () => navio.push('PlaygroundFlashList');
+  const showExpoImage = () => navio.push('PlaygroundExpoImage');
+  const showDrawerWithTabs = () => {
+    Alert.alert('Uncomment related code in @app/navio.tsx and @app/screens/playground');
+    // uncomment related code in navio.tsx and below
+    // navio.setRoot('drawers', 'MainDrawer');
+  };
+  const showTabsWithDrawer = () => {
+    Alert.alert('Uncomment related code in @app/navio.tsx and @app/screens/playground');
+    // uncomment related code in navio.tsx and below
+    // navio.setRoot('tabs', 'TabsWithDrawer');
+  };
 
   const showAuthFlow = () => {
     // logging out from previous session
@@ -52,13 +63,13 @@ export const Playground: React.FC = observer(() => {
           title: 'Flash List',
           subtitle: 'by Shopify',
           icon: 'list-outline',
-          onPress: shopFlashList,
+          onPress: showFlashList,
         },
         {
           title: 'Expo Image',
           subtitle: 'by Expo',
           icon: 'image-outline',
-          onPress: shopExpoImage,
+          onPress: showExpoImage,
         },
       ],
     },
@@ -75,6 +86,18 @@ export const Playground: React.FC = observer(() => {
           icon: 'eye-off-outline',
           subtitle: 'Pushes Product Page w/out tabs',
           onPress: showProductPage,
+        },
+        {
+          title: 'Drawer with tabs',
+          icon: 'filter-outline',
+          subtitle: 'Opens drawer app w/ tabs inside',
+          onPress: showDrawerWithTabs,
+        },
+        {
+          title: 'Tabs with drawer',
+          icon: 'log-in-outline',
+          subtitle: 'Opens app w/ 2 tabs and drawer inside one',
+          onPress: showTabsWithDrawer,
         },
       ],
     },
