@@ -3,8 +3,10 @@ import {View, Colors, ViewProps} from 'react-native-ui-lib';
 import {Ionicons} from '@expo/vector-icons';
 import {Bounceable} from 'rn-bounceable';
 
+export type IconName = keyof typeof Ionicons.glyphMap;
+
 type IconProps = {
-  name: string;
+  name: IconName;
   size?: number;
   color?: string;
   viewProps?: ViewProps;
@@ -26,7 +28,7 @@ export const Icon: React.FC<IconProps> = ({
   const Icon = useMemo(
     () => (
       <View {...viewProps}>
-        <IconComponent name={name as any} size={size} color={color} />
+        <IconComponent name={name} size={size} color={color} />
       </View>
     ),
     [viewProps, name, size, color],
