@@ -9,7 +9,7 @@ import {useStores} from '@app/stores';
 import {useServices} from '@app/services';
 import {useAppearance} from '@app/utils/hooks';
 import {Row} from '@app/components/row';
-import {Icon} from '@app/components/icon';
+import {Icon, IconName} from '@app/components/icon';
 import {Section} from '@app/components/section';
 import {Alert} from 'react-native';
 
@@ -17,7 +17,7 @@ type SectionData = {
   content: {
     title: string;
     subtitle?: string;
-    icon: string;
+    icon: IconName;
     onPress: PureFunc;
   }[];
 };
