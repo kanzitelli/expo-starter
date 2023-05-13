@@ -7,7 +7,7 @@ import {Appearance as RNAppearance, Platform} from 'react-native';
 import {Colors, Typography} from 'react-native-ui-lib';
 
 import {stores} from '@app/stores';
-import {Icon} from '@app/components/icon';
+import {Icon, IconName} from '@app/components/icon';
 import {Appearance} from '@app/utils/types/enums';
 
 // =============
@@ -164,7 +164,7 @@ export const getTabBarIcon =
   ({focused, color, size}: {focused: boolean; color: string; size: number}) =>
     <Icon name={getTabIconName(tabName, focused)} size={size} color={color} />;
 
-const getTabIconName = (tabName: string, focused: boolean): string => {
+const getTabIconName = (tabName: string, focused: boolean): IconName => {
   if (tabName === 'MainTab') {
     return focused ? 'home' : 'home-outline';
   }
