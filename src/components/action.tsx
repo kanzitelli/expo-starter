@@ -1,12 +1,12 @@
 import React from 'react';
 import {View, Text, Colors} from 'react-native-ui-lib';
 import {Bounceable} from 'rn-bounceable';
-import {Icon} from './icon';
+import {Icon, IconName} from './icon';
 
 type ActionProps = {
   title: string;
-  icon?: string;
-  rightIcon?: string;
+  icon?: IconName;
+  rightIcon?: IconName;
   info?: string;
   disabled?: boolean;
   onPress?: () => void;
