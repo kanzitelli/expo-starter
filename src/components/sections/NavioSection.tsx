@@ -17,6 +17,11 @@ export const NavioSection: React.FC<Props> = ({}) => {
   const globalSetRoot = () => navio.setRoot('tabs', 'AppTabs');
   const stacksPush = () => navio.stacks.push('ProductPageStack');
   const stacksSetRoot = () => navio.stacks.setRoot('MainStack');
+  const stacksPushWithParams = () =>
+    navio.N.navigate('ProductPageStack', {
+      screen: 'ProductPage',
+      params: {productId: 'product_jf289h'},
+    }); // in order to pass params to a stack you will need to use react-navigation instance `navio.N` and using `.navigate()` as you would do using react-navigation.
   const tabsJumpTo = () => navio.tabs.jumpTo('PlaygroundTab');
   const tabsUpdateOptionsBadge = () =>
     navio.tabs.updateOptions('SettingsTab', {tabBarBadge: randomNum()});
@@ -80,6 +85,14 @@ export const NavioSection: React.FC<Props> = ({}) => {
           onPress={stacksSetRoot}
         />
       </Row>
+      <BButton
+        flex
+        marginV-s1
+        marginR-s1
+        size="small"
+        label={t.do('section.navio.button.stacks.push_with_params')}
+        onPress={stacksPushWithParams}
+      />
 
       <Text marginT-s2 text60R textColor>
         Tabs

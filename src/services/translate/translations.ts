@@ -20,6 +20,7 @@ export const en = {
         stacks: {
           push: 'Push →',
           set_root: 'Set root ↺',
+          push_with_params: 'Push with params →',
         },
         tabs: {
           jump_to: 'Jump to ⤵',
