@@ -20,9 +20,9 @@ export type Props = {};
 
 export const PlaygroundExpoImage: NavioScreen<Props> = observer(() => {
   useAppearance(); // for Dark Mode
-  const navigation = useNavigation();
-  // const {t, navio} = useServices();
   // const {ui} = useStores();
+  const {navio} = useServices();
+  const navigation = navio.useN();
 
   const DATA: Images = useMemo(
     () =>

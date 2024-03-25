@@ -68,7 +68,7 @@ export const navio = Navio.build({
   tabs: {
     // main 3 tabs
     AppTabs: {
-      content: {
+      layout: {
         MainTab: {
           stack: 'MainStack',
           options: () => ({
@@ -96,7 +96,7 @@ export const navio = Navio.build({
 
     // tabs with drawer
     // TabsWithDrawer: {
-    //   content: {
+    //   layout: {
     //     MainTab: {
     //       stack: 'MainStack',
     //       options: () => ({
@@ -116,8 +116,8 @@ export const navio = Navio.build({
   },
   drawers: {
     // main drawer
-    MainDrawer: {
-      content: {
+    AppDrawer: {
+      layout: {
         Main: {
           stack: 'MainStack',
           options: {
@@ -138,7 +138,7 @@ export const navio = Navio.build({
 
     // drawer inside tabs
     // DrawerForTabs: {
-    //   content: {
+    //   layout: {
     //     FlashList: {
     //       stack: ['PlaygroundFlashList'],
     //       options: {
@@ -157,9 +157,9 @@ export const navio = Navio.build({
     // },
   },
   modals: {
-    ExampleModal: 'ExampleStack',
+    ExampleModal: {stack: 'ExampleStack'},
   },
-  root: 'AppTabs',
+  root: 'tabs.AppTabs',
   hooks: [useAppearance],
   defaultOptions: {
     stacks: {

@@ -2,7 +2,7 @@
   <img src="https://xxx-files.ggc.team/oss/expo-starter/cover.png" width="80%" title="Logo">
 </p>
 
-This starter is a collection of libraries and approaches needed for fast start and productive maintainance of Expo (React Native) App.
+This starter is a collection of libraries and approaches needed for fast start and productive maintainance of React Native (Expo) App.
 
 > `Expo Starter` is a part of [starters.dev](https://github.com/starters-dev) collection.
 
@@ -48,9 +48,9 @@ yarn start
 - [Navio](https://github.com/kanzitelli/rn-navio) - universal navigation library for React Native. Built on top of [React Navigation](https://github.com/react-navigation/react-navigation).
 - [RN UI lib](https://github.com/wix/react-native-ui-lib) - amazing Design System, UI toolset & components library for React Native. Dark Mode is implemented using this library.
 - [Reanimated 2](https://github.com/software-mansion/react-native-reanimated) - React Native's Animated library reimplemented.
+- [React Native Gesture Handler](https://github.com/kmagiera/react-native-gesture-handler) - native touches and gesture system for React Native.
 - [MobX](https://github.com/mobxjs/mobx) - simple, scalable state management, with [mobx-persist-store](https://github.com/quarrant/mobx-persist-store) for persisting your stores.
 - [Flash List](https://github.com/Shopify/flash-list) - a better list for React Native (by Shopify).
-- [React Native Gesture Handler](https://github.com/kmagiera/react-native-gesture-handler) - native touches and gesture system for React Native.
 - [Expo Image](https://github.com/expo/expo/tree/main/packages/expo-image) - cross-platform React component that loads and renders images.
 
 #### Native libraries
@@ -76,7 +76,7 @@ https://user-images.githubusercontent.com/4402166/191781571-57749464-982b-4d36-b
 
 ## Advantages
 
-#### Describe app layout in one place (w/ [Navio](https://github.com/kanzitelli/rn-navio))
+#### Build app layout in one place with [Navio](https://github.com/kanzitelli/rn-navio)
 
 All setup for your screens, tabs and modals take place in one file `src/screens/index.ts`.
 
@@ -115,7 +115,7 @@ export const navio = Navio.build({
   },
   tabs: {
     AppTabs: {
-      content: {
+      layout: {
         MainTab: {
           stack: 'MainStack',
           options: () => ({
@@ -141,11 +141,11 @@ export const navio = Navio.build({
     },
   },
   modals: {
-    ExampleModal: 'ExampleStack',
+    ExampleModal: {stack: 'ExampleStack'},
   },
   drawers: {
     MainDrawer: {
-      content: {
+      layout: {
         Main: 'MainStack',
         Example: 'ExampleStack',
         Playground: ['Playground'],
@@ -155,7 +155,7 @@ export const navio = Navio.build({
   root: 'AppTabs',
 });
 
-export const AppRoot = navio.Root;
+export const NavioApp = navio.App;
 ```
 
 #### Navigate with predictability
