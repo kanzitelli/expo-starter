@@ -2,7 +2,6 @@ import React, {useEffect} from 'react';
 import {ScrollView} from 'react-native';
 import {Text, View} from 'react-native-ui-lib';
 import {observer} from 'mobx-react';
-import {useNavigation, useRoute} from '@react-navigation/native';
 import {NavioScreen} from 'rn-navio';
 
 import {services, useServices} from '@app/services';
@@ -16,10 +15,9 @@ export type Params = {
 
 export const Example: NavioScreen = observer(() => {
   useAppearance(); // for Dark Mode
-  const navigation = useNavigation();
-  const {params: _p} = useRoute(); // this is how to get passed params with navio.push('Screen', params)
-  const params = _p as Params; // use as params?.type
   const {t, navio} = useServices();
+  const navigation = navio.useN();
+  const params = navio.useParams<Params>();
   // const {ui} = useStores();
 
   // State

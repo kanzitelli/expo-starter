@@ -18,12 +18,13 @@ import {
 import {useAppearance} from '@app/utils/hooks';
 import {useStores} from '@app/stores';
 import {HeaderButton} from '@app/components/button';
-import {services} from '@app/services';
+import {services, useServices} from '@app/services';
 
 export const Settings: NavioScreen = observer(({}) => {
   useAppearance();
-  const navigation = useNavigation();
   const {ui} = useStores();
+  const {navio} = useServices();
+  const navigation = navio.useN();
 
   // State
   const [appearance, setAppearance] = useState(ui.appearance);

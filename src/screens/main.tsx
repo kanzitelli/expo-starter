@@ -5,7 +5,6 @@ import Constants from 'expo-constants';
 import * as Application from 'expo-application';
 import {If} from '@kanzitelli/if-component';
 import {observer} from 'mobx-react';
-import {useNavigation} from '@react-navigation/native';
 import {NavioScreen} from 'rn-navio';
 
 import {services, useServices} from '@app/services';
@@ -19,9 +18,9 @@ import {NavioSection} from '@app/components/sections/NavioSection';
 
 export const Main: NavioScreen = observer(({}) => {
   useAppearance();
-  const navigation = useNavigation();
   const {counter, ui} = useStores();
   const {t, api, navio} = useServices();
+  const navigation = navio.useN();
 
   // State (local)
   const [loading, setLoading] = useState(false);
